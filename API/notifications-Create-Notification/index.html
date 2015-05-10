@@ -183,6 +183,8 @@
                             
                                 <li><a class="toctree-l4" href="#example-code">Example Code</a></li>
                             
+                                <li><a class="toctree-l4" href="#example-json-request">Example JSON Request</a></li>
+                            
                         
                         </ul>
                     
@@ -683,50 +685,57 @@
 ?&gt;
 </code></pre>
 
-<p><code>C# (.NET)</code>
-```сsharp
-using System.IO;
+<p><code>C# (.NET)</code></p>
+<pre><code class="sharp">using System.IO;
 using System.Net;
-using System.Text;</p>
-<p>// NOTE: Remove isAndroid or isIos if you have only set-up one platform.</p>
-<p>var request = WebRequest.Create("https://gamethrive.com/api/v1/notifications") as HttpWebRequest;</p>
-<p>request.KeepAlive = true;
-request.Method = "POST";
-request.ContentType = "application/json";</p>
-<p>request.Headers.Add("authorization", "Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj");</p>
-<p>byte[] byteArray = Encoding.UTF8.GetBytes("{"
-                                        + "\"app_id\": \"5eb5a37e-b458-11e3-ac11-000c2940e62c\","
-                                        + "\"contents\": {\"en\": \"English Message\"},"
-                                        + "\"included_segments\": [\"All\"],"
-                                        + "\"isAndroid\": true,"
-                                        + "\"isIos\": true,"
-                                        + "\"send_after\": \"Fri May 02 2015 00:00:00 GMT-0700 (PDT)\"}");</p>
-<p>request.ContentLength = byteArray.Length;</p>
-<p>string responseContent = null;</p>
-<p>try {
+using System.Text;
+
+
+// NOTE: Remove isAndroid or isIos if you have only set-up one platform.
+
+var request = WebRequest.Create(&quot;https://gamethrive.com/api/v1/notifications&quot;) as HttpWebRequest;
+
+request.KeepAlive = true;
+request.Method = &quot;POST&quot;;
+request.ContentType = &quot;application/json&quot;;
+
+request.Headers.Add(&quot;authorization&quot;, &quot;Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj&quot;);
+
+byte[] byteArray = Encoding.UTF8.GetBytes(&quot;{&quot;
+                                        + &quot;\&quot;app_id\&quot;: \&quot;5eb5a37e-b458-11e3-ac11-000c2940e62c\&quot;,&quot;
+                                        + &quot;\&quot;contents\&quot;: {\&quot;en\&quot;: \&quot;English Message\&quot;},&quot;
+                                        + &quot;\&quot;included_segments\&quot;: [\&quot;All\&quot;],&quot;
+                                        + &quot;\&quot;isAndroid\&quot;: true,&quot;
+                                        + &quot;\&quot;isIos\&quot;: true,&quot;
+                                        + &quot;\&quot;send_after\&quot;: \&quot;Fri May 02 2015 00:00:00 GMT-0700 (PDT)\&quot;}&quot;);
+
+request.ContentLength = byteArray.Length;
+
+string responseContent = null;
+
+try {
     using (var writer = request.GetRequestStream()) {
         writer.Write(byteArray, 0, byteArray.Length);
-    }</p>
-<pre><code>using (var response = request.GetResponse() as HttpWebResponse) {
-    using (var reader = new StreamReader(response.GetResponseStream())) {
-        responseContent = reader.ReadToEnd();
+    }
+
+    using (var response = request.GetResponse() as HttpWebResponse) {
+        using (var reader = new StreamReader(response.GetResponseStream())) {
+            responseContent = reader.ReadToEnd();
+        }
     }
 }
-</code></pre>
-<p>}
 catch (WebException ex) {
     System.Diagnostics.Debug.WriteLine(ex.Message);
     System.Diagnostics.Debug.WriteLine(new StreamReader(ex.Response.GetResponseStream()).ReadToEnd());
-}</p>
-<p>System.Diagnostics.Debug.WriteLine(responseContent);</p>
-<pre><code>
-**Platforms**
+}
 
-Remove isAndroid or isIos if you have only set-up one platform.
+System.Diagnostics.Debug.WriteLine(responseContent);
+</code></pre>
 
-##Example JSON Request
-```JSON
-{
+<p><strong>Platforms</strong></p>
+<p>Remove isAndroid or isIos if you have only set-up one platform.</p>
+<h2 id="example-json-request">Example JSON Request</h2>
+<pre><code class="JSON">{
   &quot;app_id&quot;: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;,
   &quot;included_segments&quot;: [&quot;All&quot;],
   &quot;send_after&quot;: &quot;Fri May 02 2014 00:00:00 GMT-0700 (PDT)&quot;,
@@ -777,7 +786,7 @@ Remove isAndroid or isIos if you have only set-up one platform.
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-10 10:25:20.695432
+Docs Build Date : 2015-05-10 10:55:35.798648
 -->
 </body>
 </html>

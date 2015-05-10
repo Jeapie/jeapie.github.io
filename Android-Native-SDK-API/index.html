@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Android Native SDK API - Jeapie - Push Notification as a Service</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="..">Home</a>
+                
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 current">
+                <a class="current" href="./">Android Native SDK API</a>
+                
+                    <ul>
+                    
+                        <li class="toctree-l3"><a href="#android-native-sdk-api">Android Native SDK API</a></li>
+                        
+                            <li><a class="toctree-l4" href="#list-of-constructors">List of Constructors</a></li>
+                        
+                            <li><a class="toctree-l4" href="#list-of-methods">List of Methods</a></li>
+                        
+                            <li><a class="toctree-l4" href="#list-of-handler-interfaces">List of Handler Interfaces</a></li>
+                        
+                            <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
+                        
+                            <li><a class="toctree-l4" href="#methods">Methods</a></li>
+                        
+                            <li><a class="toctree-l4" href="#handler-interfaces">Handler Interfaces</a></li>
+                        
+                    
+                    </ul>
+                
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../notifications-id-View-notification/">notifications-id-View-notification.md</a>
+                
+            </li>
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Jeapie - Push Notification as a Service</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+    <li>Android Native SDK API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1 id="android-native-sdk-api">Android Native SDK API</h1>
+<h2 id="list-of-constructors">List of Constructors</h2>
+<p><a href="#onesignal">OneSignal</a></p>
+<h2 id="list-of-methods">List of Methods</h2>
+<ul>
+<li><a href="#sendtag">sendTag</a></li>
+<li><a href="#sendtags">sendTags</a></li>
+<li><a href="#gettags">getTags</a></li>
+<li><a href="#deletetag">deleteTag</a></li>
+<li><a href="#deletetags">deleteTags</a></li>
+<li><a href="#sendpurchase">sendPurchase</a></li>
+<li><a href="#idsavailable">IdsAvailable</a></li>
+<li><a href="#onpaused">onPaused</a></li>
+<li><a href="#onresumed">onResumed</a></li>
+<li><a href="#enablevibrate">enableVibrate</a></li>
+<li><a href="#enablesound">enableSound</a></li>
+</ul>
+<h2 id="list-of-handler-interfaces">List of Handler Interfaces</h2>
+<ul>
+<li><a href="#notificationopenedhandler">NotificationOpenedHandler</a></li>
+<li><a href="#idsavailablehandler">IdsAvailableHandler</a></li>
+<li><a href="#gettagshandler">GetTagsHandler</a></li>
+</ul>
+<h2 id="constructors">Constructors</h2>
+<h5 id="onesignal"><strong>OneSignal</strong></h5>
+<p>You must create a OneSignal instance on the first Android Activity when your app starts. Also make sure you only create one instance and keep the same one around by making it static our assigning it to an object outside of your first Activity. You are also required to override onPaused and onResumed on your Android Activities and call the matching methods on your oneSignal instance.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>Activity</code></strong> <strong><em>context</em></strong> - Pass in your main <code>Activity</code> so the api can use it as a <code>Context</code>.</li>
+<li><strong><code>String</code></strong> <strong><em>googleProjectNumber</em></strong> - Your Google project number</li>
+<li><strong><code>String</code></strong> <strong><em>oneSignalAppId</em></strong> - Your OneSignal app id</li>
+<li><strong><code>NotificationOpenedHandler</code></strong> <strong><em>notificationOpenedHandler(Optional)</em></strong> - Calls <code>notificationOpened</code> on the object when a notification is opened or one is received while the app is running.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      oneSignal = new OneSignal(this, &quot;703322744261&quot;, &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;);
+    }
+  }
+</code></pre>
+
+<h2 id="methods">Methods</h2>
+<h5 id="sendtag"><strong>sendTag</strong></h5>
+<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://onesignal.com">onesignal.com</a> to target these users. Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>String</code></strong> <strong><em>key</em></strong> - Key of your choosing to create or update.</li>
+<li><strong><code>String</code></strong> <strong><em>value</em></strong> - Value to set on the key.</li>
+<li><em>NOTE</em>: Passing in a blank String deletes the key, you can also call deleteTag or deleteTags.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.sendTag(&quot;key&quot;, &quot;value&quot;);
+</code></pre>
+
+<h5 id="sendtags"><strong>sendTags</strong></h5>
+<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://onesignal.com/">onesignal.com</a> to target these users.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>JSONObject</code></strong> <strong><em>keyValues</em></strong> - Key value pairs of your choosing to create or update.</li>
+<li><em>NOTE</em>: Passing in a blank String as a value deletes the key, you can also call deleteTag or deleteTags.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">  JSONObject tags = new JSONObject();
+  tags.put(&quot;key1&quot;, &quot;value1&quot;);
+  tags.put(&quot;key2&quot;, &quot;value2&quot;);
+  oneSignal.sendTags(tags);
+</code></pre>
+
+<h5 id="gettags"><strong>getTags</strong></h5>
+<p>Retrieve a list of tags that have been set on the user from the OneSignal server.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>GetTagsHandler</code></strong> <strong><em>handler</em></strong> - Calls <code>tagsAvailable</code> on the Object once the tags are available.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.getTags(new GetTagsHandler() {
+    @Override
+    public void tagsAvailable(JSONObject tags) {
+      Log.d(&quot;debug&quot;, tags.toString());
+    }
+  });
+</code></pre>
+
+<h5 id="deletetag"><strong>deleteTag</strong></h5>
+<p>Deletes a tag that was previously set on a user with <code>sendTag</code> or <code>sendTags</code>. Use <code>deleteTags</code> if you need to delete more than one.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>String</code></strong> <strong><em>key</em></strong> - Key to remove.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.deleteTag(&quot;key&quot;);
+</code></pre>
+
+<h5 id="deletetags"><strong>deleteTags</strong></h5>
+<p>Deletes tags that were previously set on a user with <code>sendTag</code> or <code>sendTags</code>.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>Collection&lt;String&gt;</code></strong> <strong><em>keys</em></strong> - Keys to remove.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">Collection&lt;String&gt; tempList = new ArrayList&lt;String&gt;();
+  tempList.add(key);
+  oneSignal.deleteTags(tempList);
+</code></pre>
+
+<h5 id="sendpurchase"><strong>~~sendPurchase~~</strong></h5>
+<p>This was deprecated in version 1.4.0 as Google Play and Amazon (IAP v2) purchases are now automatically tracked for you.</p>
+<p>~~Call this method when a user completes an in-app purchase, and provide the amount spent in USD. This can later be used to target free vs paid users when sending a push notification.~~</p>
+<ul>
+<li>~~Parameters~~</li>
+<li>
+<p>~~(BigDecimal OR double) amount - Amount spent in USD.~~</p>
+</li>
+<li>
+<p>~~Example~~</p>
+</li>
+</ul>
+<pre><code class="Java">// This method call as no affect as purchases are now tracked automatically.
+oneSignal.sendPurchase(1.23d);
+</code></pre>
+
+<h5 id="idsavailable"><strong>idsAvailable</strong></h5>
+<p>Lets you retrieve the OneSignal user id and the Google registration id. Your handler is called after the device is successfully registered with OneSignal.</p>
+<ul>
+<li>Parameters</li>
+<li><strong><code>IdsAvailableHandler</code></strong> <strong><em>handler</em></strong> - Calls <code>tagsAvailable</code> on the Object when the user id is available.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.idsAvailable(new IdsAvailableHandler() {
+    @Override
+    public void idsAvailable(String userId, String registrationId) {
+      Log.d(&quot;debug&quot;, &quot;User:&quot; + userId);
+      if (registrationId != null)
+        Log.d(&quot;debug&quot;, &quot;registrationId:&quot; + registrationId);
+    }
+  });
+</code></pre>
+
+<h5 id="onpaused"><strong>onPaused</strong></h5>
+<p>Tells OneSignal that the user is no longer in your app. This is used to track session duration of your app and when to show a notification in the notification area or to just call your <code>NotificationOpenedHandler</code>. So make sure to place this and <code>onResume</code> in each of your <code>Activity</code> classes.</p>
+<p><strong>Example</strong></p>
+<pre><code class="Java">  @Override
+  protected void onPause() {
+    super.onPause();
+    oneSignal.onPaused();
+  }
+</code></pre>
+
+<h5 id="onresumed"><strong>onResumed</strong></h5>
+<p>Tells OneSignal that the user returned to your app. This is used to track session duration of your app and when to show a notification in the notification area or to just call your <code>NotificationOpenedHandler</code>. So make sure to place this and <code>onPaused</code> in each of your <code>Activity</code> classes.</p>
+<p><strong>Example</strong></p>
+<pre><code class="Java">@Override
+  protected void onResume() {
+    super.onResume();
+    oneSignal.onResumed();
+  }
+</code></pre>
+
+<h5 id="enablevibrate"><strong>enableVibrate</strong></h5>
+<p><em>You can call this from your UI from a button press for example to give your user's options for your notifications.</em></p>
+<p>By default OneSignal always vibrates the device when a notification is displayed unless the device is in a total silent mode. Passing false means that the device will only vibrate lightly when the device is in it's vibrate only mode.</p>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.enableVibrate(false);
+</code></pre>
+
+<h5 id="enablesound"><strong>enableSound</strong></h5>
+<p><em>You can call this from your UI from a button press for example to give your user's options for your notifications.</em></p>
+<p>By default OneSignal plays the system's default notification sound when the device's notification system volume is turned on. Passing false means that the device will only vibrate unless the device is set to a total silent mode.</p>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.enableSound(false);
+</code></pre>
+
+<h2 id="handler-interfaces">Handler Interfaces</h2>
+<h5 id="notificationopenedhandler"><strong>NotificationOpenedHandler</strong></h5>
+<p>Interface containing the method <code>notificationOpened</code> which you can implement to process information on the notification the user just opened.</p>
+<h5 id="notificationopened"><strong>notificationOpened</strong></h5>
+<ul>
+<li>Parameters</li>
+<li><strong><code>String</code></strong> <strong><em>message</em></strong> - The message text the user seen in the notification.</li>
+<li><strong><code>JSONObject</code></strong> <strong><em>additionalData</em></strong> - Key value pairs that were set on the notification.</li>
+<li><strong><code>boolean</code></strong> <strong><em>isActive</em></strong> - True if your app was currently being used when a notification came in.</li>
+</ul>
+<p><strong><em>NOTE</em></strong></p>
+<p>If you set Action Buttons on your notification, the actionSelected key will contain the id of the button pressed; "<strong>DEFAULT</strong>" will be the id if the user tapped on the notification itself when buttons were present.</p>
+<p><strong>Example</strong></p>
+<pre><code class="Java">@Override
+  public static void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
+    String messageTitle;
+    AlertDialog.Builder builder = null;
+
+    if (additionalData != null) {
+      if (additionalData.has(&quot;discount&quot;))
+        messageTitle = &quot;Discount!&quot;;
+      else if (additionalData.has(&quot;bonusCredits&quot;))
+        messageTitle = &quot;Bonus Credits!&quot;;
+      else
+        messageTitle = &quot;Other Extra Data&quot;;
+
+      builder = new AlertDialog.Builder(this)
+          .setTitle(messageTitle)
+          .setMessage(message + &quot;\n\n&quot; + additionalData.toString());
+    }
+    else if (isActive) // If a push notification is received when the app is being used it does not display in the notification bar so display in the app.
+      builder = new AlertDialog.Builder(this)
+          .setTitle(&quot;OneSignal Message&quot;)
+          .setMessage(message);
+
+    // Add your app logic around this so the user is not interrupted during gameplay.
+    if (builder != null)
+      builder.setCancelable(true)
+           .setPositiveButton(&quot;OK&quot;,null)
+           .create().show();
+  }
+</code></pre>
+
+<p>If want to process a notification before it is clicked or want to handle receiving a silent notification see our <a href="Android-Notification-Customizations.md#background-data-silent-notifications">Background Data documentation</a>.</p>
+<h5 id="idsavailablehandler"><strong>IdsAvailableHandler</strong></h5>
+<p>Interface which you can implement and pass to <code>OneSignal.idsAvailable</code> to get the OneSignal userId and the Google registration Id.</p>
+<h5 id="idsavailable_1"><strong>IdsAvailable</strong></h5>
+<ul>
+<li>Parameters</li>
+<li><strong><code>String</code></strong> <strong><em>userId</em></strong> - OneSignal userId is a UUID formatted string.(<em>unique per device per app</em>)</li>
+<li><strong><code>String</code></strong> <strong><em>registrationId</em></strong> - Registration Id is a Google assigned identifier(<em>unique per device per app and changes on reinstalls</em>).</li>
+</ul>
+<p><strong>NOTE</strong></p>
+<p>Might be <code>null</code> if Google play services are not installed on the device or there was a connection issue.</p>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.idsAvailable(new IdsAvailableHandler() {
+     @Override
+     public void idsAvailable(String userId, String registrationId) {
+      Log.d(&quot;debug&quot;, &quot;User:&quot; + userId);
+      if (registrationId != null)
+        Log.d(&quot;debug&quot;, &quot;registrationId:&quot; + registrationId);
+     }
+  });
+</code></pre>
+
+<h5 id="gettagshandler"><strong>GetTagsHandler</strong></h5>
+<p>Interface which you can implement and pass to <code>OneSignal.getTags</code> to get the all the tags set on a user from onesignal.com.</p>
+<h5 id="tagsavailable"><strong>tagsAvailable</strong></h5>
+<ul>
+<li>Parameters</li>
+<li><strong><code>JSONObject</code></strong> <strong><em>tags</em></strong> - JSONObject of key value pairs retrieved from the OneSignal server</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="Java">oneSignal.getTags(new GetTagsHandler() {
+    @Override
+    public void tagsAvailable(JSONObject tags) {
+      Log.d(&quot;debug&quot;,&quot;Current Tags on User:&quot; + tags.toString());
+    }
+  });
+</code></pre>
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../notifications-id-View-notification/" class="btn btn-neutral float-right" title="notifications-id-View-notification.md"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../notifications-id-View-notification/" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+
+<!--
+MkDocs version  : 0.12.2
+Docs Build Date : 2015-05-10 09:11:59.110090
+-->
+</body>
+</html>

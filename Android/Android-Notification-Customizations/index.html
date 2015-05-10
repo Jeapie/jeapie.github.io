@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Android Notification Customizations - Jeapie - Push Notification as a Service</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../..">Home</a>
+                
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../../Getting-Started/">Getting Started</a>
+                
+            </li>
+        
+
+    
+        
+            <span>iOS</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/Generating-an-iOS-Push-Certificate/">Generating an iOS Push Certificate</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/iOS-Native-SDK-Installation/">iOS Native SDK Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/iOS-Native-SDK-API/">iOS Native SDK API</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>Android</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Android-Native-SDK-Overview/">Android Native SDK Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Android-Native-SDK-API/">Android Native SDK API</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 current">
+                    <a class="current" href="./">Android Notification Customizations</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l3"><a href="#android-notification-customizations">Android Notification Customizations</a></li>
+                            
+                                <li><a class="toctree-l4" href="#highly-recommend-following-at-least-our-small-notification-icon-instructions">Highly recommend following at least our Small Notification Icon instructions.</a></li>
+                            
+                                <li><a class="toctree-l4" href="#small-notification-icon">Small Notification Icon</a></li>
+                            
+                                <li><a class="toctree-l4" href="#large-notification-icon">Large Notification Icon</a></li>
+                            
+                                <li><a class="toctree-l4" href="#big-picture">Big Picture</a></li>
+                            
+                                <li><a class="toctree-l4" href="#notification-sounds">Notification Sounds</a></li>
+                            
+                                <li><a class="toctree-l4" href="#background-data-silent-notifications">Background Data (Silent Notifications)</a></li>
+                            
+                                <li><a class="toctree-l4" href="#example-project">Example Project</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>Website sdk</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Websdk/Website-Generating-a-GCM-Push-Notification-Key/">Website - Generating a GCM Push Notification Key</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>SERVER API</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Jeapie - Push Notification as a Service</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        <li>Android &raquo;</li>
+      
+    
+    <li>Android Notification Customizations</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1 id="android-notification-customizations">Android Notification Customizations</h1>
+<h6 id="highly-recommend-following-at-least-our-small-notification-icon-instructions">Highly recommend following at least our Small Notification Icon instructions.</h6>
+<h2 id="small-notification-icon">Small Notification Icon</h2>
+<p>Our SDK automatically by default uses your App's launcher icon but we highly recommend following our instructions to create custom ones for the following reasons:</p>
+<ul>
+<li>Since the app icon is too large it will get cropped when the ticker text is showing on the status bar, however Android does scale the icon down to fit after the ticker text is done displaying.</li>
+<li><a href="http://developer.android.com/design/style/iconography.html#notification">Android's Notification Icon Standards</a> notes your small notification icon should be all white (grey on Android 2.3).</li>
+<li>Starting with Android 5 the OS forces the notification icon to be all white when your app targets Android API 21+. If you don't make a correct small icon it will most likely be displayed as a solid white square or circle in the status bar.</li>
+</ul>
+<p>To quickly and easily generate small icons with the correct settings we recommend using the <a href="../romannurik.github.io/AndroidAssetStudio/icons-notification.html">Android Asset Studio</a>. Use <code>ic_stat_Jeapie_default</code> as the name. Download and extract the res folder contains to your project and send out some test notifications to make sure it is working.</p>
+<p>If you prefer to not use the Android Asset Studio please make your icon files in the following locations and sizes:</p>
+<p><strong>Android 3.0 and higher.</strong></p>
+<p>These icons are expected to be entirely white.</p>
+<ul>
+<li><code>res/drawable-mdpi-v11/ic_stat_Jeapie_default.png</code> 24x24 pixels</li>
+<li><code>res/drawable-hdpi-v11/ic_stat_Jeapie_default.png</code> 36x36 pixels</li>
+<li><code>res/drawable-xhdpi-v11/ic_stat_Jeapie_default.png</code> 48x48 pixels</li>
+<li><code>res/drawable-xxhdpi-v11/ic_stat_Jeapie_default.png</code> 72x72 pixels</li>
+</ul>
+<p><strong>Android 2.3 devices.</strong></p>
+<p>These icons are expected to be <a href="">grey(#828282 to #919191)</a>.</p>
+<ul>
+<li><code>res/drawable-mdpi/ic_stat_Jeapie_default.png</code> 24x24 pixels</li>
+<li><code>res/drawable-hdpi/ic_stat_Jeapie_default.png</code> 36x36 pixels</li>
+<li><code>res/drawable-xhdpi/ic_stat_Jeapie_default.png</code> 48x48 pixels</li>
+<li><code>res/drawable-xxhdpi/ic_stat_Jeapie_default.png</code> 72x72 pixels</li>
+</ul>
+<h2 id="large-notification-icon">Large Notification Icon</h2>
+<p>The large notification icon will show up to the left of the notification text on Android 3.0 and newer devices. If you do not set a large icon the small icon will be used instead. If you want a default icon to be used name it <code>ic_Jeapie_large_icon_default</code> (keeping the file extension) and place it in the <code>res/drawable-xxhdpi-v11/</code> folder or in the root of your assets folder. You only need one icon file at 192x192 pixels as we will auto scale the image for you to prevent it from being cropped.</p>
+<h2 id="big-picture">Big Picture</h2>
+<p>Android 4.1 and newer devices support a big picture that will show below your notification text when it is expanded. It can and be located in your drawable folders, your assets folder in your project, or it can be loaded remotely from a server with a URL. It is recommend the image be a 2:1 aspect ratio so Android does not crop your image.</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/57TxqxYQS5ySZZaPAxYe" title="Logo Title Text 1" /></p>
+<h2 id="notification-sounds">Notification Sounds</h2>
+<p>By default Jeapie automatically plays the default system notification sound. If you would like a custom one to always play instead place a sound file in <code>res/raw/</code> and name it Jeapie_default_sound (keeping the file extension). You can use .wav, .mp3. or .ogg. If you would like to change the notification sound per notification you can add any other sound files in <code>res/raw</code> and include it's resource name (omit the file extension) in the sound field when sending the notification.</p>
+<p>If your having issues with the sound not playing make sure that it is getting built into your APK by extracting it and make sure it is located in <code>res/raw/</code>.</p>
+<h2 id="background-data-silent-notifications">Background Data (Silent Notifications)</h2>
+<p>Jeapie supports sending additional data along with a notification as key value pairs. You can read this additional data when a notification is opened or one comes in when your app is in use already by adding a <a href="../Android-Native-SDK-API/#notificationopened">notificationOpened handler</a>. However if you want to receive this data before the user opens the notification or you would like the data to be received silently without a notification then you will need to setup a BroadcastReceiver to get the data in the background.</p>
+<p><strong>1.</strong> Add the following to your AndroidManifest.xml. (Make sure to update YOUR_FULL_PACKAGENAME.YOUR_CLASS_NAME with yours)</p>
+<pre><code class="XML">&lt;receiver
+   android:name=&quot;YOUR_FULL_PACKAGENAME.YOUR_CLASS_NAME&quot;
+   android:exported=&quot;false&quot;&gt;
+  &lt;intent-filter&gt;
+     &lt;action android:name=&quot;com.Jeapie.BackgroundBroadcast.RECEIVE&quot; /&gt;
+  &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+</code></pre>
+
+<p><strong>2.</strong> Create a class that extents BroadcastReceiver and implement the onReceive method.</p>
+<p><strong>3.</strong> Call <code>getBundleExtra("data")</code> on the incoming intent to get the full Jeapie payload.</p>
+<p><strong>4.</strong> You can then get alert and title strings from the bundle to get the message contents and header respectively.</p>
+<p><strong>5.</strong> To get the additional data contents call <code>getString("custom")</code> on the bundle. You can create a new JSONObject from this string to make parsing of it easier. Your key value pairs will be located in the 'a' field in the custom JSON object.</p>
+<p><strong>6.</strong> You can also run <code>getBoolean("isActive")</code> on the bundle to know if your app is currently in focus or not. If this is true consider that the notificationOpened handler you passed to Jeapie will also be called. You may want to skip your logic in the BroadcastReceiver if this is the case.</p>
+<p>(See our example code below which includes what was explained in steps 2 through 6.)</p>
+<pre><code class="Java">import org.json.JSONObject;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+public class JeapieBroadcastReceiver extends BroadcastReceiver {
+
+  // You may consider adding a wake lock here if you need to make sure the devices doesn't go to sleep while processing.
+  // We recommend starting a service of your own here if your doing any async calls or doing any heavy processing.
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    Bundle dataBundle = intent.getBundleExtra(&quot;data&quot;);
+
+    try {
+      Log.i(&quot;JeapieExample&quot;, &quot;Notification content: &quot; + dataBundle.getString(&quot;alert&quot;));
+      Log.i(&quot;JeapieExample&quot;, &quot;Notification title: &quot; + dataBundle.getString(&quot;title&quot;));
+      Log.i(&quot;JeapieExample&quot;, &quot;Is Your App Active: &quot; + dataBundle.getBoolean(&quot;isActive&quot;));
+
+      JSONObject customJSON = new JSONObject(dataBundle.getString(&quot;custom&quot;));
+      if (customJSON.has(&quot;a&quot;))
+        Log.i(&quot;JeapieExample&quot;, &quot;additionalData: &quot; + customJSON.getJSONObject(&quot;a&quot;).toString());
+    } catch (Throwable t) {
+      t.printStackTrace();
+    }
+  }
+}
+</code></pre>
+
+<p><strong>7.</strong> Set android_background_data to true when sending a notification from our REST API so the BroadcastReceiver fires.</p>
+<h2 id="example-project">Example Project</h2>
+<p>We have an example project with a custom sound, small icon, large icon, and a background data BroadcastReceiver <a href="https://github.com/one-signal/Jeapie-Android-SDK/tree/master/JeapieExample">you can look at for reference</a>.</p>
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Websdk/Website-SDK-Overview/" class="btn btn-neutral float-right" title="Website SDK Overview"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Android-Native-SDK-API/" class="btn btn-neutral" title="Android Native SDK API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../Android-Native-SDK-API/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../../Websdk/Website-SDK-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+
+<!--
+MkDocs version  : 0.12.2
+Docs Build Date : 2015-05-10 10:25:20.507453
+-->
+</body>
+</html>

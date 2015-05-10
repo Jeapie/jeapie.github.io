@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Website SDK API - Jeapie - Push Notification as a Service</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../..">Home</a>
+                
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../../Getting-Started/">Getting Started</a>
+                
+            </li>
+        
+
+    
+        
+            <span>iOS</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/Generating-an-iOS-Push-Certificate/">Generating an iOS Push Certificate</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/iOS-Native-SDK-Installation/">iOS Native SDK Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../iOS/iOS-Native-SDK-API/">iOS Native SDK API</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>Android</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>Website sdk</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Website-SDK-Overview/">Website SDK Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Website-Generating-a-GCM-Push-Notification-Key/">Website - Generating a GCM Push Notification Key</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 current">
+                    <a class="current" href="./">Website SDK API</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l3"><a href="#website-sdk-api">Website SDK API</a></li>
+                            
+                                <li><a class="toctree-l4" href="#list-of-functions">List of Functions</a></li>
+                            
+                                <li><a class="toctree-l4" href="#list-of-callbacks">List of Callbacks</a></li>
+                            
+                                <li><a class="toctree-l4" href="#functions">Functions</a></li>
+                            
+                                <li><a class="toctree-l4" href="#callbacks">Callbacks</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>SERVER API</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Jeapie - Push Notification as a Service</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        <li>Website sdk &raquo;</li>
+      
+    
+    <li>Website SDK API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1 id="website-sdk-api">Website SDK API</h1>
+<p><strong>JavaScript Async</strong></p>
+<p>Jeapie supports loading the JeapieSDK.js file with the async flag so your page load times will not increase. The example assume you have the following defined before calling Jeapie functions:</p>
+<pre><code class="HTML">&lt;script src=&quot;https://cdn.jeapie.com/sdks/JeapieSDK.js&quot; async&gt;&lt;/script&gt;
+&lt;script&gt;var Jeapie = Jeapie || [];&lt;/script&gt;
+</code></pre>
+
+<p>You have the option of calling most functions by using one of the two following methods:</p>
+<ol>
+<li>Jeapie.push(["functionName", param1, param2]);</li>
+<li>Jeapie.push(function() { Jeapie.functionName(param1, param2); });</li>
+</ol>
+<p>Option 2 must be used for functions that return a value like isPushNotificationsSupported. Option 2 also lets you call as many Jeapie functions as you need inside the passed in function.</p>
+<h2 id="list-of-functions">List of Functions</h2>
+<ul>
+<li><a href="#init">init</a></li>
+<li><a href="#registerforpushnotifications">registerForPushNotifications</a></li>
+<li><a href="#setdefaultnotificationurl">setDefaultNotificationUrl</a></li>
+<li><a href="#setdefaultscon">setDefaultIcon</a></li>
+<li><a href="#setdefaulttitle">setDefaultTitle</a></li>
+<li><a href="#sendtag">sendTag</a></li>
+<li><a href="#sendtags">sendTags</a></li>
+<li><a href="#gettags">getTags</a></li>
+<li><a href="#deletetag">deleteTag</a></li>
+<li><a href="#deletetags">deleteTags</a></li>
+<li><a href="#ispushnotificationssupported">isPushNotificationsSupported</a></li>
+<li><a href="#ispushnotificationsenabled">isPushNotificationsEnabled</a></li>
+<li><a href="#getidsavailable">getIdsAvailable</a></li>
+<li><a href="#addlistenerfornotificationopened">addListenerForNotificationOpened</a></li>
+</ul>
+<h2 id="list-of-callbacks">List of Callbacks</h2>
+<ul>
+<li><a href="#tagsreceivedcallback">tagsReceivedCallBack</a></li>
+<li><a href="#idsavailablecallback">idsAvailableCallBack</a></li>
+<li><a href="#notificationopenedcallback">notificationOpenedCallBack</a></li>
+</ul>
+<h2 id="functions">Functions</h2>
+<h5 id="init"><strong>init</strong></h5>
+<p>Only required method you need to call to setup Jeapie to receive push notifications. Call this from each page of your site.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>JSON</code></strong> <strong><em>options</em></strong></li>
+<li><strong><code>String</code></strong> <strong><em>appId </em></strong>- Your Jeapie app id found on the settings page at jeapie.com.</li>
+<li><strong><code>Boolean</code></strong> <strong><em>autoRegister(Optional)</em></strong> -Default true. Automatically show browser prompt to accept notifications. You can pass in false to delay this pop-up and then call <code>registerForPushNotifications</code> to prompt them later.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">// Jeapie is defined as an array here and uses push calls to support JeapieSDK.js being loaded async.
+var Jeapie = Jeapie || [];
+
+Jeapie.push([&quot;init&quot;, {appId: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;}]);
+</code></pre>
+
+<h5 id="registerforpushnotifications"><strong>registerForPushNotifications</strong></h5>
+<p>Call when you want to prompt the user to accept push notifications. Only call if you set false to <code>autoRegister:</code> when calling init.</p>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;registerForPushNotifications&quot;]);
+</code></pre>
+
+<h5 id="setdefaultnotificationurl"><strong>setDefaultNotificationUrl</strong></h5>
+<p>Pass in the full URL of the default page you want to open when a notification is clicked.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>String</code></strong> <strong><em>url</em></strong> - page url to open from notifications</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;setDefaultNotificationUrl&quot;, &quot;https://domain.com/index2&quot;]);
+</code></pre>
+
+<h5 id="setdefaulticon"><strong>setDefaultIcon</strong></h5>
+<p>Pass the URL of the default icon you want to show to the left of the notification text. Highly recommend setting one otherwise there will just be a blank box to the left of the notification text.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>String</code></strong> <strong><em>url</em></strong> - icon url to show on notifications</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;setDefaultIcon&quot;, &quot;images/Jeapie_icon.png&quot;]);
+</code></pre>
+
+<h5 id="setdefaulttitle"><strong>setDefaultTitle</strong></h5>
+<p>Sets the default title to display on notifications. Will default to the page's <code>document.title</code> if you don't call this.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>String</code></strong> <strong><em>title</em></strong> - String to set as a default title on notifications</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;setDefaultTitle&quot;, &quot;Custom Default Title&quot;]);
+</code></pre>
+
+<h5 id="sendtag"><strong>sendTag</strong></h5>
+<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users. Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>string</code></strong> <strong><em>key</em></strong> - Key of your choosing to create or update.</li>
+<li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set on the key.</li>
+<li><em>NOTE</em>: Passing in a blank String deletes the key, you can also call deleteTag.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;sendTag&quot;, &quot;key&quot;, &quot;value&quot;]);
+</code></pre>
+
+<h5 id="sendtags"><strong>sendTags</strong></h5>
+<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>JSON</code></strong> <strong><em>keyValues</em></strong> - Key value pairs of your choosing to create or update.</li>
+<li><em>NOTE</em>: Passing in a blank String as a value deletes the key, you can also call deleteTag or deleteTags.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;sendTags&quot;, {key2: &quot;value2&quot;, key3: &quot;value3&quot;}]);
+</code></pre>
+
+<h5 id="gettags"><strong>getTags</strong></h5>
+<p>Retrieve a list of tags that have been set on the user from the Jeapie server.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>function</code></strong> <strong><em>tagsReceivedCallBack</em></strong> - Passed in function which will receive one parameter containing JSON.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;getTags&quot;, function(tags) {
+    console.log(&quot;Jeapie getTags:&quot;);
+    console.log(tags);
+  }]);
+</code></pre>
+
+<h5 id="deletetag"><strong>deleteTag</strong></h5>
+<p>Deletes a tag that was previously set on a user with <code>sendTag</code> or <code>sendTags</code>. Use <code>deleteTags</code> if you need to delete more than one.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>String</code></strong> <strong><em>key</em></strong> - Key to remove.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push(&quot;deleteTag&quot;, &quot;key&quot;]);
+</code></pre>
+
+<h5 id="deletetags"><strong>deleteTags</strong></h5>
+<p>Deletes tags that were previously set on a user with <code>sendTag</code> or <code>sendTags</code>.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>Array</code></strong> <strong><em>keys</em></strong> - Keys to remove.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;deleteTags&quot;, [&quot;key1&quot;, &quot;key2&quot;]]);
+</code></pre>
+
+<h5 id="ispushnotificationsenabled"><strong>isPushNotificationsEnabled</strong></h5>
+<p>Passes true to the passed in callback if the user has already accepted push notifications and successfully registered with Google's GCM server and Jeapie's server. Callback should fire within 1 second so you can change your page to reflect if notifications are enabled or not.</p>
+<p>Use <a href="#getidsavailable">getIdsAvailable</a> you if want to only to run code after/if the user accepts push notifications and registers successfully.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>function</code></strong> <strong><em>isPushNotificationsEnabledCallBack</em></strong> - Passed in function which will receive one boolean parameter if they are enabled or not.</li>
+</ul>
+<pre><code class="javascript">Jeapie.push([&quot;isPushNotificationsEnabled&quot;, function(enabled) {
+  if (enabled)
+    alert(&quot;Push notifications are enabled!&quot;);
+  else
+    alert(&quot;Push notificaitons are not enable yet.&quot;);
+}]);
+</code></pre>
+
+<h5 id="ispushnotificationssupported"><strong>isPushNotificationsSupported</strong></h5>
+<p>Returns true if the current browser viewing the page supports push notifications.</p>
+<pre><code class="javascript">Jeapie.push(function() {
+  if (Jeapie.isPushNotificationsSupported())
+    alert(&quot;Push notifications are supported, please allow the permission to enable them&quot;);
+});
+</code></pre>
+
+<h5 id="getidsavailable"><strong>getIdsAvailable</strong></h5>
+<p>Lets you retrieve the Jeapie User ID and the Google Registration ID. Your handler is called after the device is successfully registered with Jeapie.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>function</code></strong> <strong><em>idsAvailableCallBack</em></strong> - Passed in function which will receive one parameter containing JSON with userId and registrationId.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;getIdsAvailable&quot;, function(ids) {
+  console.log(&quot;getIdsAvailable:&quot;
+          + &quot;\nUserID: &quot; + ids.userId
+          + &quot;\nRegistration ID: &quot; + ids.registrationId);
+}]);
+</code></pre>
+
+<h5 id="addlistenerfornotificationopened"><strong>addListenerForNotificationOpened</strong></h5>
+<p>Passed in callback that fires when the user clicks on a Jeapie notification.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>function</code></strong> <strong><em>notificationOpenedCallBack</em></strong> - Passed in function which will receive one parameter containing JSON with data about the notification that was clicked.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;addListenerForNotificationOpened&quot;, function(data) {
+  console.log(&quot;Received NotificationOpened:&quot;);
+  console.log(data);
+}]);
+</code></pre>
+
+<h2 id="callbacks">Callbacks</h2>
+<h5 id="tagsreceivedcallback"><strong>tagsReceivedCallBack</strong></h5>
+<p>Gets all the tags set on a user from jeapie.com.</p>
+<ul>
+<li><strong>Parameters</strong></li>
+<li><strong><code>JSON</code></strong> <strong><em>tags</em></strong> - JSON object of key value pairs retrieved from the Jeapie server.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;getTags&quot;, function(tags) {
+    console.log(&quot;Jeapie getTags:&quot;);
+    console.log(tags);
+  }]);
+</code></pre>
+
+<h5 id="idsavailablecallback"><strong>idsAvailableCallBack</strong></h5>
+<p>Get the Jeapie userId and the Google Registration ID.</p>
+<ul>
+<li><strong>JSON</strong></li>
+<li><strong><code>String</code></strong> <strong><em>userId</em></strong> - Jeapie userId is a UUID formatted string.(unique to a Chrome user per device per app)</li>
+<li><strong><code>String</code></strong> <strong><em>registrationId</em></strong> - Google assigned identifier(<em>unique to a Chrome user per device per app and changes on every reinstall</em>).</li>
+<li><em>NOTE</em>: Might be blank if there was a connection issue.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;getIdsAvailable&quot;, function(ids) {
+  console.log(&quot;getIdsAvailable:&quot;
+          + &quot;\nUserID: &quot; + ids.userId
+          + &quot;\nRegistration ID: &quot; + ids.registrationId);
+  }]);
+</code></pre>
+
+<h5 id="notificationopenedcallback"><strong>notificationOpenedCallBack</strong></h5>
+<p>Function that gets called when a Jeapie notification is opened. Function will receive one parameter with JSON about the notification.</p>
+<ul>
+<li><strong>JSON</strong></li>
+<li><strong><code>String</code></strong> <strong><em>title</em></strong> - Title set on the notification.</li>
+<li><strong><code>String</code></strong> <strong><em>message</em></strong> - The message text the user seen in the notification.</li>
+<li><strong><code>String</code></strong> <strong><em>icon</em></strong> - Icon set on the notification.</li>
+<li><strong><code>JSON</code></strong> <strong><em>additionalData</em></strong> - Key value pairs that were set on the notification.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.push([&quot;addListenerForNotificationOpened&quot;, function(data) {
+  console.log(&quot;Received NotificationOpened:&quot;);
+  console.log(data);
+}]);
+</code></pre>
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../API/Server-API-Overview/" class="btn btn-neutral float-right" title="Server API Overview"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Website-SDK-HTTP-Installation/" class="btn btn-neutral" title="Website SDK HTTP Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../Website-SDK-HTTP-Installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../../API/Server-API-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+
+<!--
+MkDocs version  : 0.12.2
+Docs Build Date : 2015-05-10 10:25:20.600103
+-->
+</body>
+</html>

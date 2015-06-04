@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>None/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/Getting-Started/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>None/Android/Android-Native-SDK-Overview/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Android/Android-Generating-a-GCM-Push-Notification-Key/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Android/Android-Native-SDK-Installation/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Android/Android-Native-SDK-API/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Android/Android-Notification-Customizations/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/Websdk/Website-SDK-Overview/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Websdk/Website-SDK-HTTPS-Installation/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Websdk/Website-SDK-HTTP-Installation/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/Websdk/Website-SDK-API/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/API/Server-API-Overview/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/API/notifications-Create-Notification/</loc>
+     <lastmod>2015-06-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>

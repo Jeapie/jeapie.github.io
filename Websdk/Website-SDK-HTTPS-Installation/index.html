@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Websdk/Website-SDK-HTTPS-Installation"
+  </script>
+  
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../../js/highlight.pack.js"></script>
@@ -33,140 +39,147 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li class="toctree-l1 ">
-                <a class="" href="../..">Home</a>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../Getting-Started/">Getting Started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Android</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Website sdk</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Website-SDK-Overview/">Website SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Website SDK HTTPS Installation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#website-sdk-https-installation">Website SDK HTTPS Installation</a></li>
                 
-            </li>
-        
-
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../Getting-Started/">Getting Started</a>
+                    <li><a class="toctree-l4" href="#jeapie-sdk-installation-for-chrome-websites-desktop-mobile">Jeapie SDK Installation for Chrome websites (desktop + mobile)</a></li>
                 
-            </li>
+                    <li><a class="toctree-l4" href="#1-download-the-sdk">1. Download the SDK</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-include-required-files">2. Include Required Files</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-initialize-jeapie">3. Initialize Jeapie</a></li>
+                
+            
+            </ul>
         
+    </li>
 
-    
         
-            <span>Android</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
         
+    </li>
 
-    
         
-            <span>Website sdk</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../Website-SDK-Overview/">Website SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 current">
-                    <a class="current" href="./">Website SDK HTTPS Installation</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l3"><a href="#website-sdk-https-installation">Website SDK HTTPS Installation</a></li>
-                            
-                                <li><a class="toctree-l4" href="#jeapie-sdk-installation-for-chrome-websites-desktop-mobile">Jeapie SDK Installation for Chrome websites (desktop + mobile)</a></li>
-                            
-                                <li><a class="toctree-l4" href="#1-download-the-sdk">1. Download the SDK</a></li>
-                            
-                                <li><a class="toctree-l4" href="#2-include-required-files">2. Include Required Files</a></li>
-                            
-                                <li><a class="toctree-l4" href="#3-update-manifestjson">3. Update manifest.json</a></li>
-                            
-                                <li><a class="toctree-l4" href="#4-initialize-jeapie">4. Initialize Jeapie</a></li>
-                            
-                        
-                        </ul>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Website-SDK-API/">Website SDK API</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../Website-SDK-API/">Website SDK API</a>
         
+    </li>
 
-    
         
-            <span>SERVER API</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
-                    
-                </li>
-            
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>SERVER API</span></li>
+
         
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+        
+    </li>
 
-    
-</ul>
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/notifications-Create-Notification/">Send Push Notification</a>
+        
+    </li>
 
+        
+    </ul>
+<li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -187,19 +200,22 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        <li>Website sdk &raquo;</li>
+        
+          <li>Website sdk &raquo;</li>
+        
       
     
     <li>Website SDK HTTPS Installation</li>
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="website-sdk-https-installation">Website SDK HTTPS Installation</h1>
+              
+                <h1 id="website-sdk-https-installation">Website SDK HTTPS Installation</h1>
 <h6 id="jeapie-sdk-installation-for-chrome-websites-desktop-mobile">Jeapie SDK Installation for Chrome websites (desktop + mobile)</h6>
 <p><strong>Requirements</strong></p>
 <p>W3C Web Push Notifications are currently only support by Chrome 42+</p>
@@ -210,34 +226,59 @@
 <p>If some of your pages are served via HTTP instead of HTTPS then you will need to follow our <a href="../Website-SDK-HTTP-Installation/">HTTP Installation Guide</a> instead.</p>
 <p>If possible, we encourage you to migrate all your pages to HTTPS first and then continue using this guide.</p>
 <h2 id="1-download-the-sdk">1. Download the SDK</h2>
-<p><strong>1.1</strong> Download the latest <a href="https://github.com/jeapie/Jeapie-Website-SDK/releases">Jeapie Chrome Web SDK</a>.</p>
-<p><strong>1.2</strong> Copy the 3 files from <code>SetupFiles</code> out of the directory and into the top level root of your site directory.</p>
+<p><strong>1.1</strong> Download the latest version of Jeapie Chrome Web SDK after the registration your site in the  <a href="https://go.jeapie.com/app/step1-add-site-name">Jeapie Dashboard</a>.</p>
+<p><strong>1.2</strong> Copy <code>push-worker.js</code> and <code>manifest.json</code> from <code>jeapie_sdk_</code> out of the directory and into the top level root of your site directory.</p>
 <h2 id="2-include-required-files">2. Include Required Files</h2>
-<p><strong>2.1</strong> Include <code>https://cdn.jeapie.com/sdks/JeapieSDK.js</code> and <code>manifest.json</code> in the <code>&lt;head&gt;</code> HTML tag of each of your website pages. The best way is to add these to the code that generates the layout for each of your webpages. The resulting HTML should be the following:</p>
+<p><strong>2.1</strong> Include <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> and <code>manifest.json</code> in the <code>&lt;head&gt;</code> HTML tag of each of your website pages. The best way is to add these to the code that generates the layout for each of your webpages. The resulting HTML should be the following:</p>
 <pre><code class="HTML">&lt;head&gt;
-  &lt;script src=&quot;https://cdn.jeapie.com/sdks/JeapieSDK.js&quot; async&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/webpush.js&quot; &gt;&lt;/script&gt;
   &lt;link rel=&quot;manifest&quot; href=&quot;manifest.json&quot;&gt;
 &lt;/head&gt;
 </code></pre>
 
-<h2 id="3-update-manifestjson">3. Update manifest.json</h2>
-<p><strong>3.1</strong> Open <code>manifest.json</code> and change the <code>name</code> and <code>short_name</code> to your site's name.</p>
-<p><strong>3.2</strong> Update <code>gcm_sender_id</code> with your Google Project Number. You can find this number from the <a href="https://console.developers.google.com">Google Developers Console</a>.</p>
-<pre><code class="JSON">&quot;gcm_sender_id&quot;: &quot;703322744261&quot;,
-</code></pre>
-
-<h2 id="4-initialize-jeapie">4. Initialize Jeapie</h2>
-<p><strong>4.1</strong> Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>5eb5a37e-b458-11e3-ac11-000c2940e62c</code> with your Jeapie AppId.</p>
+<h2 id="3-initialize-jeapie">3. Initialize Jeapie</h2>
+<p><strong>3.1 Init with auto register.</strong> </p>
+<p>Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>autoRegister</code> with value <code>true</code>.</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
 
-Jeapie.push([&quot;init&quot;, {appId: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;}]);
+Jeapie.init({&quot;appId&quot;: &quot;0e9b2d82456a5ad012714e981d972360&quot;, &quot;autoRegister&quot;: true});
 </code></pre>
 
+<p>The user will see a window asking for permission to receive notifications from your site immediately after the opening page</p>
+<p><img alt="Autoregister for users" src="../../img/https_autoregister.png" /></p>
+<p><strong>3.2 Init with your custom button.</strong> </p>
+<p>Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id</p>
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.init({ &quot;appKey&quot; : &quot;0e9b2d82456a5ad012714e981d972360&quot;});
+
+//Replace YOUR_CUSTOM_BUTTON_ID with your button id
+document.getElementById(&quot;YOUR_CUSTOM_BUTTON_ID&quot;).onclick = registerPush;
+
+function registerPush() {
+    Jeapie.registerUserForPush(function(success){
+        if (!!success) {
+            //your custom action
+        }
+    });
+}
+</code></pre>
+
+<p>The user will see a window asking for permission to receive notifications from your site immediately after click on button.</p>
+<p>Even you can create your own logic and call <code>registerPush()</code> method.</p>
+<p><strong>3.3 Init with Jeapie Widget.</strong> </p>
+<p>Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>createButton</code> with value <code>true</code>.</p>
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.init({ &quot;appKey&quot; : &quot;0e9b2d82456a5ad012714e981d972360&quot;, &quot;createButton&quot;: true});
+</code></pre>
+
+<p>On your site will be a button, when clicked, a window will appear to allow notifications from your site</p>
+<p><img alt="Autoregister for users" src="../../img/widget_example.png" /></p>
 <p><strong>Important</strong></p>
-<p>You must keep all 3 files SDK together. They must be placed at the root of your site directory.</p>
-<p><code>https://cdn.jeapie.com/sdks/JeapieSDK.js</code> and <code>manifest.json</code> must be located in the head html tag in every one of your pages. This is so any page can subscribe for notifications, any page can be set to be opened from a notification, changes to the Google Registration id can be updated, and session count can be accurately counted.</p>
+<p>You must keep all files SDK together. <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code>, <code>push-worker.js</code> and <code>manifest.json</code> must be placed at the root of your site directory.</p>
+<p><code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> and <code>manifest.json</code> must be located in the head html tag in every one of your pages. This is so any page can subscribe for notifications, any page can be set to be opened from a notification, changes to the Google Registration id can be updated, and session count can be accurately counted.</p>
 <p><strong>That's It!</strong></p>
-<p>That's it for the setup. See our <a href="../Website-SDK-API/">Web SDK API</a> for more functions and <a href="https://github.com/jeapie/Jeapie-Website-SDK/tree/master/Examples">our examples</a> on our Github page.</p>
+<p>That's it for the setup. See our <a href="../Website-SDK-API/">Web SDK API</a> for more functions.</p>
+              
             </div>
           </div>
           <footer>
@@ -272,15 +313,15 @@ Jeapie.push([&quot;init&quot;, {appId: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../Website-SDK-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../Website-SDK-HTTP-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../Website-SDK-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Website-SDK-HTTP-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
 
-<!--
-MkDocs version  : 0.12.2
-Docs Build Date : 2015-06-03 05:50:01.793490
--->
 </body>
 </html>

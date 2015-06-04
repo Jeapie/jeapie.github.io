@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Android/Android-Generating-a-GCM-Push-Notification-Key"
+  </script>
+  
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../../js/highlight.pack.js"></script>
@@ -33,140 +39,149 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li class="toctree-l1 ">
-                <a class="" href="../..">Home</a>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../Getting-Started/">Getting Started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Android</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Native-SDK-Overview/">Android Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Android - Generating a GCM Push Notification Key</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#android-generating-a-gcm-push-notification-key">Android - Generating a GCM Push Notification Key</a></li>
                 
-            </li>
-        
-
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../Getting-Started/">Getting Started</a>
+                    <li><a class="toctree-l4" href="#connect-your-google-cloud-messenger-android-app-with-jeapie">Connect your Google Cloud Messenger Android app with Jeapie</a></li>
                 
-            </li>
+                    <li><a class="toctree-l4" href="#step-1-create-a-google-project-and-save-the-project-number">STEP 1: Create a Google Project and save the "Project Number"</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-2-turn-on-google-cloud-messaging-for-android-api">STEP 2: Turn on "Google Cloud Messaging for Android" API</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-3-create-and-save-server-key">STEP 3: Create and save Server Key</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-4-configure-your-android-app-with-jeapie">STEP 4: Configure your Android App with Jeapie</a></li>
+                
+            
+            </ul>
         
+    </li>
 
-    
         
-            <span>Android</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Native-SDK-Overview/">Android Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 current">
-                    <a class="current" href="./">Android - Generating a GCM Push Notification Key</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l3"><a href="#android-generating-a-gcm-push-notification-key">Android - Generating a GCM Push Notification Key</a></li>
-                            
-                                <li><a class="toctree-l4" href="#connect-your-google-cloud-messenger-android-app-with-jeapie">Connect your Google Cloud Messenger Android app with Jeapie</a></li>
-                            
-                                <li><a class="toctree-l4" href="#step-1-create-a-google-project-and-save-the-project-number">STEP 1: Create a Google Project and save the "Project Number"</a></li>
-                            
-                                <li><a class="toctree-l4" href="#step-2-turn-on-google-cloud-messaging-for-android-api">STEP 2: Turn on "Google Cloud Messaging for Android" API</a></li>
-                            
-                                <li><a class="toctree-l4" href="#step-3-create-and-save-server-key">STEP 3: Create and save Server Key</a></li>
-                            
-                                <li><a class="toctree-l4" href="#step-4-configure-your-android-app-with-jeapie">STEP 4: Configure your Android App with Jeapie</a></li>
-                            
-                        
-                        </ul>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Native-SDK-Installation/">Android Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Native-SDK-API/">Android Native SDK API</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Notification-Customizations/">Android Notification Customizations</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Native-SDK-Installation/">Android Native SDK Installation</a>
         
+    </li>
 
-    
         
-            <span>Website sdk</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Native-SDK-API/">Android Native SDK API</a>
         
+    </li>
 
-    
         
-            <span>SERVER API</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Notification-Customizations/">Android Notification Customizations</a>
         
+    </li>
 
-    
-</ul>
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Website sdk</span></li>
 
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>SERVER API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/notifications-Create-Notification/">Send Push Notification</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -187,19 +202,22 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        <li>Android &raquo;</li>
+        
+          <li>Android &raquo;</li>
+        
       
     
     <li>Android - Generating a GCM Push Notification Key</li>
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="android-generating-a-gcm-push-notification-key">Android - Generating a GCM Push Notification Key</h1>
+              
+                <h1 id="android-generating-a-gcm-push-notification-key">Android - Generating a GCM Push Notification Key</h1>
 <h6 id="connect-your-google-cloud-messenger-android-app-with-jeapie">Connect your Google Cloud Messenger Android app with Jeapie</h6>
 <h2 id="step-1-create-a-google-project-and-save-the-project-number">STEP 1: Create a Google Project and save the "Project Number"</h2>
 <p><strong>1.1</strong> Create a project at <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a> for your app.</p>
@@ -231,6 +249,7 @@
 <p><img alt="Save android key" src="../../img/2015-06-03_0742.png" /></p>
 <p><strong>Configuration to send Android push notifications is complete!</strong></p>
 <p>Next step is to <a href="../Android-Native-SDK-Installation/">set up the Android SDK</a></p>
+              
             </div>
           </div>
           <footer>
@@ -265,15 +284,15 @@
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../Android-Native-SDK-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../Android-Native-SDK-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../Android-Native-SDK-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Android-Native-SDK-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
 
-<!--
-MkDocs version  : 0.12.2
-Docs Build Date : 2015-06-03 05:50:01.701708
--->
 </body>
 </html>

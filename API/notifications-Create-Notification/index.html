@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>post/notifications (Create Notification) - Jeapie - Push Notification as a Service</title>
+  <title>Send Push Notification - Jeapie - Push Notification as a Service</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API/notifications-Create-Notification"
+  </script>
+  
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../../js/highlight.pack.js"></script>
@@ -33,142 +39,155 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li class="toctree-l1 ">
-                <a class="" href="../..">Home</a>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../Getting-Started/">Getting Started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Android</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Website sdk</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>SERVER API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Server-API-Overview/">Server API Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Send Push Notification</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#apiv2pushjson-send-push-notification-via-api">api/v2/push.json Send Push Notification via API</a></li>
                 
-            </li>
-        
-
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../Getting-Started/">Getting Started</a>
+                    <li><a class="toctree-l4" href="#endpoint">Endpoint</a></li>
                 
-            </li>
+                    <li><a class="toctree-l4" href="#method">Method</a></li>
+                
+                    <li><a class="toctree-l4" href="#authentication">Authentication</a></li>
+                
+                    <li><a class="toctree-l4" href="#full-example-for-mobile-platforms">Full example for Mobile platforms</a></li>
+                
+                    <li><a class="toctree-l4" href="#full-example-for-web-platforms">Full example for Web platforms</a></li>
+                
+                    <li><a class="toctree-l4" href="#description-of-the-params">Description of the params</a></li>
+                
+                    <li><a class="toctree-l4" href="#result-format">Result Format</a></li>
+                
+                    <li><a class="toctree-l4" href="#examples-shell-code">Examples Shell Code</a></li>
+                
+            
+            </ul>
         
+    </li>
 
-    
         
-            <span>Android</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
-                    
-                </li>
-            
-        
-
-    
-        
-            <span>Website sdk</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
-                    
-                </li>
-            
-        
-
-    
-        
-            <span>SERVER API</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Server-API-Overview/">Server API Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../notifications-View-notifications/">notifications (View notifications)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../notifications-id-View-notification/">get/notifications/:id (View notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../notifications-id-Track-open/">put/notifications/:id (Track open)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 current">
-                    <a class="current" href="./">post/notifications (Create Notification)</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l3"><a href="#postnotifications-create-notification">post/notifications (Create Notification)</a></li>
-                            
-                                <li><a class="toctree-l4" href="#definition">Definition</a></li>
-                            
-                                <li><a class="toctree-l4" href="#parameters">Parameters</a></li>
-                            
-                                <li><a class="toctree-l4" href="#result-format">Result Format</a></li>
-                            
-                                <li><a class="toctree-l4" href="#documentation">Documentation</a></li>
-                            
-                                <li><a class="toctree-l4" href="#example-code">Example Code</a></li>
-                            
-                                <li><a class="toctree-l4" href="#example-json-request">Example JSON Request</a></li>
-                            
-                        
-                        </ul>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
-                    
-                </li>
-            
-        
-
-    
-</ul>
-
+    </ul>
+<li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -189,22 +208,96 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        <li>SERVER API &raquo;</li>
+        
+          <li>SERVER API &raquo;</li>
+        
       
     
-    <li>post/notifications (Create Notification)</li>
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
+    <li>Send Push Notification</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="postnotifications-create-notification">post/notifications (Create Notification)</h1>
-<h3 id="definition">Definition</h3>
-<p>https://jeapie.com/api/v1/notifications</p>
-<h3 id="parameters">Parameters</h3>
+              
+                <h1 id="apiv2pushjson-send-push-notification-via-api">api/v2/push.json Send Push Notification via API</h1>
+<h4 id="endpoint">Endpoint</h4>
+<p><code>https://go.jeapie.com/api/v2/push.json</code></p>
+<h4 id="method">Method</h4>
+<p><code>Post</code></p>
+<h4 id="authentication">Authentication</h4>
+<p>Go to link to read about <a href="../Server-API-Overview/#authentication">Jeapie authentication</a>.</p>
+<h4 id="full-example-for-mobile-platforms">Full example for Mobile platforms</h4>
+<pre><code class="json">    {
+        // This params are cross-platform for all platforms
+        &quot;send_date&quot;:&quot;now&quot;, // or UNIX_TIME. Optional
+        &quot;message&quot;: &quot;push text&quot;,   // Required
+        &quot;data&quot;:{&quot;key&quot;: &quot;value&quot;}, // Optional
+        &quot;platforms&quot;: [&quot;android&quot;, &quot;ios&quot;], // Optional
+        &quot;badge&quot;: &quot;inc&quot;, or number [0-999] // Optional
+        &quot;default_sound&quot;: 1, // Optional
+        &quot;ttl&quot;: 3600, // Optional
+
+        // Android additional settings. Optional
+        &quot;android&quot;: {
+            &quot;sound&quot; : &quot;soundfile&quot;,
+            &quot;header&quot;:&quot;header&quot;,
+            &quot;icon&quot;: &quot;icon&quot;,
+            &quot;custom_icon&quot;: &quot;http://example.com/image.png&quot;,
+            &quot;banner&quot;: &quot;http://example.com/banner.png&quot;
+        },
+
+        // iOS (in development). Optional
+        &quot;ios&quot;: {
+            &quot;badge&quot;: 5,
+            &quot;sound&quot;: &quot;file.wav&quot;, // or &quot;default&quot;
+            &quot;category_id&quot;: &quot;1&quot;, // iOS new feature
+            &quot;content-available&quot;: 1
+        },
+
+        // Send to all devices
+        &quot;audience&quot;: {
+            &quot;all&quot;: 1 // send to all devices
+        }
+    }
+</code></pre>
+
+<h4 id="full-example-for-web-platforms">Full example for Web platforms</h4>
+<pre><code class="json">{
+        // This params are cross-platform for all platforms
+        &quot;send_date&quot;:&quot;now&quot;, // or UNIX_TIME. Optional
+        &quot;message&quot;: &quot;push text&quot;,  // Required
+        &quot;platforms&quot;: [&quot;chrome&quot;, &quot;safari&quot;], // Optional
+        &quot;ttl&quot;: 3600, // Optional
+
+        // Safari related (in development). Optional
+        &quot;safari&quot;: { 
+            &quot;title&quot;: &quot;Title&quot;,
+            &quot;action&quot;: &quot;Click here&quot;,
+            &quot;action_url&quot;: &quot;http://example.com&quot;,
+            &quot;ttl&quot;: 3600
+        },
+
+        // Chrome related (in development). Optional
+        &quot;chrome&quot;: {
+            &quot;header&quot;: &quot;title example&quot;,
+            &quot;icon&quot;: &quot;http://example.com/icon.png&quot;,
+            &quot;redirect_url&quot;: &quot;/example.html&quot; // Default
+        },
+
+
+        // you should use only one of this params
+        &quot;audience&quot;: {
+            &quot;all&quot;: 1 // send to all devices
+        }
+    }
+</code></pre>
+
+<h3 id="description-of-the-params">Description of the params</h3>
+<h5 id="cross-platform-params">Cross-platform params</h5>
 <table>
 <thead>
 <tr>
@@ -214,348 +307,183 @@
 </thead>
 <tbody>
 <tr>
-<td align="right"><strong>app_id:</strong> required</td>
-<td align="left"><strong>String</strong>Required</td>
+<td align="right"><strong>send_date</strong> <em>Optional</em></td>
+<td align="left"><strong>Mixed</strong>: String or Int <br> <em>default:</em> <code>"now"</code></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Your Jeapie Application Key</td>
+<td align="left">Time for scheduled push. Can be "now" or UNIX_TIME <br> Example: <br> <code>"send_date": "now"</code> or <code>"send_date": 1430568855</code></td>
 </tr>
 <tr>
-<td align="right"><strong>contents:</strong> required</td>
-<td align="left"><strong>Hash</strong> <em>Required unless content_available=true, </em>_background_data=true, or template_id is set.*</td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Message contents to send to players. "en" (English) is required. The key of each hash is either a a 2 character language code or one of zh-Hans/zh-Hant for Simplified or Traditional Chinese. The value of each key is the message that will be sent to users for that language. If do not specify a language English will be used. Example: <code>{"en": "English Message","es": "Spanish Message"}</code></td>
-</tr>
-<tr>
-<td align="right"><strong>headings:</strong></td>
-<td align="left"><strong>Hash</strong> <em>Optional</em></td>
+<td align="right"><strong>message</strong> <code>Required</code></td>
+<td align="left"><strong>String</strong> <br> <em>Required unless content_available=true</em></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Notification title to send to Android, Amazon, and Chrome apps. By default, this will be the application name. If this option is used, a value for "en" (English) is required. The value of each key is the title that will be sent to users for that language. If do not specify a language English will be used. Example: <code>{"en": "English Title","es": "Spanish Title"}</code></td>
+<td align="left">Push text. Example: <br> <code>"message": "hello, world"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>isIos:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em>.</td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Send to iOS devices?</td>
-</tr>
-<tr>
-<td align="right"><strong>isAndroid:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em>.</td>
+<td align="right"><strong>data</strong> <em>Optional</em></td>
+<td align="left"><strong>Hash</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Send to Google Play Android devices?</td>
+<td align="left">Extra data for push. Can contains additional data for for processing within the application. Example: <br> <code>"data": {"page": 1, "url": "http://example.com}"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>isWP:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em>.</td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Send to Windows Phone Devices?</td>
-</tr>
-<tr>
-<td align="right"><strong>isAdm:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em>.</td>
+<td align="right"><strong>badge</strong> <em>Optional</em></td>
+<td align="left"><strong>Mixed</strong>: String or Int</td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Send to Amazon ADM devices?</td>
+<td align="left">Only for iphone and windows phone. For set badge number use int, for increment badge number use "inc". Example: <br> <code>"badge": 3</code> or <code>"badge": "inc"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>isChrome:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em>.</td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Send to Google Chrome App/Extension?</td>
-</tr>
-<tr>
-<td align="right"><strong>included_segments:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
+<td align="right"><strong>platforms</strong> <em>Optional</em></td>
+<td align="left"><strong>Array</strong> <br> List of mobile platforms: "android" <br> List of web platforms: "chrome", "safari"</td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Names of segments to send the message to. Any player in any of these segements will be sent this notification. Only compatible with excluded_segments, do not use any other targeting parameters with this one. Example: <code>["Free Players", "New Players"]</code> <em>NOTE: 'REST API Key' Required</em></td>
+<td align="left">List of platforms. Example: <br> if mobile platforms: <code>"platforms": ["android", "ios"]</code> <br> or if web platforms: <code>"platforms": ["chrome", "safari"]</code></td>
 </tr>
 <tr>
-<td align="right"><strong>excluded_segments:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Use with included_segments. Do not use with any other targeting parameters. Names of segments to exclude players from. Any players in any of these segments will not be sent the notification even if they are a member of included_segments. Requires API Auth Key. Example: ["Free Players", "New Players"]</td>
-</tr>
-<tr>
-<td align="right"><strong>include_player_ids:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
+<td align="right"><strong>default_sound</strong> <em>Optional</em></td>
+<td align="left"><strong>Int</strong>: <code>0</code> or <code>1</code> <br> <em>default:</em> <code>0</code></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Specific players to send your notification to. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Does not require API Auth Key. Example: "1dd608f2-c6a1-11e3-851d-000c2940e62c"]</td>
+<td align="left">If need default sound set <code>1</code> else <code>0</code>. Example: <br> <code>"default_sound": 1</code></td>
 </tr>
 <tr>
-<td align="right"><strong>include_ios_tokens:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Specific iOS device tokens to send the notification to (all non-alphanumeric characters must be removed from the tokens). Do not combine with other targeting parameters. If any of these tokens do not correspond to players in our system, a player will be automatically created for each of them. Does not require your "API Auth Key". Example: ["ce777617da7f548fe7a9ab6febb56cf39fba6d38203..."]</td>
-</tr>
-<tr>
-<td align="right"><strong>include_android_reg_ids:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
+<td align="right"><strong>ttl</strong> <em>Optional</em></td>
+<td align="left"><strong>Int</strong> <br> <em>default:</em> <code>3600</code></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Specific Android registration ids to send the notification to. Do not combine with other targeting parameters. If these registration ids do not correspond to players in our system, players will be automatically created. Does not require your "API Auth Key". Example: <a href="">["APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_..."]</a></td>
+<td align="left">Time to live parameter - the maximum lifespan of a message in seconds. <br>Example: <code>"ttl":3600</code></td>
 </tr>
+</tbody>
+</table>
+<h5 id="android-params-all-params-are-optional">Android params <em>(All params are optional)</em></h5>
+<table>
+<thead>
 <tr>
-<td align="right"><strong>include_wp_urls:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
+<th align="right"></th>
+<th align="left"></th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td align="right"></td>
-<td align="left">Specific Windows Phone channel URI to send the notification to. Do not combine with other targeting parameters. If these channel URIs do not correspond to players in our system, players will be automatically created. Does not require your "API Auth Key". Example: ["http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-..."]</td>
-</tr>
-<tr>
-<td align="right"><strong>include_amazon_reg_ids:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Specific Amazon ADM registration ids to send the notification to. Do not combine with other targeting parameters. If these registration ids do not correspond to players in our system, players will be automatically created. Does not require your "API Auth Key". Example: ["amzn1.adm-registration.v1.XpvSSUk0Rc3hTVVV..."]</td>
-</tr>
-<tr>
-<td align="right"><strong>include_chrome_reg_ids:</strong></td>
-<td align="left"><strong>Array of Strings</strong> <em>Optional. Targeting parameter.</em></td>
+<td align="right"><strong>sound</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Specific Chrome App/Extension Google registration ids to send the notification to. Do not combine with other targeting parameters. If these registration ids do not correspond to players in our system, players will be automatically created. Does not require your "API Auth Key". Example: ["APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_..."]</td>
+<td align="left">Sound file name in the "res/raw" folder, do not include the extension. <br> Example: <code>"sound": "taff"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>tags:</strong></td>
-<td align="left"><strong>Mixed</strong> <em>Optional. Targeting parameter.</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Match players by the values set for their tags. Do not combine with other targeting parameters. Possible relations are "&gt;", "&lt;", and "=". "&lt;" means that the value of the player's tag value must be less than the value supplied in the "value" field of this hash. Players must match all of the hashes specified in this array to receive the notification. Note: Requires "API Auth Key". Example: [{"key": "level", "relation": "&gt;","value": "10"},{"key":"madePurchase","relation": "=","value":"true"}]</td>
-</tr>
-<tr>
-<td align="right"><strong>ios_badgeType:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>header</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Options are: None, SetTo, or Increase. None leaves the count unaffected on the device. If you use Increase, it will be based on the current value of the player's badge_count.</td>
+<td align="left">Android notification header. <br>Example: <code>"header": "Header text"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>ios_badgeCount:</strong></td>
-<td align="left"><strong>Integer</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Sets or increases the badge icon on the device depending on the ios_badgeType value</td>
-</tr>
-<tr>
-<td align="right"><strong>ios_sound:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>icon</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Sound file that is included in your app to play instead of the default device notification sound. Example: notification.wav</td>
+<td align="left">Icon file name in the "res/drawable" folder. <br>Example: <code>"icon":"icon.png"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>Android_sound:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Sound file that is included in your app to play instead of the default device notification sound. NOTE: Leave off file extension for Android. Example: notification</td>
-</tr>
-<tr>
-<td align="right"><strong>wp_sound:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>custom_icon</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Sound file that is included in your app to play instead of the default device notification sound. Example: notification.wav</td>
+<td align="left">Icon full path http url <br>Example: <code>"custom_icon": "http://example.com/icon.png"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>data:</strong></td>
-<td align="left"><strong>Array of Mixed</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Custom key value pair hash that you can programmatically read in your app's code. Example: {"abc":"123","foo":"bar"}</td>
-</tr>
-<tr>
-<td align="right"><strong>buttons:</strong></td>
-<td align="left"><strong>Mixed</strong> <em>Optional</em></td>
+<td align="right"><strong>banner</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Buttons to add to the notification. Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android. Example: [{"id": "id1", "text": "button1", "icon": "ic_menu_share"}, {"id": "id2", "text": "button2", "icon": "ic_menu_send"}]</td>
+<td align="left">Banner full path http url <br>Example: <code>"custom_icon": "http://example.com/banner.png"</code></td>
 </tr>
+</tbody>
+</table>
+<h5 id="chrome-params-all-params-are-optional">Chrome params <em>(All params are optional)</em></h5>
+<table>
+<thead>
 <tr>
-<td align="right"><strong>small_icon:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<th align="right"></th>
+<th align="left"></th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td align="right"></td>
-<td align="left">Specific Android icon to use. If blank the app icon is used. Must be the drawable resource name.</td>
-</tr>
-<tr>
-<td align="right"><strong>large_icon:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Specific Android icon to display to the left of the notification. If blank the small_icon is used. Can be a drawable resource name or a URL.</td>
-</tr>
-<tr>
-<td align="right"><strong>big_picture:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>header</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Specific Android picture to display in the expanded view. Can be a drawable resource name or a URL.</td>
+<td align="left">Chrome notification header. <br>Example: <code>"header": "Header text"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>adm_small_icon:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Specific Amazon icon to use. If blank the app icon is used. Must be the drawable resource name.</td>
-</tr>
-<tr>
-<td align="right"><strong>adm_large_icon:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>icon</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Specific Amazon icon to display to the left of the notification. If blank the adm_small_icon is used. Can be a drawable resource name or a URL.</td>
+<td align="left">Icon full path http url <br>Example: <code>"custom_icon": "http://example.com/icon.png"</code></td>
 </tr>
 <tr>
-<td align="right"><strong>adm_big_picture:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Specific Amazon picture to display in the expanded view. Can be a drawable resource name or a URL.</td>
-</tr>
-<tr>
-<td align="right"><strong>chrome_icon:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>redirect_url</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Specific Chrome icon to use. if blank the app icon will be used. Must be a local URL.</td>
+<td align="left">The relative url which is redirect after clicking on a push. <br>Example: <code>"redirect_url": "/example.html"</code></td>
 </tr>
+</tbody>
+</table>
+<h5 id="ios-params-in-development">iOS params <em>(In development)</em></h5>
+<h5 id="safari-params-in-development">Safari params <em>(In development)</em></h5>
+<h5 id="audience-required">Audience <em>(Required)</em></h5>
+<table>
+<thead>
 <tr>
-<td align="right"><strong>chrome_big_picture:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<th align="right"></th>
+<th align="left"></th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td align="right"></td>
-<td align="left">Specific Chrome large picture to display below the notification text. Must be a local URL.</td>
-</tr>
-<tr>
-<td align="right"><strong>url:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">When the player opens the notification their web browser will open this url. Example: <a href="">http://google.com</a></td>
-</tr>
-<tr>
-<td align="right"><strong>send_after:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>all</strong></td>
+<td align="left"><strong>Int</strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Schedule notification for future delivery. Example: Fri May 02 2014 00:00:00 GMT-0700 (PDT)</td>
+<td align="left">send to all devices. <br> Example: <code>"all": 1</code></td>
 </tr>
 <tr>
-<td align="right"><strong>delayed_option:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Possible values are "timezone" (Deliver at a specific time-of-day in each users own timezone), and "last-active" (Deliver at the same time of day as each user last used your app). If "send_after" is used, this takes effect after the "send_after' time has elapsed.</td>
-</tr>
-<tr>
-<td align="right"><strong>delivery_time_of_day:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>tokens</strong></td>
+<td align="left"><strong>Array<String></strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Use with delayed_option=timezone. Example: "9:00AM"</td>
+<td align="left">Send to array of device push tokens. Limit 100 tokens. Example: <br> <code>"tokens": ["dec301908b9ba...8df85e57a58e40f96f", "523f4c2068674f1fe...2ba25cdc250a2a41"]</code></td>
 </tr>
 <tr>
-<td align="right"><strong>android_led_color:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Sets the devices LED notification light if the device has one. ARGB Hex format Example: Blue = <code>"FF0000FF"</code></td>
-</tr>
-<tr>
-<td align="right"><strong>android_accent_color:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
+<td align="right"><strong>aliases</strong></td>
+<td align="left"><strong>Array<String></strong></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Sets the background color of the notification circle to the left of the notification text. Only applies to apps targeting Android API level 21+ on Android 5.0+ devices. Example: Red = <code>"FFFF0000"</code></td>
-</tr>
-<tr>
-<td align="right"><strong>android_visibility:</strong></td>
-<td align="left"><strong>Integer</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Sets the lock screen visibility for apps targeting Android API level 21+ running on Android 5.0+ devices. <code>-1</code> = Secret (Notification does not show on the lock screen at all), <code>0</code>= Private (Hides message contents on lock screen if the user set "Hide sensitive notification content" in the system settings), <code>1</code> = Public (GameThrive's default) (Shows the full message on the lock screen unless the user has disabled all notifications from showing on the lock screen. Please consider the user and mark private if the contents are.)</td>
-</tr>
-<tr>
-<td align="right"><strong>content_available:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">For iOS devices. Sends content-available=1 to wake your app to run custom native code.</td>
-</tr>
-<tr>
-<td align="right"><strong>android_background_data:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Fires a Broadcast with a com.gamethrive.BackgroundBroadcast.RECEIVE action. See our <a href="../../Android/Android-Notification-Customizations/#background-data-silent-notifications">Background Data Documentation</a>.</td>
-</tr>
-<tr>
-<td align="right"><strong>amazon_background_data:</strong></td>
-<td align="left"><strong>Boolean</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Fires a Broadcast with a com.gamethrive.BackgroundBroadcast.RECEIVE action. See our <a href="../../Android/Android-Notification-Customizations/#background-data-silent-notifications">Background Data Documentation</a>.</td>
-</tr>
-<tr>
-<td align="right"><strong>template_id:</strong></td>
-<td align="left"><strong>String</strong> <em>Optional</em></td>
-</tr>
-<tr>
-<td align="right"></td>
-<td align="left">Use a template you setup on our dashboard. You can override the template values by sending other parameters with the request. The template_id is the UUID found in the URL when viewing a template on our dashboard. Example: <code>be4a8044-bbd6-11e4-a581-000c2940e62c</code></td>
+<td align="left">Array of device aliases setted by sdk in mobile app or web. Example: <br> <code>"aliases": ["own_id_device_1", "own_id_device_2", "own_id_device_3"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -563,166 +491,76 @@
 <ul>
 <li><a href="">200 OK</a></li>
 </ul>
-<pre><code class="JSON">{&quot;id&quot;: &quot;458dcec4-cf53-11e3-add2-000c2940e62c&quot;,
- &quot;recipients&quot;: 5}
-</code></pre>
-
-<h3 id="documentation">Documentation</h3>
-<p><strong>'REST API Key' Required</strong></p>
-<p>This method requires an application 'REST API Key' when using include_segments or tags.</p>
-<p>This method can be used to send push notifications to programmatically send notifications to users of your app.</p>
-<p>At least one targeting parameters must be specified. Some targeting parameters are not compatible with each other.</p>
-<p>Here are the groups of possible targeting parameters. If a targeting parameter from one group is used, then targeting parameters from other groups must not be used:</p>
-<p><strong>Segment Group</strong></p>
-<ul>
-<li>included_segments</li>
-<li>excluded_segments (Requires usage of included_segments)</li>
-</ul>
-<p><strong>Specific Users Group</strong></p>
-<ul>
-<li>include_player_ids</li>
-<li>include_ios_tokens</li>
-<li>include_android_reg_ids</li>
-<li>include_wp_urls</li>
-<li>include_amazon_reg_ids</li>
-<li>include_chrome_reg_ids</li>
-</ul>
-<p><strong>Tags group</strong></p>
-<ul>
-<li>tags</li>
-</ul>
-<p><strong>Need to send a notification to more than one app?</strong></p>
-<p>We also have an API method to send one notification to multiple Jeapie apps. If you'd like access to this feature, please contact support@jeapie.com</p>
-<h2 id="example-code">Example Code</h2>
-<p><code>Shell</code></p>
-<pre><code class="Shell">curl --include \
-     --request POST \
-     --header &quot;Content-Type: application/json&quot; \
-     --header &quot;Authorization: Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj&quot; \
-     --data-binary '{&quot;app_id&quot;: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;,
-&quot;contents&quot;: {&quot;en&quot;: &quot;English Message&quot;},
-&quot;isAndroid&quot;: true,
-&quot;isIos&quot;: true,
-&quot;included_segments&quot;: [&quot;All&quot;],
-&quot;send_after&quot;: &quot;Fri May 02 2014 00:00:00 GMT-0700 (PDT)&quot;}' \
-     https://jeapie.com/api/v1/notifications
-</code></pre>
-
-<p><code>PHP</code></p>
-<pre><code class="PHP">&lt;?PHP
-  function sendMessage(){
-    $content = array(
-      &quot;en&quot; =&gt; 'English Message'
-      );
-
-    $fields = array(
-      'app_id' =&gt; &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;,
-      'included_segments' =&gt; array('All'),
-      'send_after' =&gt; 'Fri May 02 2014 00:00:00 GMT-0700 (PDT)',
-      'data' =&gt; array(&quot;foo&quot; =&gt; &quot;bar&quot;),
-      'isAndroid' =&gt; true,
-      'contents' =&gt; $content
-    );
-
-    $fields = json_encode($fields);
-    print(&quot;\nJSON sent:\n&quot;);
-    print($fields);
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, &quot;https://gamethrive.com/api/v1/notifications&quot;);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json',
-                           'Authorization: Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj'));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_POST, TRUE);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    return $response;
-  }
-
-  $response = sendMessage();
-  $return[&quot;allresponses&quot;] = $response;
-  $return = json_encode( $return);
-
-  print(&quot;\n\nJSON received:\n&quot;);
-  print($return);
-  print(&quot;\n&quot;)
-?&gt;
-</code></pre>
-
-<p><code>C# (.NET)</code></p>
-<pre><code class="sharp">using System.IO;
-using System.Net;
-using System.Text;
-
-
-// NOTE: Remove isAndroid or isIos if you have only set-up one platform.
-
-var request = WebRequest.Create(&quot;https://gamethrive.com/api/v1/notifications&quot;) as HttpWebRequest;
-
-request.KeepAlive = true;
-request.Method = &quot;POST&quot;;
-request.ContentType = &quot;application/json&quot;;
-
-request.Headers.Add(&quot;authorization&quot;, &quot;Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj&quot;);
-
-byte[] byteArray = Encoding.UTF8.GetBytes(&quot;{&quot;
-                                        + &quot;\&quot;app_id\&quot;: \&quot;5eb5a37e-b458-11e3-ac11-000c2940e62c\&quot;,&quot;
-                                        + &quot;\&quot;contents\&quot;: {\&quot;en\&quot;: \&quot;English Message\&quot;},&quot;
-                                        + &quot;\&quot;included_segments\&quot;: [\&quot;All\&quot;],&quot;
-                                        + &quot;\&quot;isAndroid\&quot;: true,&quot;
-                                        + &quot;\&quot;isIos\&quot;: true,&quot;
-                                        + &quot;\&quot;send_after\&quot;: \&quot;Fri May 02 2015 00:00:00 GMT-0700 (PDT)\&quot;}&quot;);
-
-request.ContentLength = byteArray.Length;
-
-string responseContent = null;
-
-try {
-    using (var writer = request.GetRequestStream()) {
-        writer.Write(byteArray, 0, byteArray.Length);
-    }
-
-    using (var response = request.GetResponse() as HttpWebResponse) {
-        using (var reader = new StreamReader(response.GetResponseStream())) {
-            responseContent = reader.ReadToEnd();
-        }
-    }
-}
-catch (WebException ex) {
-    System.Diagnostics.Debug.WriteLine(ex.Message);
-    System.Diagnostics.Debug.WriteLine(new StreamReader(ex.Response.GetResponseStream()).ReadToEnd());
-}
-
-System.Diagnostics.Debug.WriteLine(responseContent);
-</code></pre>
-
-<p><strong>Platforms</strong></p>
-<p>Remove isAndroid or isIos if you have only set-up one platform.</p>
-<h2 id="example-json-request">Example JSON Request</h2>
 <pre><code class="JSON">{
-  &quot;app_id&quot;: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;,
-  &quot;included_segments&quot;: [&quot;All&quot;],
-  &quot;send_after&quot;: &quot;Fri May 02 2014 00:00:00 GMT-0700 (PDT)&quot;,
-  &quot;data&quot;: {&quot;foo&quot;: &quot;bar&quot;},
-  &quot;isAndroid&quot;:true,
-  &quot;contents&quot;: {&quot;en&quot;: &quot;English Message&quot;}
+    &quot;id&quot;:&quot;55704a589e31ab441e8b4569&quot;,
+    &quot;status&quot;:&quot;completed&quot;,
+    &quot;message&quot;:&quot;test&quot;,
+    &quot;extra_data&quot;:[],
+    &quot;platforms&quot;:&quot;Android&quot;,
+    &quot;badge&quot;:&quot;inc&quot;,
+    &quot;default_sound&quot;:&quot;1&quot;,
+    &quot;ttl&quot;:3600
 }
 </code></pre>
+
+<h2 id="examples-shell-code">Examples Shell Code</h2>
+<p>Send push to all platforms and all devices immediately:</p>
+<pre><code class="Shell">curl -X POST \
+     -H &quot;Content-Type: application/json&quot; \
+     -u &quot;APP_KEY:APP_SECRET&quot; \
+     --data '{
+        &quot;message&quot;: &quot;test&quot;,
+        &quot;audience&quot;: {
+            &quot;all&quot;: 1
+        }
+     }' \
+     https://jeapie.com/api/v2/push.json
+</code></pre>
+
+<p>Send push only on android with additional android params on aliases setted in mobile app:</p>
+<pre><code class="Shell">curl -X POST \
+     -H &quot;Content-Type: application/json&quot; \
+     -u &quot;APP_KEY:APP_SECRET&quot; \
+     --data '{
+        &quot;message&quot;: &quot;test&quot;,
+        &quot;platforms&quot;: [&quot;android&quot;],
+        &quot;android&quot;: {
+            &quot;header&quot;: &quot;title&quot;
+        },
+        &quot;audience&quot;: {
+            &quot;aliases&quot;: [&quot;some_id1&quot;, &quot;some_id2&quot;, &quot;email@example.com&quot;]
+        }
+     }' \
+     https://jeapie.com/api/v2/push.json
+</code></pre>
+
+<p>Send push to chrome and redirect to page after clicking on push</p>
+<pre><code class="Shell">curl -X POST \
+     -H &quot;Content-Type: application/json&quot; \
+     -u &quot;APP_KEY:APP_SECRET&quot; \
+     --data '{
+        &quot;message&quot;: &quot;Push message&quot;,
+        &quot;platforms&quot;: [&quot;chrome&quot;],
+        &quot;chrome&quot;: {
+            &quot;header&quot;: &quot;title message&quot;,
+            &quot;icon&quot;: &quot;http://example.com/icon.png&quot;,
+            &quot;redirect_url&quot;: &quot;/relative_url.html&quot;
+        },
+        &quot;audience&quot;: {
+            &quot;all&quot;: 1
+        }
+     }' \
+     https://jeapie.com/api/v2/push.json
+</code></pre>
+              
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../notifications-id-Cancel-notification/" class="btn btn-neutral float-right" title="delete/notifications/:id (Cancel notification)"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../notifications-id-Track-open/" class="btn btn-neutral" title="put/notifications/:id (Track open)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Server-API-Overview/" class="btn btn-neutral" title="Server API Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -747,15 +585,13 @@ System.Diagnostics.Debug.WriteLine(responseContent);
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../notifications-id-Track-open/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../notifications-id-Cancel-notification/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../Server-API-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
     </span>
 </div>
 
-<!--
-MkDocs version  : 0.12.2
-Docs Build Date : 2015-06-03 05:50:01.932444
--->
 </body>
 </html>

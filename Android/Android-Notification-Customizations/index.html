@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Android/Android-Notification-Customizations"
+  </script>
+  
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../../js/highlight.pack.js"></script>
@@ -33,144 +39,153 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li class="toctree-l1 ">
-                <a class="" href="../..">Home</a>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../Getting-Started/">Getting Started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Android</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Native-SDK-Overview/">Android Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Android-Native-SDK-API/">Android Native SDK API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Android Notification Customizations</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#android-notification-customizations">Android Notification Customizations</a></li>
                 
-            </li>
-        
-
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../Getting-Started/">Getting Started</a>
+                    <li><a class="toctree-l4" href="#highly-recommend-following-at-least-our-small-notification-icon-instructions">Highly recommend following at least our Small Notification Icon instructions.</a></li>
                 
-            </li>
+                    <li><a class="toctree-l4" href="#small-notification-icon">Small Notification Icon</a></li>
+                
+                    <li><a class="toctree-l4" href="#large-notification-icon">Large Notification Icon</a></li>
+                
+                    <li><a class="toctree-l4" href="#big-picture">Big Picture</a></li>
+                
+                    <li><a class="toctree-l4" href="#notification-sounds">Notification Sounds</a></li>
+                
+                    <li><a class="toctree-l4" href="#background-data-silent-notifications">Background Data (Silent Notifications)</a></li>
+                
+                    <li><a class="toctree-l4" href="#example-project">Example Project</a></li>
+                
+            
+            </ul>
         
+    </li>
 
-    
         
-            <span>Android</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Native-SDK-Overview/">Android Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Native-SDK-Installation/">Android Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Android-Native-SDK-API/">Android Native SDK API</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 current">
-                    <a class="current" href="./">Android Notification Customizations</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l3"><a href="#android-notification-customizations">Android Notification Customizations</a></li>
-                            
-                                <li><a class="toctree-l4" href="#highly-recommend-following-at-least-our-small-notification-icon-instructions">Highly recommend following at least our Small Notification Icon instructions.</a></li>
-                            
-                                <li><a class="toctree-l4" href="#small-notification-icon">Small Notification Icon</a></li>
-                            
-                                <li><a class="toctree-l4" href="#large-notification-icon">Large Notification Icon</a></li>
-                            
-                                <li><a class="toctree-l4" href="#big-picture">Big Picture</a></li>
-                            
-                                <li><a class="toctree-l4" href="#notification-sounds">Notification Sounds</a></li>
-                            
-                                <li><a class="toctree-l4" href="#background-data-silent-notifications">Background Data (Silent Notifications)</a></li>
-                            
-                                <li><a class="toctree-l4" href="#example-project">Example Project</a></li>
-                            
-                        
-                        </ul>
-                    
-                </li>
-            
-        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Website sdk</span></li>
 
-    
         
-            <span>Website sdk</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
         
+    </li>
 
-    
         
-            <span>SERVER API</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
         
+    </li>
 
-    
-</ul>
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+        
+    </li>
 
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>SERVER API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/notifications-Create-Notification/">Send Push Notification</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -191,19 +206,22 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        <li>Android &raquo;</li>
+        
+          <li>Android &raquo;</li>
+        
       
     
     <li>Android Notification Customizations</li>
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="android-notification-customizations">Android Notification Customizations</h1>
+              
+                <h1 id="android-notification-customizations">Android Notification Customizations</h1>
 <h6 id="highly-recommend-following-at-least-our-small-notification-icon-instructions">Highly recommend following at least our Small Notification Icon instructions.</h6>
 <h2 id="small-notification-icon">Small Notification Icon</h2>
 <p>Our SDK automatically by default uses your App's launcher icon but we highly recommend following our instructions to create custom ones for the following reasons:</p>
@@ -290,6 +308,7 @@ public class JeapieBroadcastReceiver extends BroadcastReceiver {
 <p><strong>7.</strong> Set android_background_data to true when sending a notification from our REST API so the BroadcastReceiver fires.</p>
 <h2 id="example-project">Example Project</h2>
 <p>We have an example project with a custom sound, small icon, large icon, and a background data BroadcastReceiver <a href="https://github.com/one-signal/Jeapie-Android-SDK/tree/master/JeapieExample">you can look at for reference</a>.</p>
+              
             </div>
           </div>
           <footer>
@@ -324,15 +343,15 @@ public class JeapieBroadcastReceiver extends BroadcastReceiver {
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../Android-Native-SDK-API/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../../Websdk/Website-SDK-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../Android-Native-SDK-API/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../Websdk/Website-SDK-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
 
-<!--
-MkDocs version  : 0.12.2
-Docs Build Date : 2015-06-03 05:50:01.773903
--->
 </body>
 </html>

@@ -92,24 +92,8 @@
                 
                     <li><a class="toctree-l4" href="#first-you-will-need-to-import-the-required-libraries">First, you will need to import the required libraries.</a></li>
                 
-                    <li><a class="toctree-l4" href="#next-you-will-need-to-add-code-to-handle-push-notifications">Next, you will need to add code to handle push notifications.</a></li>
-                
             
             </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Android-Native-SDK-API/">Android Native SDK API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Android-Notification-Customizations/">Android Notification Customizations</a>
         
     </li>
 
@@ -215,121 +199,105 @@
 <h2 id="first-you-will-need-to-import-the-required-libraries">First, you will need to import the required libraries.</h2>
 <p><strong>'Google Play services' &amp; 'Android Support Library'</strong></p>
 <p>Jeapie requires Google Play services(google-play-services_lib) and Android Support Library v4(android-support-v4.jar). android-support-v13.jar can be used instead if your project already requires it.</p>
-<p><strong>1.</strong> Download the latest <a href="https://github.com/jeapie/Jeapie-Android-SDK/releases">Jeapie Android SDK</a>.</p>
-<p><strong>2.</strong> Copy google-play-services_lib from <android-sdk>\extras\google\google_play_services\libproject\ to anywhere else but the Eclipse workspace folder. Also make the file <android-sdk>\extras\android\support\v4\android-support-v4.jar exists as you will need to copy it to your libs folder in the steps below. If your missing either one run the Android SDK Manager and install them from the Extras section.</p>
-<p>"SDK Path:" is shown on this window, replace <android-sdk> with your path in the steps.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/ET4EcqZSwGZbmwtMP5Oa" title="Logo Title Text 1" /></p>
-<p><strong>3.</strong> Import google-play-services_lib project into your workspace. Go to File&gt;Import and then go to Android&gt;Existing Android Code into Workspace.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/AxdWvBhiQcqS7OVxoAls" title="Logo Title Text 1" /></p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/2UdSTpQyKKT2Ewjkhrog" title="Logo Title Text 1" /></p>
-<p><strong>4.</strong> Right click on your project and go to Properties. On the left Select Android and then press the "Add..." button in Library section. Pick the google-play-services_lib.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/yIO43Y7UQIewwDOOymuV" title="Logo Title Text 1" /></p>
-<p><strong>5.</strong> Next place Jeapiesdk.jar and android-support-v4.jar into your project's libs</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/CBTKnrPRRx8AXRrosDrJ" title="Logo Title Text 1" /></p>
-<p><strong>6.</strong> Right click on your project to go Properties and select "Java Build Path" on the left. Next click on the "Order and Export" tab and make sure "Android Dependencies" is checked.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/W3DIMM3QTeW4SkoIb5jI" title="Logo Title Text 1" /></p>
-<h2 id="next-you-will-need-to-add-code-to-handle-push-notifications">Next, you will need to add code to handle push notifications.</h2>
-<p><strong>1.</strong> Import Jeapie.</p>
-<pre><code class="Java">import com.Jeapie.Jeapie;
-import com.Jeapie.Jeapie.NotificationOpenedHandler;
-</code></pre>
+<p><strong>1.</strong> Download the latest <a href="https://github.com/Jeapie/jeapie-android">Jeapie Android SDK</a>.</p>
+<p><strong>2.</strong> Copy *.aar file into lib folder android project.</p>
+<p><strong>3.</strong> Config gradle. Set *.aar <code>sdk filename</code> and <code>play-services</code>.</p>
+<pre><code class="gradle">dependencies {
+    compile(name:'jeapie-sdk-x.x.x', ext:'aar')
+    compile 'com.google.android.gms:play-services:6.5.87'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.0.0'
+}
 
-<p><strong>2.</strong> Add the following to the onCreate method on your main activity. Update with your Google Project number and Jeapie app id.</p>
-<pre><code class="Java">// Pass in your app's Context, Google Project number, your Jeapie App ID, and NotificationOpenedHandler
-Jeapie.init(this, &quot;703322744261&quot;, &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;, new ExampleNotificationOpenedHandler());
-</code></pre>
-
-<p><strong>3.</strong> Add the following private class in your activity. (or in its own class file).</p>
-<pre><code class="Java">// NotificationOpenedHandler is implemented in its own class instead of adding implements to MainActivity so we don't hold on to a reference of our first activity if it gets recreated.
-private class ExampleNotificationOpenedHandler implements NotificationOpenedHandler {
-  /**
-   * Callback to implement in your app to handle when a notification is opened from the Android status bar or
-   * a new one comes in while the app is running.
-   * This method is located in this activity as an example, you may have any class you wish implement NotificationOpenedHandler and define this method.
-   *
-   * @param message        The message string the user seen/should see in the Android status bar.
-   * @param additionalData The additionalData key value pair section you entered in on jeapie.com.
-   * @param isActive       Was the app in the foreground when the notification was received.
-   */
-  @Override
-  public void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
-    String messageTitle = &quot;Jeapie Example&quot;, messageBody = message;
-
-    try {
-      if (additionalData != null) {
-        if (additionalData.has(&quot;title&quot;))
-          messageTitle = additionalData.getString(&quot;title&quot;);
-        if (additionalData.has(&quot;actionSelected&quot;))
-          messageBody += &quot;\nPressed ButtonID: &quot; + additionalData.getString(&quot;actionSelected&quot;);
-
-        messageBody = message + &quot;\n\nFull additionalData:\n&quot; + additionalData.toString();
-      }
-    } catch (JSONException e) {
+repositories{
+    flatDir{
+        dirs 'libs'
     }
-
-    new AlertDialog.Builder(MainActivity.currentActivity)
-                   .setTitle(messageTitle)
-                   .setMessage(messageBody)
-                   .setCancelable(true)
-                   .setPositiveButton(&quot;OK&quot;, null)
-                   .create().show();
-  }
 }
 </code></pre>
 
-<p><strong>4.</strong> Add the following onPause and onResume methods to all your Activities. This is recommend so just the notificationOpened method is called instead of getting a notification when the user is already in your app.</p>
-<pre><code class="Java">@Override
-protected void onPause() {
-    super.onPause();
-    Jeapie.onPaused();
-}
-@Override
-protected void onResume() {
-    super.onResume();
-    Jeapie.onResumed();
-}
+<p><strong>4.</strong> Paste permissions in Android project <code>Manifest</code>.</p>
+<p>Replace <code>{APP_PACKAGE}</code> to your own package.</p>
+<pre><code class="xml">    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.GET_ACCOUNTS&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot;/&gt;
+    &lt;uses-permission android:name=&quot;com.google.android.c2dm.permission.RECEIVE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot;/&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
+    &lt;uses-permission android:name=&quot;com.google.android.providers.gsf.permission.READ_GSERVICES&quot;/&gt;
+
+    &lt;permission
+            android:name=&quot;{APP_PACKAGE}.permission.C2D_MESSAGE&quot;
+            android:protectionLevel=&quot;signature&quot;/&gt;
+
+    &lt;uses-permission android:name=&quot;{APP_PACKAGE}.permission.C2D_MESSAGE&quot;/&gt;
+
 </code></pre>
 
-<p><strong>5.</strong> Add the following permissions to AndroidManifest.xml.</p>
-<pre><code class="XML">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
-&lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot; /&gt;
-&lt;uses-permission android:name=&quot;com.google.android.c2dm.permission.RECEIVE&quot; /&gt;
-&lt;permission android:name=&quot;COM.YOUR.PACKAGE_NAME.permission.C2D_MESSAGE&quot; android:protectionLevel=&quot;signature&quot; /&gt;
-&lt;uses-permission android:name=&quot;COM.YOUR.PACKAGE_NAME.permission.C2D_MESSAGE&quot; /&gt;
-</code></pre>
+<p><strong>5.</strong> Paste configs in Anroid project <code>Manifest</code>. </p>
+<p>And replace <code>{APP_SECRET}</code> and <code>{APP_KEY}</code> to your own keys from Jeapie dashboard.
+<img alt="Rest api keys" src="../../img/00000206.png" /></p>
+<p>And <code>A{PROJECT_ID}</code> to project number from Google Console.<br>
+Look <a href="../Android-Generating-a-GCM-Push-Notification-Key/#step-1-create-a-google-project-and-save-the-project-number">How to get project number</a></p>
+<pre><code class="xml">&lt;application ....&gt;
+        &lt;meta-data
+            android:name=&quot;com.jeapie.key&quot;
+            android:value=&quot;{APP_KEY}&quot;/&gt;
 
-<p><strong>6.</strong> In the application tag add the following.</p>
-<pre><code class="XML">&lt;application ....&gt;
-    &lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
-           android:value=&quot;@integer/google_play_services_version&quot; /&gt;
-        &lt;activity android:name=&quot;com.Jeapie.NotificationOpenedActivity&quot;/&gt;
-        &lt;receiver
-         android:name=&quot;com.Jeapie.GcmBroadcastReceiver&quot;
-         android:permission=&quot;com.google.android.c2dm.permission.SEND&quot; &gt;
+        &lt;meta-data
+            android:name=&quot;com.jeapie.secret&quot;
+            android:value=&quot;{APP_SECRET}&quot;/&gt;
+
+        &lt;meta-data
+            android:name=&quot;project_number&quot;
+            android:value=&quot;A{PROJECT_ID}&quot;/&gt;
+
+
+        &lt;receiver android:name=&quot;com.jeapieLib.reciever.GCMReceiver&quot;&gt;
             &lt;intent-filter&gt;
-                &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; /&gt;
-                &lt;category android:name=&quot;COM.YOUR.PACKAGE_NAME&quot; /&gt;
+                &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot;/&gt;
+                &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot;/&gt;
+                &lt;category android:name=&quot;com.jeapieApp&quot;/&gt;
             &lt;/intent-filter&gt;
         &lt;/receiver&gt;
-        &lt;service android:name=&quot;com.Jeapie.GcmIntentService&quot; /&gt;
+
+        &lt;receiver android:name=&quot;com.jeapieLib.reciever.GCMReceiver&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot;/&gt;
+                &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot;/&gt;
+                &lt;category android:name=&quot;com.jeapieApp&quot;/&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+
+        &lt;receiver android:name=&quot;com.jeapieLib.reciever.InternetConnectionReceiver&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.net.conn.CONNECTIVITY_CHANGE&quot;/&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+
+        &lt;service android:name=&quot;com.jeapieLib.service.EventsSenderService&quot;/&gt;
+
+        &lt;service android:name=&quot;com.jeapieLib.service.LocationTrackingService&quot;/&gt;
+
 &lt;/application&gt;
 </code></pre>
 
-<p><strong>7.</strong> Replace all 3 of instances <code>COM.YOUR.PACKAGE_NAME</code> with your package name in AndroidManifest.xml.</p>
-<p><strong>Proguard</strong></p>
-<p>If you have proguard enabled on your project you must add the following line to your proguard config file. (Default name is proguard-project.txt).</p>
-<ul>
-<li><code>-dontwarn com.Jeapie.**</code></li>
-<li><code>-dontwarn com.gamethrive.**</code></li>
-</ul>
-<p><strong>That is it for the Eclipse setup!</strong></p>
-<p>The Android emulator doesn't support push notifications so you must test on a device. If you haven't done so already, make sure your <a href="../Android-Generating-a-GCM-Push-Notification-Key/">Google API key</a> is configured in Jeapie so you can send notifications out.</p>
-<p><strong>Additional Documentation</strong></p>
-<ul>
-<li>Highly recommend following at least our <a href="../Android-Notification-Customizations/">Small Notification Icon</a> instructions to make sure your notification icon displays correctly.</li>
-<li>To see all available methods, see our <a href="../Android-Native-SDK-API/">Android SDK API Documentation</a>.</li>
-</ul>
+<p><strong>6.</strong> Paste in Launch Activity</p>
+<pre><code class="java">JeapieAPI.init(getApplicationContext());
+
+
+//tracking push opening
+Bundle bundle = getIntent().getExtras();
+JeapieAPI.getInstance().trackPushOpen(bundle);
+</code></pre>
+
+<p><strong>7.</strong> Now you can use jeapie sdk methods</p>
+<!--* To see all available methods, see our [Android SDK API Documentation](Android-Native-SDK-API.md).-->
               
             </div>
           </div>
@@ -337,7 +305,7 @@ protected void onResume() {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Android-Native-SDK-API/" class="btn btn-neutral float-right" title="Android Native SDK API"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Websdk/Website-SDK-Overview/" class="btn btn-neutral float-right" title="Website SDK Overview"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../Android-Generating-a-GCM-Push-Notification-Key/" class="btn btn-neutral" title="Android - Generating a GCM Push Notification Key"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -370,7 +338,7 @@ protected void onResume() {
         <span><a href="../Android-Generating-a-GCM-Push-Notification-Key/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Android-Native-SDK-API/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Websdk/Website-SDK-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

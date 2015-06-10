@@ -90,8 +90,6 @@
             
                 <li class="toctree-l3"><a href="#android-native-sdk-installation">Android Native SDK Installation</a></li>
                 
-                    <li><a class="toctree-l4" href="#first-you-will-need-to-import-the-required-libraries">First, you will need to import the required libraries.</a></li>
-                
             
             </ul>
         
@@ -196,7 +194,6 @@
             <div class="section">
               
                 <h1 id="android-native-sdk-installation">Android Native SDK Installation</h1>
-<h2 id="first-you-will-need-to-import-the-required-libraries">First, you will need to import the required libraries.</h2>
 <p><strong>'Google Play services' &amp; 'Android Support Library'</strong></p>
 <p>Jeapie requires Google Play services(google-play-services_lib) and Android Support Library v4(android-support-v4.jar). android-support-v13.jar can be used instead if your project already requires it.</p>
 <p><strong>1.</strong> Download the latest <a href="https://github.com/Jeapie/jeapie-android">Jeapie Android SDK</a>.</p>
@@ -244,6 +241,12 @@ repositories{
 <img alt="Rest api keys" src="../../img/00000206.png" /></p>
 <p>And <code>A{PROJECT_ID}</code> to project number from Google Console.<br>
 Look <a href="../Android-Generating-a-GCM-Push-Notification-Key/#step-1-create-a-google-project-and-save-the-project-number">How to get project number</a></p>
+<div class="admonition note">
+<p class="first admonition-title"><span class="highlighted">Note</span></p>
+<p class="last">{PROJECT_NUMBER} value is a number but make sure you prefix it with the letter <b>“A”</b> as in the example above.
+Example: "A1111111111"</p>
+</div>
+
 <pre><code class="xml">&lt;application ....&gt;
         &lt;meta-data
             android:name=&quot;com.jeapie.key&quot;
@@ -255,7 +258,7 @@ Look <a href="../Android-Generating-a-GCM-Push-Notification-Key/#step-1-create-a
 
         &lt;meta-data
             android:name=&quot;project_number&quot;
-            android:value=&quot;A{PROJECT_ID}&quot;/&gt;
+            android:value=&quot;A{PROJECT_NUMBER}&quot;/&gt;
 
 
         &lt;receiver android:name=&quot;com.jeapieLib.reciever.GCMReceiver&quot;&gt;

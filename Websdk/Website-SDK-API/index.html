@@ -128,11 +128,7 @@
                 
                     <li><a class="toctree-l4" href="#list-of-functions">List of Functions</a></li>
                 
-                    <li><a class="toctree-l4" href="#list-of-callbacks">List of Callbacks</a></li>
-                
                     <li><a class="toctree-l4" href="#functions">Functions</a></li>
-                
-                    <li><a class="toctree-l4" href="#callbacks">Callbacks</a></li>
                 
             
             </ul>
@@ -203,39 +199,22 @@
               
                 <h1 id="website-sdk-api">Website SDK API</h1>
 <p><strong>JavaScript Async</strong></p>
-<p>Jeapie supports loading the JeapieSDK.js file with the async flag so your page load times will not increase. The example assume you have the following defined before calling Jeapie functions:</p>
-<pre><code class="HTML">&lt;script src=&quot;https://cdn.jeapie.com/sdks/JeapieSDK.js&quot; async&gt;&lt;/script&gt;
+<p>The example assume you have the following defined before calling Jeapie functions:</p>
+<pre><code class="HTML">&lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/webpush.js&quot; &gt;&lt;/script&gt;
 &lt;script&gt;var Jeapie = Jeapie || [];&lt;/script&gt;
 </code></pre>
 
-<p>You have the option of calling most functions by using one of the two following methods:</p>
-<ol>
-<li>Jeapie.push(["functionName", param1, param2]);</li>
-<li>Jeapie.push(function() { Jeapie.functionName(param1, param2); });</li>
-</ol>
-<p>Option 2 must be used for functions that return a value like isPushNotificationsSupported. Option 2 also lets you call as many Jeapie functions as you need inside the passed in function.</p>
 <h2 id="list-of-functions">List of Functions</h2>
 <ul>
 <li><a href="#init">init</a></li>
-<li><a href="#registerforpushnotifications">registerForPushNotifications</a></li>
-<li><a href="#setdefaultnotificationurl">setDefaultNotificationUrl</a></li>
-<li><a href="#setdefaultscon">setDefaultIcon</a></li>
-<li><a href="#setdefaulttitle">setDefaultTitle</a></li>
-<li><a href="#sendtag">sendTag</a></li>
-<li><a href="#sendtags">sendTags</a></li>
-<li><a href="#gettags">getTags</a></li>
-<li><a href="#deletetag">deleteTag</a></li>
-<li><a href="#deletetags">deleteTags</a></li>
-<li><a href="#ispushnotificationssupported">isPushNotificationsSupported</a></li>
-<li><a href="#ispushnotificationsenabled">isPushNotificationsEnabled</a></li>
-<li><a href="#getidsavailable">getIdsAvailable</a></li>
-<li><a href="#addlistenerfornotificationopened">addListenerForNotificationOpened</a></li>
-</ul>
-<h2 id="list-of-callbacks">List of Callbacks</h2>
-<ul>
-<li><a href="#tagsreceivedcallback">tagsReceivedCallBack</a></li>
-<li><a href="#idsavailablecallback">idsAvailableCallBack</a></li>
-<li><a href="#notificationopenedcallback">notificationOpenedCallBack</a></li>
+<li><a href="#registeruserforpush">registerUserForPush</a></li>
+<li><a href="#addtag">addTag</a></li>
+<li><a href="#settags">setTags</a></li>
+<li><a href="#removetag">removeTag</a></li>
+<li><a href="#removealltags">removeAllTags</a></li>
+<li><a href="#setalias">setAlias</a></li>
+<li><a href="#ispushmanagersupported">isPushManagerSupported</a></li>
+<li><a href="#getsubscription">getSubscription</a></li>
 </ul>
 <h2 id="functions">Functions</h2>
 <h5 id="init"><strong>init</strong></h5>
@@ -244,201 +223,82 @@
 <li><strong>Parameters</strong></li>
 <li><strong><code>JSON</code></strong> <strong><em>options</em></strong></li>
 <li><strong><code>String</code></strong> <strong><em>appId </em></strong>- Your Jeapie app id found on the settings page at jeapie.com.</li>
-<li><strong><code>Boolean</code></strong> <strong><em>autoRegister(Optional)</em></strong> -Default true. Automatically show browser prompt to accept notifications. You can pass in false to delay this pop-up and then call <code>registerForPushNotifications</code> to prompt them later.</li>
+<li><strong><code>Boolean</code></strong> <strong><em>autoRegister(Optional)</em></strong> - Automatically show browser prompt to accept notifications. You can pass in false to delay this pop-up and then call <code>registerUserForPush</code> to prompt them later.</li>
+<li><strong><code>Boolean</code></strong> <strong><em>createButton(Optional)</em></strong> - It creates a default button that, when clicked, the user sees a window for receipt of the notifications</li>
+<li><strong><code>Boolean</code></strong> <strong><em>subdomainName(Required for HTTP sites)</em></strong> </li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">// Jeapie is defined as an array here and uses push calls to support JeapieSDK.js being loaded async.
+<pre><code class="javascript">
 var Jeapie = Jeapie || [];
 
-Jeapie.push([&quot;init&quot;, {appId: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;}]);
+Jeapie.init(&quot;appId&quot;: &quot;271068d07a4c419cd2d9fe7cd58dacd8&quot;);
 </code></pre>
 
-<h5 id="registerforpushnotifications"><strong>registerForPushNotifications</strong></h5>
+<h5 id="registeruserforpush"><strong>registerUserForPush</strong></h5>
 <p>Call when you want to prompt the user to accept push notifications. Only call if you set false to <code>autoRegister:</code> when calling init.</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;registerForPushNotifications&quot;]);
+<pre><code class="javascript">Jeapie.registerUserForPush(callback);
 </code></pre>
 
-<h5 id="setdefaultnotificationurl"><strong>setDefaultNotificationUrl</strong></h5>
-<p>Pass in the full URL of the default page you want to open when a notification is clicked.</p>
+<h5 id="addtag"><strong>addTag</strong></h5>
+<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users. Recommend using setTags over addTag if you need to set more than one tag on a user at a time.</p>
 <ul>
 <li><strong>Parameters</strong></li>
-<li><strong><code>String</code></strong> <strong><em>url</em></strong> - page url to open from notifications</li>
+<li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;setDefaultNotificationUrl&quot;, &quot;https://domain.com/index2&quot;]);
+<pre><code class="javascript">Jeapie.addTag(&quot;value&quot;);
 </code></pre>
 
-<h5 id="setdefaulticon"><strong>setDefaultIcon</strong></h5>
-<p>Pass the URL of the default icon you want to show to the left of the notification text. Highly recommend setting one otherwise there will just be a blank box to the left of the notification text.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>String</code></strong> <strong><em>url</em></strong> - icon url to show on notifications</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;setDefaultIcon&quot;, &quot;images/Jeapie_icon.png&quot;]);
-</code></pre>
-
-<h5 id="setdefaulttitle"><strong>setDefaultTitle</strong></h5>
-<p>Sets the default title to display on notifications. Will default to the page's <code>document.title</code> if you don't call this.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>String</code></strong> <strong><em>title</em></strong> - String to set as a default title on notifications</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;setDefaultTitle&quot;, &quot;Custom Default Title&quot;]);
-</code></pre>
-
-<h5 id="sendtag"><strong>sendTag</strong></h5>
-<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users. Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>string</code></strong> <strong><em>key</em></strong> - Key of your choosing to create or update.</li>
-<li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set on the key.</li>
-<li><em>NOTE</em>: Passing in a blank String deletes the key, you can also call deleteTag.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;sendTag&quot;, &quot;key&quot;, &quot;value&quot;]);
-</code></pre>
-
-<h5 id="sendtags"><strong>sendTags</strong></h5>
+<h5 id="settags"><strong>setTags</strong></h5>
 <p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users.</p>
 <ul>
 <li><strong>Parameters</strong></li>
-<li><strong><code>JSON</code></strong> <strong><em>keyValues</em></strong> - Key value pairs of your choosing to create or update.</li>
-<li><em>NOTE</em>: Passing in a blank String as a value deletes the key, you can also call deleteTag or deleteTags.</li>
+<li><strong><code>JSON</code></strong> <strong><em>values</em></strong> - Values of your choosing to create.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;sendTags&quot;, {key2: &quot;value2&quot;, key3: &quot;value3&quot;}]);
+<pre><code class="javascript">Jeapie.setTags({&quot;value1&quot;, &quot;value2&quot;});
 </code></pre>
 
-<h5 id="gettags"><strong>getTags</strong></h5>
-<p>Retrieve a list of tags that have been set on the user from the Jeapie server.</p>
+<h5 id="removetag"><strong>removeTag</strong></h5>
+<p>Deletes a tag that was previously set on a user with <code>addTag</code> or <code>setTags</code>. Use <code>removeAllTags</code> if you need to delete all of them.</p>
 <ul>
 <li><strong>Parameters</strong></li>
-<li><strong><code>function</code></strong> <strong><em>tagsReceivedCallBack</em></strong> - Passed in function which will receive one parameter containing JSON.</li>
+<li><strong><code>String</code></strong> <strong><em>value</em></strong> - Value to remove.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;getTags&quot;, function(tags) {
-    console.log(&quot;Jeapie getTags:&quot;);
-    console.log(tags);
-  }]);
+<pre><code class="javascript">Jeapie.removeTag(&quot;value&quot;);
 </code></pre>
 
-<h5 id="deletetag"><strong>deleteTag</strong></h5>
-<p>Deletes a tag that was previously set on a user with <code>sendTag</code> or <code>sendTags</code>. Use <code>deleteTags</code> if you need to delete more than one.</p>
+<h5 id="removealltags"><strong>removeAllTags</strong></h5>
+<p>Deletes all tags that were previously set on a user with <code>addTag</code> or <code>setTags</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.removeAllTags();
+</code></pre>
+
+<h5 id="setalias"><strong>setAlias</strong></h5>
+<p>Set a unique value for each user <a href="https://jeapie.com">jeapie.com</a> to target these users. </p>
 <ul>
 <li><strong>Parameters</strong></li>
-<li><strong><code>String</code></strong> <strong><em>key</em></strong> - Key to remove.</li>
+<li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push(&quot;deleteTag&quot;, &quot;key&quot;]);
+<pre><code class="javascript">Jeapie.setAlias(&quot;value&quot;);
 </code></pre>
 
-<h5 id="deletetags"><strong>deleteTags</strong></h5>
-<p>Deletes tags that were previously set on a user with <code>sendTag</code> or <code>sendTags</code>.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>Array</code></strong> <strong><em>keys</em></strong> - Keys to remove.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;deleteTags&quot;, [&quot;key1&quot;, &quot;key2&quot;]]);
-</code></pre>
-
-<h5 id="ispushnotificationsenabled"><strong>isPushNotificationsEnabled</strong></h5>
-<p>Passes true to the passed in callback if the user has already accepted push notifications and successfully registered with Google's GCM server and Jeapie's server. Callback should fire within 1 second so you can change your page to reflect if notifications are enabled or not.</p>
-<p>Use <a href="#getidsavailable">getIdsAvailable</a> you if want to only to run code after/if the user accepts push notifications and registers successfully.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>function</code></strong> <strong><em>isPushNotificationsEnabledCallBack</em></strong> - Passed in function which will receive one boolean parameter if they are enabled or not.</li>
-</ul>
-<pre><code class="javascript">Jeapie.push([&quot;isPushNotificationsEnabled&quot;, function(enabled) {
-  if (enabled)
-    alert(&quot;Push notifications are enabled!&quot;);
-  else
-    alert(&quot;Push notificaitons are not enable yet.&quot;);
-}]);
-</code></pre>
-
-<h5 id="ispushnotificationssupported"><strong>isPushNotificationsSupported</strong></h5>
+<h5 id="ispushmanagersupported"><strong>isPushManagerSupported</strong></h5>
 <p>Returns true if the current browser viewing the page supports push notifications.</p>
-<pre><code class="javascript">Jeapie.push(function() {
-  if (Jeapie.isPushNotificationsSupported())
-    alert(&quot;Push notifications are supported, please allow the permission to enable them&quot;);
+<pre><code class="javascript">Jeapie.isPushManagerSupported();
+</code></pre>
+
+<h5 id="getsubscription"><strong>getSubscription</strong></h5>
+<p>Lets you retrieve the Google Registration ID. Your handler is called after the device is successfully registered with Jeapie.</p>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">Jeapie.getSubscription(function (subscriptionId) {
+    if (subscriptionId) {
+        console.log(subscriptionId);
+    }
 });
-</code></pre>
-
-<h5 id="getidsavailable"><strong>getIdsAvailable</strong></h5>
-<p>Lets you retrieve the Jeapie User ID and the Google Registration ID. Your handler is called after the device is successfully registered with Jeapie.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>function</code></strong> <strong><em>idsAvailableCallBack</em></strong> - Passed in function which will receive one parameter containing JSON with userId and registrationId.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;getIdsAvailable&quot;, function(ids) {
-  console.log(&quot;getIdsAvailable:&quot;
-          + &quot;\nUserID: &quot; + ids.userId
-          + &quot;\nRegistration ID: &quot; + ids.registrationId);
-}]);
-</code></pre>
-
-<h5 id="addlistenerfornotificationopened"><strong>addListenerForNotificationOpened</strong></h5>
-<p>Passed in callback that fires when the user clicks on a Jeapie notification.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>function</code></strong> <strong><em>notificationOpenedCallBack</em></strong> - Passed in function which will receive one parameter containing JSON with data about the notification that was clicked.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;addListenerForNotificationOpened&quot;, function(data) {
-  console.log(&quot;Received NotificationOpened:&quot;);
-  console.log(data);
-}]);
-</code></pre>
-
-<h2 id="callbacks">Callbacks</h2>
-<h5 id="tagsreceivedcallback"><strong>tagsReceivedCallBack</strong></h5>
-<p>Gets all the tags set on a user from jeapie.com.</p>
-<ul>
-<li><strong>Parameters</strong></li>
-<li><strong><code>JSON</code></strong> <strong><em>tags</em></strong> - JSON object of key value pairs retrieved from the Jeapie server.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;getTags&quot;, function(tags) {
-    console.log(&quot;Jeapie getTags:&quot;);
-    console.log(tags);
-  }]);
-</code></pre>
-
-<h5 id="idsavailablecallback"><strong>idsAvailableCallBack</strong></h5>
-<p>Get the Jeapie userId and the Google Registration ID.</p>
-<ul>
-<li><strong>JSON</strong></li>
-<li><strong><code>String</code></strong> <strong><em>userId</em></strong> - Jeapie userId is a UUID formatted string.(unique to a Chrome user per device per app)</li>
-<li><strong><code>String</code></strong> <strong><em>registrationId</em></strong> - Google assigned identifier(<em>unique to a Chrome user per device per app and changes on every reinstall</em>).</li>
-<li><em>NOTE</em>: Might be blank if there was a connection issue.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;getIdsAvailable&quot;, function(ids) {
-  console.log(&quot;getIdsAvailable:&quot;
-          + &quot;\nUserID: &quot; + ids.userId
-          + &quot;\nRegistration ID: &quot; + ids.registrationId);
-  }]);
-</code></pre>
-
-<h5 id="notificationopenedcallback"><strong>notificationOpenedCallBack</strong></h5>
-<p>Function that gets called when a Jeapie notification is opened. Function will receive one parameter with JSON about the notification.</p>
-<ul>
-<li><strong>JSON</strong></li>
-<li><strong><code>String</code></strong> <strong><em>title</em></strong> - Title set on the notification.</li>
-<li><strong><code>String</code></strong> <strong><em>message</em></strong> - The message text the user seen in the notification.</li>
-<li><strong><code>String</code></strong> <strong><em>icon</em></strong> - Icon set on the notification.</li>
-<li><strong><code>JSON</code></strong> <strong><em>additionalData</em></strong> - Key value pairs that were set on the notification.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;addListenerForNotificationOpened&quot;, function(data) {
-  console.log(&quot;Received NotificationOpened:&quot;);
-  console.log(data);
-}]);
 </code></pre>
               
             </div>

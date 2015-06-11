@@ -222,16 +222,17 @@
 <ul>
 <li><strong>Parameters</strong></li>
 <li><strong><code>JSON</code></strong> <strong><em>options</em></strong></li>
-<li><strong><code>String</code></strong> <strong><em>appId </em></strong>- Your Jeapie app id found on the settings page at jeapie.com.</li>
+<li><strong><code>String</code></strong> <strong><em>appKey(Required) </em></strong>- Your Jeapie app id found on the settings page at jeapie.com.</li>
 <li><strong><code>Boolean</code></strong> <strong><em>autoRegister(Optional)</em></strong> - Automatically show browser prompt to accept notifications. You can pass in false to delay this pop-up and then call <code>registerUserForPush</code> to prompt them later.</li>
 <li><strong><code>Boolean</code></strong> <strong><em>createButton(Optional)</em></strong> - It creates a default button that, when clicked, the user sees a window for receipt of the notifications</li>
 <li><strong><code>Boolean</code></strong> <strong><em>subdomainName(Required for HTTP sites)</em></strong> </li>
+<li><strong><code>String</code></strong> <strong><em>tooltipText(Optional, use only with createButton)</em></strong> - Default <code>Подпишитесь на наши обновления в один клик!</code>. Set text will shown users on deafult button. </li>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="javascript">
 var Jeapie = Jeapie || [];
 
-Jeapie.init(&quot;appId&quot;: &quot;271068d07a4c419cd2d9fe7cd58dacd8&quot;);
+Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 </code></pre>
 
 <h5 id="registeruserforpush"><strong>registerUserForPush</strong></h5>

@@ -206,7 +206,7 @@
               
                 <h1 id="website-sdk-api">Website SDK API</h1>
 <p><strong>JavaScript Async</strong></p>
-<p>The example assume you have the following defined before calling Jeapie functions:</p>
+<p>The example assumes that you have the following code placed defined before calling Jeapie functions:</p>
 <pre><code class="HTML">&lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/webpush.js&quot; &gt;&lt;/script&gt;
 &lt;script&gt;var Jeapie = Jeapie || [];&lt;/script&gt;
 </code></pre>
@@ -225,15 +225,15 @@
 </ul>
 <h2 id="functions">Functions</h2>
 <h5 id="init"><strong>init</strong></h5>
-<p>Only required method you need to call to setup Jeapie to receive push notifications. Call this from each page of your site.</p>
+<p>This is the only required method that you need to call for setting up Jeapie to receive push notifications. Call it from each page of your site.</p>
 <ul>
 <li><strong>Parameters</strong></li>
 <li><strong><code>JSON</code></strong> <strong><em>options</em></strong></li>
-<li><strong><code>String</code></strong> <strong><em>appKey(Required) </em></strong>- Your Jeapie app id found on the settings page at jeapie.com.</li>
-<li><strong><code>Boolean</code></strong> <strong><em>autoRegister(Optional)</em></strong> - Automatically show browser prompt to accept notifications. You can pass in false to delay this pop-up and then call <code>registerUserForPush</code> to prompt them later.</li>
-<li><strong><code>Boolean</code></strong> <strong><em>createButton(Optional)</em></strong> - It creates a default button that, when clicked, the user sees a window for receipt of the notifications</li>
-<li><strong><code>Boolean</code></strong> <strong><em>subdomainName(Required for HTTP sites)</em></strong> </li>
-<li><strong><code>String</code></strong> <strong><em>tooltipText(Optional, use only with createButton)</em></strong> - Default <code>Подпишитесь на наши обновления в один клик!</code>. Set text will shown users on deafult button. </li>
+<li><strong><code>String</code></strong> <strong><em>appKey (Required) </em></strong>-Your Jeapie app id can be found on the settings page at jeapie.com.</li>
+<li><strong><code>Boolean</code></strong> <strong><em>autoRegister (Optional)</em></strong> - Automatically show browser prompt to accept notifications. You can pass in "false" to delay this pop-up and then call <code>registerUserForPush</code> to prompt them later.</li>
+<li><strong><code>Boolean</code></strong> <strong><em>createButton (Optional)</em></strong> -  It creates a default button that generates a window for receipt of the notifications, which appears after clicking</li>
+<li><strong><code>Boolean</code></strong> <strong><em>subdomainName (Required for HTTP sites)</em></strong> </li>
+<li><strong><code>String</code></strong> <strong><em>tooltipText (Optional, use only with createButton)</em></strong> - Default <code>One click subscription to our newsletter!</code>. Set the text that will be shown to users on a default button.</li>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="javascript">
@@ -243,13 +243,13 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 </code></pre>
 
 <h5 id="registeruserforpush"><strong>registerUserForPush</strong></h5>
-<p>Call when you want to prompt the user to accept push notifications. Only call if you set false to <code>autoRegister:</code> when calling init.</p>
+<p>Call it when you want to prompt the user to accept push notifications. Only call if you set "false" in <code>autoRegister:</code> when called "init".</p>
 <p><strong>Example</strong></p>
 <pre><code class="javascript">Jeapie.registerUserForPush(callback);
 </code></pre>
 
 <h5 id="addtag"><strong>addTag</strong></h5>
-<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users. Recommend using setTags over addTag if you need to set more than one tag on a user at a time.</p>
+<p>Tags a user based on an app event of your choosing so that later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users. Recommend using setTags over addTag if you need to set more than one tag on a user at a time.</p>
 <ul>
 <li><strong>Parameters</strong></li>
 <li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
@@ -269,7 +269,7 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 </code></pre>
 
 <h5 id="removetag"><strong>removeTag</strong></h5>
-<p>Deletes a tag that was previously set on a user with <code>addTag</code> or <code>setTags</code>. Use <code>removeAllTags</code> if you need to delete all of them.</p>
+<p>Deletes a tag that was previously set for a user with <code>addTag</code> or <code>setTags</code>. Use <code>removeAllTags</code> if you need to delete all of them.</p>
 <ul>
 <li><strong>Parameters</strong></li>
 <li><strong><code>String</code></strong> <strong><em>value</em></strong> - Value to remove.</li>
@@ -279,13 +279,13 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 </code></pre>
 
 <h5 id="removealltags"><strong>removeAllTags</strong></h5>
-<p>Deletes all tags that were previously set on a user with <code>addTag</code> or <code>setTags</code>.</p>
+<p>Deletes all tags that were previously set for a user with <code>addTag</code> or <code>setTags</code>.</p>
 <p><strong>Example</strong></p>
 <pre><code class="javascript">Jeapie.removeAllTags();
 </code></pre>
 
 <h5 id="setalias"><strong>setAlias</strong></h5>
-<p>Set a unique value for each user <a href="https://jeapie.com">jeapie.com</a> to target these users. </p>
+<p>Set a unique alias for each user of <a href="https://jeapie.com">jeapie.com</a> to target these users. </p>
 <ul>
 <li><strong>Parameters</strong></li>
 <li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
@@ -295,7 +295,7 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 </code></pre>
 
 <h5 id="ispushmanagersupported"><strong>isPushManagerSupported</strong></h5>
-<p>Returns true if the current browser viewing the page supports push notifications.</p>
+<p>Returns "true" If the browser of current viewer of the page supports push notifications.</p>
 <pre><code class="javascript">Jeapie.isPushManagerSupported();
 </code></pre>
 

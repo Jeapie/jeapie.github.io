@@ -169,7 +169,7 @@
                 
                     <li><a class="toctree-l4" href="#result-format">Result Format</a></li>
                 
-                    <li><a class="toctree-l4" href="#examples-shell-code">Examples Shell Code</a></li>
+                    <li><a class="toctree-l4" href="#shell-code-examples">Shell Code Examples</a></li>
                 
             
             </ul>
@@ -222,7 +222,7 @@
 <h4 id="method">Method</h4>
 <p><code>Post</code></p>
 <h4 id="authentication">Authentication</h4>
-<p>Go to link to read about <a href="../Server-API-Overview/#authentication">Jeapie authentication</a>.</p>
+<p>Click the following link to read about <a href="../Server-API-Overview/#authentication">Jeapie authentication</a>.</p>
 <h4 id="full-example-for-mobile-platforms">Full example for Mobile platforms</h4>
 <pre><code class="json">    {
         // This params are cross-platform for all platforms
@@ -321,7 +321,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Extra data for push. Can contains additional data for for processing within the application. Example: <br> <code>"data": {"page": 1, "url": "http://example.com}"</code></td>
+<td align="left">Extra data for push. Can contain additional data for for processing within the application. Example: <br> <code>"data": {"page": 1, "url": "http://example.com}"</code></td>
 </tr>
 <tr>
 <td align="right"><strong>badge</strong> <em>Optional</em></td>
@@ -329,7 +329,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Only for iphone and windows phone. For set badge number use int, for increment badge number use "inc". Example: <br> <code>"badge": 3</code> or <code>"badge": "inc"</code></td>
+<td align="left">Only for iphone and windows phone. For setting badge number use int, for incrementing badge number use "inc". Example: <br> <code>"badge": 3</code> or <code>"badge": "inc"</code></td>
 </tr>
 <tr>
 <td align="right"><strong>platforms</strong> <em>Optional</em></td>
@@ -345,7 +345,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">If need default sound set <code>1</code> else <code>0</code>. Example: <br> <code>"default_sound": 1</code></td>
+<td align="left">If you need default sound set <code>1</code> else <code>0</code>. Example: <br> <code>"default_sound": 1</code></td>
 </tr>
 <tr>
 <td align="right"><strong>ttl</strong> <em>Optional</em></td>
@@ -353,7 +353,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Time to live parameter - the maximum lifespan of a message in seconds. <br>Example: <code>"ttl":3600</code></td>
+<td align="left">"Time to live" parameter - the maximum lifespan of a message in seconds. <br>Example: <code>"ttl":3600</code></td>
 </tr>
 </tbody>
 </table>
@@ -396,7 +396,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Icon full path http url <br>Example: <code>"custom_icon": "http://example.com/icon.png"</code></td>
+<td align="left">Full path to icon file (http url) <br>Example: <code>"custom_icon": "http://example.com/icon.png"</code></td>
 </tr>
 <tr>
 <td align="right"><strong>banner</strong> <em>Optional</em></td>
@@ -404,7 +404,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Banner full path http url <br>Example: <code>"banner": "http://example.com/banner.png"</code></td>
+<td align="left">Full path to banner file (http url) <br>Example: <code>"banner": "http://example.com/banner.png"</code></td>
 </tr>
 </tbody>
 </table>
@@ -431,7 +431,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Icon full path http url <br>Example: <code>"icon": "http://example.com/icon.png"</code></td>
+<td align="left">Full path to icon file (http url <br>Example: <code>"icon": "http://example.com/icon.png"</code></td>
 </tr>
 <tr>
 <td align="right"><strong>redirect_url</strong> <em>Optional</em></td>
@@ -439,7 +439,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">The relative url which is redirect after clicking on a push. <br>Example: <code>"redirect_url": "/example.html"</code></td>
+<td align="left">The relative url which is opened after clicking on a push. <br>Example: <code>"redirect_url": "/example.html"</code></td>
 </tr>
 </tbody>
 </table>
@@ -468,7 +468,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Send to array of device push tokens. Limit 100 tokens. Example: <br> <code>"tokens": ["dec301908b9ba...8df85e57a58e40f96f", "523f4c2068674f1fe...2ba25cdc250a2a41"]</code></td>
+<td align="left">Send to array of device (browser) tokens. Limit is 100 tokens. Example: <br> <code>"tokens": ["dec301908b9ba...8df85e57a58e40f96f", "523f4c2068674f1fe...2ba25cdc250a2a41"]</code></td>
 </tr>
 <tr>
 <td align="right"><strong>aliases</strong></td>
@@ -476,7 +476,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Array of device aliases setted by sdk in mobile app or web. Example: <br> <code>"aliases": ["own_id_device_1", "own_id_device_2", "own_id_device_3"]</code></td>
+<td align="left">Array of device aliases set by sdk in mobile app or on web. Example: <br> <code>"aliases": ["own_id_device_1", "own_id_device_2", "own_id_device_3"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -496,7 +496,7 @@
 }
 </code></pre>
 
-<h2 id="examples-shell-code">Examples Shell Code</h2>
+<h2 id="shell-code-examples">Shell Code Examples</h2>
 <p>Send push to all platforms and all devices immediately:</p>
 <pre><code class="Shell">curl -X POST \
      -H &quot;Content-Type: application/json&quot; \
@@ -510,7 +510,7 @@
      https://jeapie.com/api/v2/push.json
 </code></pre>
 
-<p>Send push only on android with additional android params on aliases setted in mobile app:</p>
+<p>Send push only to android devices with aliases setted in mobile app:</p>
 <pre><code class="Shell">curl -X POST \
      -H &quot;Content-Type: application/json&quot; \
      -u &quot;APP_KEY:APP_SECRET&quot; \
@@ -527,7 +527,7 @@
      https://jeapie.com/api/v2/push.json
 </code></pre>
 
-<p>Send push to chrome and redirect to page after clicking on push</p>
+<p>Send push to Chrome and redirect to page after clicking on push</p>
 <pre><code class="Shell">curl -X POST \
      -H &quot;Content-Type: application/json&quot; \
      -u &quot;APP_KEY:APP_SECRET&quot; \

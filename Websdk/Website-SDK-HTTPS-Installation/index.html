@@ -211,18 +211,18 @@
                 <h1 id="website-sdk-https-installation">Website SDK HTTPS Installation</h1>
 <h6 id="jeapie-sdk-installation-for-chrome-websites-desktop-mobile">Jeapie SDK Installation for Chrome websites (desktop + mobile)</h6>
 <p><strong>Requirements</strong></p>
-<p>W3C Web Push Notifications are currently only support by Chrome 42+</p>
+<p>W3C Web Push Notifications are currently only supported by Chrome 42+</p>
 <ul>
-<li>Includes Chrome for Windows, Mac OSX, Linux, Chrome OS, and Android but not iOS.</li>
+<li>Includes Chrome for Windows, Mac OS X, Linux, Chrome OS, and Android. Chrome for iOS is not yet supported.</li>
 </ul>
 <p><strong>HTTP and HTTPS</strong></p>
-<p>If some of your pages are served via HTTP instead of HTTPS then you will need to follow our <a href="../Website-SDK-HTTP-Installation/">HTTP Installation Guide</a> instead.</p>
-<p>If possible, we encourage you to migrate all your pages to HTTPS first and then continue using this guide.</p>
+<p>If some of your pages are served via HTTP instead of HTTPS, then you will need to follow our <a href="../Website-SDK-HTTP-Installation/">HTTP Installation Guide</a> instead.</p>
+<p>If possible, we encourage you to migrate all your pages to HTTPS first, and then continue using this guide.</p>
 <h2 id="1-download-the-sdk">1. Download the SDK</h2>
-<p><strong>1.1</strong> Download the latest version of Jeapie Chrome Web SDK after the registration your site in the  <a href="https://go.jeapie.com/app/step1-add-site-name">Jeapie Dashboard</a>.</p>
-<p><strong>1.2</strong> Copy <code>push-worker.js</code> and <code>manifest.json</code> from <code>jeapie_sdk_</code> out of the directory and into the top level root of your site directory.</p>
+<p><strong>1.1</strong> Download the latest version of Jeapie Chrome Web SDK after the registration of your site in the  <a href="https://go.jeapie.com/app/step1-add-site-name">Jeapie Dashboard</a>.</p>
+<p><strong>1.2</strong> Copy <code>push-worker.js</code> and <code>manifest.json</code> from <code>jeapie_sdk_</code> directory and paste it into the top-level directory (root folder) of your site.</p>
 <h2 id="2-include-required-files">2. Include Required Files</h2>
-<p><strong>2.1</strong> Include <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> and <code>manifest.json</code> in the <code>&lt;head&gt;</code> HTML tag of each of your website pages. The best way is to add these to the code that generates the layout for each of your webpages. The resulting HTML should be the following:</p>
+<p><strong>2.1</strong> Link <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> and <code>manifest.json</code> to each page of your website by adding some code between <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags.  Most likely, you will have to do it just once in the file, which helps to generate a layout of the site. The resulting HTML should look like this:</p>
 <pre><code class="HTML">&lt;head&gt;
   &lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/webpush.js&quot; &gt;&lt;/script&gt;
   &lt;link rel=&quot;manifest&quot; href=&quot;manifest.json&quot;&gt;
@@ -231,16 +231,16 @@
 
 <h2 id="3-initialize-jeapie">3. Initialize Jeapie</h2>
 <p><strong>3.1 Init with auto register.</strong> </p>
-<p>Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>autoRegister</code> with value <code>true</code>.</p>
+<p>Call <code>Jeapie.init</code> from a javascript file that is included in every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>autoRegister</code> with value <code>true</code>.</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
 
 Jeapie.init({&quot;appId&quot;: &quot;0e9b2d82456a5ad012714e981d972360&quot;, &quot;autoRegister&quot;: true});
 </code></pre>
 
-<p>The user will see a window asking for permission to receive notifications from your site immediately after the opening page</p>
+<p>The user will see a window asking for permission to receive notifications from your site immediately after opening the page</p>
 <p><img alt="Autoregister for users" src="../../img/https_autoregister.png" /></p>
 <p><strong>3.2 Init with your custom button.</strong> </p>
-<p>Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id</p>
+<p>Call <code>Jeapie.init</code> from a javascript file that is included in every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
 Jeapie.init({ &quot;appKey&quot; : &quot;0e9b2d82456a5ad012714e981d972360&quot;});
 
@@ -256,21 +256,25 @@ function registerPush() {
 }
 </code></pre>
 
-<p>The user will see a window asking for permission to receive notifications from your site immediately after click on button.</p>
-<p>Even you can create your own logic and call <code>registerPush()</code> method.</p>
+<p>The user will see a window asking for permission to receive notifications from your site immediately after clicking on the button.</p>
+<p>You can create your own logic and call <code>registerPush()</code> method.</p>
 <p><strong>3.3 Init with Jeapie Widget.</strong> </p>
-<p>Call <code>Jeapie.init</code> from a javascript file that is included on every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>createButton</code> with value <code>true</code>.</p>
+<p>Call <code>Jeapie.init</code> from a javascript file that is included in every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>createButton</code> with value <code>true</code>.</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
 Jeapie.init({ &quot;appKey&quot; : &quot;0e9b2d82456a5ad012714e981d972360&quot;, &quot;createButton&quot;: true});
 </code></pre>
 
-<p>On your site will be a button, when clicked, a window will appear to allow notifications from your site</p>
+<p>The interactive button will appear on your site. Click it to open a window in which you will be able to allow sending notifications</p>
 <p><img alt="Autoregister for users" src="../../img/widget_example.png" /></p>
 <p><strong>Important</strong></p>
-<p>You must keep all files SDK together. <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code>, <code>push-worker.js</code> and <code>manifest.json</code> must be placed at the root of your site directory.</p>
-<p><code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> and <code>manifest.json</code> must be located in the head html tag in every one of your pages. This is so any page can subscribe for notifications, any page can be set to be opened from a notification, changes to the Google Registration id can be updated, and session count can be accurately counted.</p>
+<p>You must keep all the SDK files together. <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code>, <code>push-worker.js</code> and <code>manifest.json</code> must be placed in the root directory of your site.</p>
+<p>Links to <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> and <code>manifest.json</code> must be added between <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags for every page on your website. Linking files this way allows us to be sure that:
+- any page can subscribe to notifications
+- any page can be opened from a notification (if set)
+- changes to the Google Registration id can be updated
+- session count can be accurately calculated</p>
 <p><strong>That's It!</strong></p>
-<p>That's it for the setup. See our <a href="../Website-SDK-API/">Web SDK API</a> for more functions.</p>
+<p>That’s it for now - the setup is complete. See our <a href="../Website-SDK-API/">Web SDK API</a> for more functions.</p>
               
             </div>
           </div>

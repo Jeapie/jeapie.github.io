@@ -134,7 +134,7 @@
                 
                     <li><a class="toctree-l4" href="#step-3-create-and-save-server-key">STEP 3: Create and save Server Key</a></li>
                 
-                    <li><a class="toctree-l4" href="#step-4-send-keys-to-jeapie">STEP 4: Send keys to Jeapie</a></li>
+                    <li><a class="toctree-l4" href="#step-4-configure-your-chrome-website-with-jeapie">STEP 4: Configure your Chrome Website with Jeapie</a></li>
                 
             
             </ul>
@@ -213,32 +213,35 @@
                 <h1 id="website-generating-a-gcm-push-notification-key">Website - Generating a GCM Push Notification Key</h1>
 <h6 id="connect-your-google-cloud-messenger-enabled-website-with-jeapie">Connect your Google Cloud Messenger enabled website with Jeapie</h6>
 <h2 id="step-1-create-a-google-project-and-save-the-project-number">STEP 1: Create a Google Project and save the "Project Number"</h2>
-<p><strong>1.1</strong> Create a project at <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a> for your app.</p>
-<p><img alt="Create project" src="../../img/2015-06-02_1211.png" /></p>
-<p><strong>1.2</strong> Select your Project and click on "Overview." Your project number should be located on this page.</p>
-<p><img alt="Copy project number" src="../../img/2015-06-02_1222.png" /></p>
+<p><strong>1.1</strong> Create a project at https://console.developers.google.com/project for your app.</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/zgNztrTOitXVahPBuKig" title="Logo Title Text 1" /></p>
+<p><strong>1.2</strong> Select your Project and click on "Overview". Your project number should be located on this page.</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/8ePjSw9SfeY0JOqdtcYQ" title="Logo Title Text 1" /></p>
 <p><strong>Copy the "Project Number" from this page.</strong></p>
 <p>You will need to enter this into your app later when you follow the SDK guide.</p>
 <h2 id="step-2-turn-on-both-google-cloud-messaging-for-chrome-and-google-cloud-messaging-for-android-apis">STEP 2: Turn on both "Google Cloud Messaging for Chrome" and "Google Cloud Messaging for Android" APIs</h2>
-<p><strong>2.</strong> Under APIs &amp; auth&gt;APIs, search for "Google Cloud Messaging for Chrome." Turn it on. You will need this for desktop notifications.</p>
-<p>Search for "Google Cloud Messaging for Android" and turn it on. You need this so an Android Chrome browser can send system notifications to an Android user.</p>
-<p><img alt="Cloud Messaging" src="../../img/2015-06-22_1215.png" />
-<img alt="enable Chrome push messaging" src="../../img/2015-06-22_1216.png" /></p>
+<p><strong>2.</strong> Under APIs &amp; auth&gt;APIs, find "Google Cloud Messaging for Chrome." Turn it on. You will need this for desktop notifications.</p>
+<p>Find "Google Cloud Messaging for Android" and turn it on. You need this so that an Android Chrome browser can send system notifications to an Android user.</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/AnU9BiUER0J0RSNECVBw" title="Logo Title Text 1" />
+<img alt="alt text" src="https://www.filepicker.io/api/file/lKDf6HaRTsyvLkr00KBo" title="Logo Title Text 1" /></p>
 <h2 id="step-3-create-and-save-server-key">STEP 3: Create and save Server Key</h2>
-<p><strong>3.1</strong> Under "APIs &amp; auth" &gt; "Credentials", Click "CREATE NEW KEY".</p>
-<p><strong>3.2</strong> Select "Server key"</p>
-<p><img alt="Create New key" src="../../img/2015-06-02_1229.png" />
-<img alt="Server key" src="../../img/2015-06-02_1217.png" /></p>
-<p><strong>3.3</strong> Press the Create button.</p>
+<p><strong>3.1</strong> Under "APIs &amp; auth" &gt; "Credentials", click "Create new key".</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/L0jaN5VoSeKYBy99Ymj9" title="Logo Title Text 1" /></p>
+<p><strong>3.2</strong> Select "Server key".</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/6OWq5lpOTXeclIuVbaYL" title="Logo Title Text 1" /></p>
+<p><strong>3.3</strong> Press the "Create" button.</p>
 <p><strong>IMPORTANT</strong></p>
 <p>DO NOT enter anything into the box.</p>
-<p><img alt="Leave empty" src="../../img/2015-06-02_1218.png" /></p>
-<p><strong>3.4</strong> Copy the "API Key." You will need it to configure your project with Jeapie</p>
-<p><img alt="Copy API KEY" src="../../img/2015-06-02_1220.png" /></p>
-<h2 id="step-4-send-keys-to-jeapie">STEP 4: Send keys to Jeapie</h2>
-<p>Send <code>Project Number</code> and <code>GCM server key</code> to <a href="mailto:support@jeapie.com">support@jeapie.com</a>.</p>
-<p><strong>Configuration to send Chrome Website push notifications is complete!</strong></p>
-<p>Next step is to set up the Chrome Website SDK</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/G1Geg5tRsavRrDLbjVOz" title="Logo Title Text 1" /></p>
+<p><strong>3.4</strong> Copy the "API Key". You will need it to configure your project using Jeapie</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/MDZjch1bSdOiZY949Y1i" title="Logo Title Text 1" /></p>
+<h2 id="step-4-configure-your-chrome-website-with-jeapie">STEP 4: Configure your Chrome Website with Jeapie</h2>
+<p><strong>4.1</strong> Log into Jeapie. In the dashboard, select "Application Settings" then press the "Configure" button to the right of "Chrome Website (GCM)".</p>
+<p><strong>4.2</strong> Paste your Google API Key in here and press Save.</p>
+<p><img alt="alt text" src="https://www.filepicker.io/api/file/0tsQeMpwSyekQNsE1ecg" title="Logo Title Text 1" />
+<img alt="alt text" src="https://www.filepicker.io/api/file/lMNSiuzgSieBYH1pDbSS" title="Logo Title Text 1" /></p>
+<p><strong>Configuration for sending Chrome Website push notifications is complete!</strong></p>
+<p>Next step is setting up the Chrome Website SDK</p>
 <ul>
 <li>Follow our <a href="../Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a> guide if your website uses an HTTPS connection.</li>
 <li>Or follow our <a href="../Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a> guide if your website is Non-HTTPS. (Uses an HTTP connection).</li>

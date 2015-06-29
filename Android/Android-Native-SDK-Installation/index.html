@@ -202,10 +202,10 @@
               
                 <h1 id="android-native-sdk-installation">Android Native SDK Installation</h1>
 <p><strong>'Google Play services' &amp; 'Android Support Library'</strong></p>
-<p>Jeapie requires Google Play services(google-play-services_lib) and Android Support Library v4(android-support-v4.jar). android-support-v13.jar can be used instead if your project already requires it.</p>
+<p>Jeapie requires Google Play services (google-play-services_lib) and Android Support Library v4 (android-support-v4.jar). android-support-v13.jar can be used instead if your project already requires it.</p>
 <p><strong>1.</strong> Download the latest <a href="https://github.com/Jeapie/jeapie-android">Jeapie Android SDK</a>.</p>
-<p><strong>2.</strong> Copy *.aar file into lib folder android project.</p>
-<p><strong>3.</strong> Config gradle. Set *.aar <code>sdk filename</code> and <code>play-services</code>.</p>
+<p><strong>2.</strong> Copy *.aar file into the lib folder of your android project.</p>
+<p><strong>3.</strong> Set <code>sdk filename</code> of the *.aar file and <code>play-services</code> in gradle.</p>
 <pre><code class="gradle">dependencies {
     compile(name:'jeapie-sdk-x.x.x', ext:'aar')
     compile 'com.google.android.gms:play-services:6.5.87'
@@ -220,8 +220,8 @@ repositories{
 }
 </code></pre>
 
-<p><strong>4.</strong> Paste permissions in Android project <code>Manifest</code>.</p>
-<p>Replace <code>{APP_PACKAGE}</code> to your own package.</p>
+<p><strong>4.</strong> Paste permissions into the <code>Manifest</code> file of your Android project .</p>
+<p>Replace <code>{APP_PACKAGE}</code> by your own package.</p>
 <pre><code class="xml">    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
     &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
@@ -243,10 +243,10 @@ repositories{
 
 </code></pre>
 
-<p><strong>5.</strong> Paste configs in Anroid project <code>Manifest</code>. </p>
-<p>And replace <code>{APP_SECRET}</code> and <code>{APP_KEY}</code> to your own keys from Jeapie dashboard.
+<p><strong>5.</strong> Paste configs into the <code>Manifest</code> file of your Anroid project. </p>
+<p>Replace <code>{APP_SECRET}</code> and <code>{APP_KEY}</code> by your own keys from Jeapie dashboard.
 <img alt="Rest api keys" src="../../img/00000206.png" /></p>
-<p>And <code>A{PROJECT_ID}</code> to project number from Google Console.<br>
+<p>Also replace  <code>A{PROJECT_ID}</code> by a project number from your Google Console.<br>
 Look <a href="../Android-Generating-a-GCM-Push-Notification-Key/#step-1-create-a-google-project-and-save-the-project-number">How to get project number</a></p>
 <div class="admonition note">
 <p class="first admonition-title"><span class="highlighted">Note</span></p>
@@ -297,7 +297,7 @@ Example: "A1111111111"</p>
 &lt;/application&gt;
 </code></pre>
 
-<p><strong>6.</strong> Paste in Launch Activity</p>
+<p><strong>6.</strong> Paste the code into "Launch Activity"</p>
 <pre><code class="java">JeapieAPI.init(getApplicationContext());
 
 

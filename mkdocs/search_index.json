@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "DOCUMENTATION\n\n\n\nGetting Started\n\n\nIOS\n\n\n\n\n\niOS Native SDK Overview\n\n\nGenerating an iOS Push Certificate\n\n\niOS Native SDK Installation\n\n\niOS Native SDK API\n\n\n\n\nANDROID\n\n\n\n\n\nAndroid Native SDK Overview\n\n\nAndroid - Generating a GCM Push Notification Key\n\n\nAndroid Native SDK Installation\n\n\n\n\n\n\n\n\nWEBSITES\n\n\n\n\n\nWebsite SDK Overview\n\n\nWebsite - Generating a GCM Push Notification Key\n\n\nWebsite SDK HTTPS Installation\n\n\nWebsite SDK HTTP Installation\n\n\nWebsite SDK API\n\n\n\n\nSERVER API\n\n\n\n\n\nServer API Overview\n\n\nSend Push via Rest API",
+            "text": "DOCUMENTATION\n\n\n\nGetting Started\n\n\n\n\n\nANDROID\n\n\n\n\n\nAndroid Native SDK Overview\n\n\nAndroid - Generating a GCM Push Notification Key\n\n\nAndroid Native SDK Installation\n\n\n\n\n\n\n\n\nWEBSITES\n\n\n\n\n\nWebsite SDK Overview\n\n\nWebsite - Generating a GCM Push Notification Key\n\n\nWebsite SDK HTTPS Installation\n\n\nWebsite SDK HTTP Installation\n\n\nWebsite SDK API\n\n\n\n\nSERVER API\n\n\n\n\n\nServer API Overview\n\n\nSend Push via Rest API",
             "title": "Home"
         },
         {

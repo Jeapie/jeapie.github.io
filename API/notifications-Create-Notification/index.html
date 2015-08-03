@@ -538,6 +538,41 @@
      }' \
      https://go.jeapie.com/api/v2/push.json
 </code></pre>
+
+<pre><code class="php">// auth
+$APP_KEY    = '{paste_app_key_from_dashboard}';
+$APP_SECRET = '{paste_app_secret_from_dashboard}';
+
+//data
+$pushData = [
+    'message' =&gt; 'Push message',
+    'chrome' =&gt; [
+        'header' =&gt; 'push title',
+        'icon' =&gt; 'http://example.com/icon.png',
+        'redirect_url' =&gt; 'http://example.com',
+    ],
+    'audience' =&gt; [
+        'all' =&gt; 1,
+    ],
+];
+
+$pushDataString = json_encode($pushData);                                                                                
+
+// post json request                                                                                                     
+$ch = curl_init('https://go.jeapie.com/api/v2/push.json'); 
+curl_setopt($ch, CURLOPT_USERPWD, $APP_KEY . &quot;:&quot; . $APP_PASSWORD);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &quot;POST&quot;);                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $pushDataString);                                                                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); 
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);                                                                  
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+    'Content-Type: application/json',                                                                                
+    'Content-Length: ' . strlen($pushDataString))                                                                       
+);                                                                                                                   
+
+$result = curl_exec($ch);
+</code></pre>
               
             </div>
           </div>

@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "iOS/iOS-Native-SDK-Installation"
+  </script>
+  
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../../js/highlight.pack.js"></script>
@@ -33,173 +39,175 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li class="toctree-l1 ">
-                <a class="" href="../..">Home</a>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../Getting-Started/">Getting Started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>iOS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Generating-an-iOS-Push-Certificate/">Generating an iOS Push Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">iOS Native SDK Installation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#ios-native-sdk-installation">iOS Native SDK Installation</a></li>
                 
-            </li>
-        
-
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../Getting-Started/">Getting Started</a>
+                    <li><a class="toctree-l4" href="#1-download-latest-jeapie-ios-sdk-from-github">1. Download latest Jeapie iOS sdk from github</a></li>
                 
-            </li>
+                    <li><a class="toctree-l4" href="#2-copy-jeapie-folder-into-root-of-your-ios-mobile-app">2. Copy jeapie folder into root of your ios mobile app</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-select-build-phases-and-go-to-link-binary-with-libraries">3. Select "Build Phases" and go to "Link Binary With Libraries".</a></li>
+                
+                    <li><a class="toctree-l4" href="#4-add-objc-linker-flag-to-other-linker-flags-in-build-settings">4. Add "-ObjC" linker flag to "Other Linker Flags" in Build Settings</a></li>
+                
+                    <li><a class="toctree-l4" href="#5-add-app_key-and-app_secret-to-infoplist">5. Add APP_KEY and APP_SECRET to info.plist</a></li>
+                
+                    <li><a class="toctree-l4" href="#6-import-jeapie-header-file-to-appdelegatem">6. Import Jeapie header file to AppDelegate.m</a></li>
+                
+                    <li><a class="toctree-l4" href="#7-add-a-couple-of-lines-to-appdelegatem">7. Add a couple of lines to AppDelegate.m</a></li>
+                
+            
+            </ul>
         
+    </li>
 
-    
         
-            <span>iOS</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../Generating-an-iOS-Push-Certificate/">Generating an iOS Push Certificate</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 current">
-                    <a class="current" href="./">iOS Native SDK Installation</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l3"><a href="#ios-native-sdk-installation">iOS Native SDK Installation</a></li>
-                            
-                                <li><a class="toctree-l4" href="#1-import-the-jeapieframework-into-your-xcode-project-with-cocoapods">1. Import the Jeapie.framework into your Xcode project with CocoaPods.</a></li>
-                            
-                                <li><a class="toctree-l4" href="#or-import-the-framework-manually">OR -- Import the framework manually</a></li>
-                            
-                                <li><a class="toctree-l4" href="#2-add-required-capabilities">2. Add Required Capabilities</a></li>
-                            
-                                <li><a class="toctree-l4" href="#add-required-code">Add Required Code</a></li>
-                            
-                                <li><a class="toctree-l4" href="#3a-add-code-to-appdelegate-objective-c">3A. Add code to AppDelegate (Objective-C)</a></li>
-                            
-                                <li><a class="toctree-l4" href="#3b-add-code-swift">3B. Add Code (Swift)</a></li>
-                            
-                        
-                        </ul>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../iOS-Native-SDK-API/">iOS Native SDK API</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../iOS-Native-SDK-API/">iOS Native SDK API</a>
         
+    </li>
 
-    
         
-            <span>Android</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
-                    
-                </li>
-            
-        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Android</span></li>
 
-    
         
-            <span>Website sdk</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-Generating-a-GCM-Push-Notification-Key/">Website - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
         
+    </li>
 
-    
         
-            <span>SERVER API</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
         
+    </li>
 
-    
-</ul>
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+        
+    </li>
 
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Website sdk</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>SERVER API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/notifications-Create-Notification/">Send Push Notification</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -220,130 +228,86 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        <li>iOS &raquo;</li>
+        
+          <li>iOS &raquo;</li>
+        
       
     
     <li>iOS Native SDK Installation</li>
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="ios-native-sdk-installation">iOS Native SDK Installation</h1>
-<h2 id="1-import-the-jeapieframework-into-your-xcode-project-with-cocoapods">1. Import the Jeapie.framework into your Xcode project with CocoaPods.</h2>
-<p>The recommended way to add the Jeapie library to your project is to use <a href="https://cocoapods.org/">CocoaPods</a> so it is easier to update. After <a href="http://guides.cocoapods.org/using/getting-started.html">setting up CocoaPods</a>, add <code>pod 'Jeapie'</code> to the Podfile. Then, run <code>pod install</code>. Lastly make sure to open the .xcworkspace file that CocoaPods creates instead of your original project file. <strong>Skip To Step 2</strong> in this doc.</p>
-<h2 id="or-import-the-framework-manually">OR -- Import the framework manually</h2>
-<p>Continue reading for directions on how to manually add the <a href="https://github.com/jeapie/Jeapie-iOS-SDK">Jeapie library</a>.</p>
-<ul>
-<li>1.1 Select "Build Phases" and go to "Link Binary With Libraries".</li>
-</ul>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/BjJqgZ9LTB2RHHLFXEFh" title="Logo Title Text 1" /></p>
-<ul>
-<li>1.2 Press the "+" button then search for SystemConfiguration.framework and press Add.</li>
-</ul>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/xOipHL9nSPm9u0OhkLKr" title="Logo Title Text 1" /></p>
-<ul>
-<li>1.3 Press the "+" button again then press the "Add Other" button on the bottom. Next select the <a href="https://github.com/jeapie/Jeapie-iOS-SDK">Jeapie.framework</a> and press Open.</li>
-</ul>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/Q8zcE8gTxyFzJReJkSIk" title="Logo Title Text 1" /></p>
-<ul>
-<li>1.4 Add <code>-ObjC</code> to "Build Settings"&gt;"Other Linker Flags" (Objective-C only)</li>
-</ul>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/zx7Xv2RjGSp1WA9OzHFw" title="Logo Title Text 1" /></p>
-<h2 id="2-add-required-capabilities">2. Add Required Capabilities</h2>
-<p><strong>3.1</strong> Enable "Background Modes" and check "Remote notifications" under Capabilities on your target.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/pvXDhthTZ6ZM1OLKnol1" title="Logo Title Text 1" /></p>
-<h2 id="add-required-code">Add Required Code</h2>
-<p><strong>1</strong> If you're using Objective-C, follow the steps in <strong>3A</strong> below.</p>
-<p><strong>2</strong> Otherwise, If you're using Swift, follow the steps in <strong>3B</strong> below.</p>
-<h2 id="3a-add-code-to-appdelegate-objective-c">3A. Add code to AppDelegate (Objective-C)</h2>
-<p><strong>3A.1</strong> In <code>AppDelegate.h</code> import <code>Jeapie/Jeapie.h</code> and define Jeapie.</p>
-<pre><code class="Objective-C">#import &lt;Jeapie/Jeapie.h&gt;
-@property (strong, nonatomic) Jeapie *Jeapie;
+              
+                <h1 id="ios-native-sdk-installation">iOS Native SDK Installation</h1>
+<h3 id="1-download-latest-jeapie-ios-sdk-from-github">1. Download latest Jeapie iOS sdk from github</h3>
+<p><a href="https://github.com/Jeapie/jeapie-ios">https://github.com/Jeapie/jeapie-ios</a></p>
+<h3 id="2-copy-jeapie-folder-into-root-of-your-ios-mobile-app">2. Copy <code>jeapie</code> folder into root of your ios mobile app</h3>
+<h3 id="3-select-build-phases-and-go-to-link-binary-with-libraries">3. Select "Build Phases" and go to "Link Binary With Libraries".</h3>
+<p><img alt="Link Binary With Libraries" src="../../img/2015-08-06_1620.png" /></p>
+<p>You should see jeapie-sdk-x.x.x.a library</p>
+<h3 id="4-add-objc-linker-flag-to-other-linker-flags-in-build-settings">4. Add "-ObjC" linker flag to "Other Linker Flags" in Build Settings</h3>
+<p><img alt="Link Binary With Libraries" src="../../img/2015-08-06_1625.png" /></p>
+<h3 id="5-add-app_key-and-app_secret-to-infoplist">5. Add APP_KEY and APP_SECRET to info.plist</h3>
+<p><strong>5.1</strong> Open info.plist as a Source file</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1656.png" /></p>
+<p><strong>5.2</strong> Take <code>APP_KEY</code> and <code>APP_SECRET</code> keys from Step 3 <em>"Add Jeapie sdk to your Mobile Application"</em> in Jeapie Dashboard.</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1700.png" /></p>
+<p><strong>5.3</strong> Paste xml into info.plist</p>
+<pre><code class="xml">&lt;key&gt;Jeapie&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;APP_KEY&lt;/key&gt;
+    &lt;string&gt;{PASTE_APP_KEY_FROM_JEAPIE_DASHBOARD}&lt;/string&gt;
+    &lt;key&gt;APP_SECRET&lt;/key&gt;
+    &lt;string&gt;{PASTE_APP_SECRET_FROM_JEAPIE_DASHBOARD}&lt;/string&gt;
+&lt;/dict&gt;
 </code></pre>
 
-<p><strong>3A.2</strong> In <code>AppDelegate.m</code> add the <code>didFinishLaunchingWithOptions</code> method below. Replace "5eb5a37e-b458-11e3-ac11-000c2940e62c" with your Jeapie AppId.</p>
-<p><code>handleNotification</code> is optional.</p>
-<pre><code class="Objective-C">- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
-    self.Jeapie = [[Jeapie alloc] initWithLaunchOptions:launchOptions
-                                        appId:@&quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;
-                                        handleNotification:^(NSString* message, NSDictionary* additionalData, BOOL isActive) {
-           // This function gets call when a notification is tapped on
-           // or one is received while the app is in focus.
-        NSString* messageTitle = @&quot;Jeapie Example&quot;;
-        NSString* fullMessage = [message copy];
+<p><img alt="alt text" src="../../img/2015-08-07_1653.png" /></p>
+<h3 id="6-import-jeapie-header-file-to-appdelegatem">6. Import Jeapie header file to AppDelegate.m</h3>
+<pre><code class="objective-c">#import &quot;jeapie/JBJeapieAPIService.h&quot;
+</code></pre>
 
-        if (additionalData) {
-            if (additionalData[@&quot;inAppTitle&quot;])
-                messageTitle = additionalData[@&quot;inAppTitle&quot;];
+<p><strong><em>Warning!</em></strong> <em>Warning! The path to JBJeapieAPIService.h depends on the location of jeapie folder in your project.</em></p>
+<h3 id="7-add-a-couple-of-lines-to-appdelegatem">7. Add a couple of lines to AppDelegate.m</h3>
+<pre><code class="objective-c">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { 
 
-            if (additionalData[@&quot;actionSelected&quot;])
-                fullMessage = [fullMessage stringByAppendingString:[NSString stringWithFormat:@&quot;\nPressed ButtonId:%@&quot;, additionalData[@&quot;actionSelected&quot;]]];
-        }
+    // Enable Push notification   
+    // support iOS7 and iOS8 push notifications
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    }
 
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:messageTitle
-                                                            message:fullMessage
-                                                           delegate:self
-                                                  cancelButtonTitle:@&quot;Close&quot;
-                                                  otherButtonTitles:nil, nil];
-        [alertView show];
+    // track push open
+    NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (userInfo) {
+        [[JBJeapieAPIService sharedInstance] didReceiveRemoteNotification:userInfo];
+    }
 
-    }];
     return YES;
 }
+
+// get device token
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    [[JBJeapieAPIService sharedInstance] didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+// track push opens
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [[JBJeapieAPIService sharedInstance] didReceiveRemoteNotification:userInfo];
+}
 </code></pre>
-
-<h2 id="3b-add-code-swift">3B. Add Code (Swift)</h2>
-<p><strong>3B.1</strong> Add the following import line to your <code>-Bridging-Header.h</code>. If you don't have one in your Swift project see <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-XID_79">Apple's documentation</a> to add one.</p>
-<pre><code class="Swift">#import &lt;Jeapie/Jeapie.h&gt;
-</code></pre>
-
-<p><strong>3B.2</strong> Open your <code>AppDelegate.swift</code> and add the following in your <code>didFinishLaunchingWithOptions</code> function. Replace "5eb5a37e-b458-11e3-ac11-000c2940e62c" with your Jeapie AppId.</p>
-<pre><code class="Swift">func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&gt; Bool {
-  let Jeapie: Jeapie = Jeapie(launchOptions: launchOptions, appId: &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;) {
-          (message, additionalData, isActive) in
-            if (additionalData != nil) {
-                NSLog(&quot;APP LOG ADDITIONALDATA: %@&quot;, additionalData);
-                // Append AdditionalData at the end of the message
-                let displayMessage: NSString = NSString(format:&quot;NotificationMessage:%@&quot;, message);
-
-                var messageTitle: NSString = &quot;&quot;;
-                if (additionalData[&quot;discount&quot;] != nil) {
-                    messageTitle = additionalData[&quot;discount&quot;] as String
-                }
-                else if (additionalData[&quot;bonusCredits&quot;] != nil) {
-                    messageTitle = additionalData[&quot;bonusCredits&quot;] as String;
-                }
-                else if (additionalData[&quot;actionSelected&quot;] != nil) {
-                    messageTitle = NSString(format:&quot;Pressed ButtonId:%@&quot;, additionalData[&quot;actionSelected&quot;] as String);
-                }
-
-                var alertView: UIAlertView = UIAlertView(title: messageTitle,
-                    message:displayMessage,
-                    delegate:self,
-                    cancelButtonTitle:&quot;Close&quot;);
-
-                // Highly recommend adding app logic around this so the user is not interrupted.
-                alertView.show();
-            }
-            // If a push notification is received when the app is being used it does not go to the notifiction center so display in your app.
-            else if (isActive) {
-                var alertView: UIAlertView = UIAlertView(title:&quot;Jeapie Message&quot;,
-                    message:message,
-                    delegate:self,
-                    cancelButtonTitle:&quot;Close&quot;);
-                alertView.show();
-            }
-        }
-</code></pre>
-
-<p><strong>That's it for the Xcode setup!</strong></p>
-<p>The Xcode simulator doesn't support push notifications so you must test on a device. If you haven't done so already make sure your <a href="../Generating-an-iOS-Push-Certificate/">iOS certificate is configured in Jeapie</a> so you can send notifications out.
-iOS SDK API</p>
-<p>To see all available methods, see our <a href="../iOS-Native-SDK-API/">iOS Native API Documentation</a>.</p>
+              
             </div>
           </div>
           <footer>
@@ -378,15 +342,15 @@ iOS SDK API</p>
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../Generating-an-iOS-Push-Certificate/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../iOS-Native-SDK-API/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../Generating-an-iOS-Push-Certificate/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../iOS-Native-SDK-API/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
 
-<!--
-MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-10 10:55:35.474366
--->
 </body>
 </html>

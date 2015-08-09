@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "iOS/Generating-an-iOS-Push-Certificate"
+  </script>
+  
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../../js/highlight.pack.js"></script>
@@ -33,173 +39,171 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Jeapie - Push Notification as a Service</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li class="toctree-l1 ">
-                <a class="" href="../..">Home</a>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../Getting-Started/">Getting Started</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>iOS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Generating an iOS Push Certificate</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#generating-an-ios-push-certificate">Generating an iOS Push Certificate</a></li>
                 
-            </li>
-        
-
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../Getting-Started/">Getting Started</a>
+                    <li><a class="toctree-l4" href="#1-create-certificate-signing-request">1. Create Certificate Signing Request</a></li>
                 
-            </li>
+                    <li><a class="toctree-l4" href="#2-enable-push-notifications-and-apply-the-certification-request-to-generate-certificate">2. Enable Push Notifications and apply the Certification Request to generate Certificate</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-creating-a-p12-file">3. Creating a p12 File</a></li>
+                
+                    <li><a class="toctree-l4" href="#4-upload-your-push-certificate-to-jeapie">4. Upload Your Push Certificate to Jeapie</a></li>
+                
+                    <li><a class="toctree-l4" href="#congratulations-jeapie-is-now-set-up-to-push-out-notifications-to-your-app">Congratulations! Jeapie is now set up to push out notifications to your app!</a></li>
+                
+            
+            </ul>
         
+    </li>
 
-    
         
-            <span>iOS</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 current">
-                    <a class="current" href="./">Generating an iOS Push Certificate</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l3"><a href="#generating-an-ios-push-certificate">Generating an iOS Push Certificate</a></li>
-                            
-                                <li><a class="toctree-l4" href="#1-try-out-our-automatic-provisioning-tool">1. Try out our Automatic Provisioning Tool</a></li>
-                            
-                                <li><a class="toctree-l4" href="#or-create-certificate-request-manually">OR -- Create Certificate Request Manually</a></li>
-                            
-                                <li><a class="toctree-l4" href="#2-enable-push-notifications-and-apply-the-certification-request-to-generate-certificate">2. Enable Push Notifications and apply the Certification Request to generate Certificate</a></li>
-                            
-                                <li><a class="toctree-l4" href="#3-creating-a-private-key">3. Creating a Private Key</a></li>
-                            
-                                <li><a class="toctree-l4" href="#4-upload-your-push-certificate-to-jeapie">4. Upload Your Push Certificate to Jeapie</a></li>
-                            
-                                <li><a class="toctree-l4" href="#5-provisioning-profiles">5. Provisioning Profiles</a></li>
-                            
-                        
-                        </ul>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../iOS-Native-SDK-Installation/">iOS Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../iOS-Native-SDK-API/">iOS Native SDK API</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../iOS-Native-SDK-Installation/">iOS Native SDK Installation</a>
         
+    </li>
 
-    
         
-            <span>Android</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Native-SDK-API/">Android Native SDK API</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Android/Android-Notification-Customizations/">Android Notification Customizations</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../iOS-Native-SDK-API/">iOS Native SDK API</a>
         
+    </li>
 
-    
         
-            <span>Website sdk</span>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-Generating-a-GCM-Push-Notification-Key/">Website - Generating a GCM Push Notification Key</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
-                    
-                </li>
-            
-        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Android</span></li>
 
-    
         
-            <span>SERVER API</span>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-View-notifications/">notifications (View notifications)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-View-notification/">get/notifications/:id (View notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Track-open/">put/notifications/:id (Track open)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-Create-Notification/">post/notifications (Create Notification)</a>
-                    
-                </li>
-            
-                <li class="toctree-l2 ">
-                    <a class="" href="../../API/notifications-id-Cancel-notification/">delete/notifications/:id (Cancel notification)</a>
-                    
-                </li>
-            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Overview/">Android Native SDK Overview</a>
         
+    </li>
 
-    
-</ul>
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Generating-a-GCM-Push-Notification-Key/">Android - Generating a GCM Push Notification Key</a>
+        
+    </li>
 
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Android/Android-Native-SDK-Installation/">Android Native SDK Installation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Website sdk</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-Overview/">Website SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../Websdk/Website-SDK-API/">Website SDK API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>SERVER API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/Server-API-Overview/">Server API Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../API/notifications-Create-Notification/">Send Push Notification</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -220,74 +224,76 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        <li>iOS &raquo;</li>
+        
+          <li>iOS &raquo;</li>
+        
       
     
     <li>Generating an iOS Push Certificate</li>
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="generating-an-ios-push-certificate">Generating an iOS Push Certificate</h1>
+              
+                <h1 id="generating-an-ios-push-certificate">Generating an iOS Push Certificate</h1>
 <p>The goals of this section are to provision your app with Apple and grant Jeapie access to manage your notifications.</p>
-<h2 id="1-try-out-our-automatic-provisioning-tool">1. Try out our Automatic Provisioning Tool</h2>
-<p>We recently released a tool to automate this process!</p>
-<p>Simply follow the directions on this page http://jeapie.com/provisionator then <a href="#4-upload-your-push-certificate-to-Jeapie"><strong>continue to Step 4</strong></a>.</p>
-<h2 id="or-create-certificate-request-manually">OR -- Create Certificate Request Manually</h2>
-<p><strong>1.1</strong> Open Keychain Access on your Mac OS X system. It may be located in "Applications" &gt; "Utilities" &gt; "Keychain Access"</p>
-<p><strong>1.2</strong> Select "Keychain Access"&gt;"Certificate Assistant"&gt;"Request a Certificate From a Certificate Authority..."</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/ducGROb2SjGcG68MJxcT" title="Logo Title Text 1" /></p>
-<p><strong>1.3</strong> Select the "Save to disk" option and enter your information in the required fields. This creates a certification request file that will be used later.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/CVamtSOyRAuD3wyojCbe" title="Logo Title Text 1" /></p>
-<h2 id="2-enable-push-notifications-and-apply-the-certification-request-to-generate-certificate">2. Enable Push Notifications and apply the Certification Request to generate Certificate</h2>
-<p><strong>2.1</strong> Select your app from the <a href="https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action">Apple's Developer</a> site and press "Edit"</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/LiQTUkUXSPCU2Sh51T5F" title="Logo Title Text 1" /></p>
-<p><strong>2.2</strong> Scroll down to the bottom and enable Push Notifications and press "Create Certificate..." in either Development or Production.</p>
-<p>Here's the difference between each kind of certificate:</p>
+<h3 id="1-create-certificate-signing-request">1. Create Certificate Signing Request</h3>
+<p><strong>1.1</strong> Open Keychain Access on your Mac (it is located in Applications/Utilities) and 
+choose the menu option <em>Request a Certificate from a Certificate Authority…</em>.</p>
+<p><img alt="Request a Certificate from a Certificate Authority" src="../../img/2015-08-07_1627.png" /></p>
+<p><strong>1.2</strong> Save Certificate</p>
+<p>You should now see the following window:</p>
+<p><img alt="window" src="../../img/2015-08-07_1629.png" /></p>
+<p>Enter your email address here. Some people recommend using the same email address 
+that you used to sign up for the iOS Developer Program, 
+but it seems to accept any email address just fine.</p>
+<p>Check <em>Saved to disk</em> and click <em>Continue</em>.</p>
+<h3 id="2-enable-push-notifications-and-apply-the-certification-request-to-generate-certificate">2. Enable Push Notifications and apply the Certification Request to generate Certificate</h3>
+<p><strong>2.1</strong> Select your app on the <a href="https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action">Apple's Developer</a> site and press "Edit"</p>
+<p><img alt="app ids" src="../../img/2015-08-07_1633.png" /></p>
+<p><strong>2.2</strong> Scroll down to the bottom, enable Push Notifications and press "Create Certificate..." 
+in either Development or Production section.</p>
+<p>Here's the difference between each kind of certificates:</p>
 <ul>
 <li>
 <p><strong>Sandbox Push Certificate</strong> (Also known as Development) - For sending push notifications to a development version of your app that was built with an Apple Development provisioning profile.</p>
 </li>
 <li>
-<p><strong>Production Push Certificate</strong> - For production builds that are submitted to the app store built with an Apple "App Store" provisioning profile, or for testing push notifications in an Ad-Hoc build built with an Apple "Ad Hoc" provisioning profile.</p>
+<p><strong>Production Push Certificate</strong> - For production builds that are built with an Apple "App Store" provisioning profile and are submitted to the “App store” provisioning profile, or for testing push notifications in an Ad-Hoc build built with an Apple "Ad Hoc" provisioning profile.</p>
 </li>
 </ul>
-<p>Basically, you will want to start with a Sandbox (Development) Push Certificate when developing or updating your app. Then before submitting your app built it with an "Ad Hoc" Provisioning Profile and Production Push Certificate and make sure it receives push notifications. Finally, when submitting your app continue using the production push certificate.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/ih1ejbirT222rPNymaRP" title="Logo Title Text 1" /></p>
+<p>Basically, you will want to start with a Sandbox (Development) Push Certificate when developing or updating your app. 
+Then, build your app with an "Ad Hoc" Provisioning Profile and Production Push Certificate. 
+Make sure it receives push notifications before submitting it. 
+Finally, continue using the production push certificate when submitting your app.</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1635.png" /></p>
 <p><strong>2.3</strong> Press Continue</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/udNn3rNvQICp42L7x9tT" title="Logo Title Text 1" /></p>
-<p><strong>2.4</strong> Press "Choose File..", select the "certSigningRequest" file you saved in step 1, press open, and then press "Generate".</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/2Dt9T1IPROmopwwkyXIj" title="Logo Title Text 1" /></p>
-<p><strong>2.5</strong> Press Download to save your certificate</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/34yniISTLK9MB98bDIBw" title="Logo Title Text 1" /></p>
-<h2 id="3-creating-a-private-key">3. Creating a Private Key</h2>
+<p><img alt="alt text" src="../../img/2015-08-07_1637.png" /></p>
+<p><strong>2.4</strong> Press "Choose File..", select the "certSigningRequest" file you saved in Step 1, 
+open, and then press "Generate".</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1638.png" /></p>
+<p><strong>2.5</strong> Press <em>"Download"</em> to save your certificate</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1639.png" /></p>
+<h3 id="3-creating-a-p12-file">3. Creating a p12 File</h3>
 <p><strong>3.1</strong> Open the .cer file you downloaded in the last step by double clicking on it in Finder.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/zzb9Zc0ATPugb4nPC6RQ" title="Logo Title Text 1" /></p>
-<p><strong>3.2</strong> After a few seconds the "Keychain Access" program should pop up. Select Login &gt; Keys then right click on your key in the list and select "Export"</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/zGxZvc7USJuSbnZ7ER7V" title="Logo Title Text 1" /></p>
-<p><strong>3.3</strong> Give the file a unique name and press save. You will have an option to protect the file with a password. If you add a password, you need to enter this same password on Jeapie.</p>
-<h2 id="4-upload-your-push-certificate-to-jeapie">4. Upload Your Push Certificate to Jeapie</h2>
-<p><strong>4.1</strong> From <a href="https://jeapie.com">Jeapie</a>, go to "Application Settings" and press Configure to the right of the Apple Settings.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/zv82OLnLQ3CwH5VrzIeA" title="Logo Title Text 1" /></p>
-<p><strong>4.2</strong> Select the .p12 you exported along with a password if you added one and press Save.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/y4tr93uRjiCaU9h6hmwc" title="Logo Title Text 1" /></p>
-<p><strong>Important Requirement!</strong></p>
-<p>You must make sure <code>**Push Notifications**</code> are enabled on your provisioning profiles before building your app! Please fully follow Step 5 below or your users will NOT be subscribed.</p>
-<h2 id="5-provisioning-profiles">5. Provisioning Profiles</h2>
-<p><strong>5.1</strong> On the left to go to All &gt; Provisioning Profiles. Next find any that are for your app and delete them if they do not have Push Notifications in Enabled Services:.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/gc0o1oiYRQSC6tCNNHLf" title="Logo Title Text 1" /></p>
-<p><strong>5.2</strong> Recreate the ones you need by pressing the "+" button on the upper right.</p>
-<p><img alt="alt text" src="https://www.filepicker.io/api/file/3ILHQj3jQoa8k6nVTphD" title="Logo Title Text 1" /></p>
-<p><strong>5.3</strong> Re-sync your Developer Account in Xcode by going to Xcode &gt; Preferences... then click on the "View Details..." button. Lastly, click the refresh button on the bottom left of the popup. See <a href="https://developer.apple.com/library/mac/recipes/xcode_help-accounts_preferences/articles/obtain_certificates_and_provisioning_profiles.html">Apple's documentation</a> for more detailed instructions.</p>
-<p><strong>Congratulations! Jeapie is now setup to push out notifications to your app!</strong></p>
-<p>Next, install the Jeapie SDK in your app.
-* Next step for <a href="../iOS-Native-SDK-Installation/">Native iOS</a></p>
-<p><strong>TROUBLESHOOTING</strong></p>
-<p>If you are running into any issues you can try troubleshooting them with our <a href="">Common Problems Guide</a>.</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1642.png" /></p>
+<p><strong>3.2</strong> After a few seconds the "Keychain Access" program should pop up. Select <em>Login</em> &gt; <em>Keys</em>, then right click on your key in the list and select "Export"</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1644.png" /></p>
+<p><strong>3.3</strong> Give the unique name to file and press save. 
+You will have an option to protect the file with a password. 
+<strong><em>Please don't protect this file with a password!</em></strong></p>
+<h3 id="4-upload-your-push-certificate-to-jeapie">4. Upload Your Push Certificate to Jeapie</h3>
+<p><strong>4.1</strong> At the Step 2 "Push notification settings" please select the Production or Development APNS push services.</p>
+<p><img alt="push services" src="../../img/2015-08-07_1615.png" /></p>
+<p><strong>4.2</strong> Select the .p12 you exported without a password and press Save.</p>
+<p><img alt="save p12 file" src="../../img/2015-08-07_1617.png" /></p>
+<h3 id="congratulations-jeapie-is-now-set-up-to-push-out-notifications-to-your-app"><strong>Congratulations! Jeapie is now set up to push out notifications to your app!</strong></h3>
+<p>Next, install the Jeapie SDK for your app <a href="../iOS-Native-SDK-Installation/">iOS Native SDK Installation</a></p>
+              
             </div>
           </div>
           <footer>
@@ -322,15 +328,15 @@
 
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../iOS-Native-SDK-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../iOS-Native-SDK-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../iOS-Native-SDK-Overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../iOS-Native-SDK-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
 
-<!--
-MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-10 10:55:35.461937
--->
 </body>
 </html>

@@ -154,7 +154,7 @@
                 
                     <li><a class="toctree-l4" href="#2-include-required-files">2. Include Required Files</a></li>
                 
-                    <li><a class="toctree-l4" href="#3-initialize-jeapie">3. Initialize Jeapie</a></li>
+                    <li><a class="toctree-l4" href="#3-customize-jeapie-optional">3. Customize Jeapie (Optional)</a></li>
                 
             
             </ul>
@@ -253,14 +253,14 @@
 <h2 id="2-include-required-files">2. Include Required Files</h2>
 <p><strong>2.1</strong> Link <code>https://cdn.jeapie.com/jeapiejs/APP_KEY</code> and <code>manifest.json</code> to each page of your website by adding some code between <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags. Update <code>APP_KEY</code> with your Jeapie AppId.  Most likely, you will have to do it just once in the file, which helps to generate a layout of the site. The resulting HTML should look like this:</p>
 <pre><code class="HTML">&lt;head&gt;
-    &lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/0e9b2d82456a5ad012714e981d972360&quot; async&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/APP_KEY&quot; async&gt;&lt;/script&gt;
 &lt;/head&gt;
 </code></pre>
 
 <p>Now user will see a window asking for permission to receive notifications from your site immediately after opening the page</p>
 <p><img alt="Autoregister for users" src="../../img/https_autoregister.png" /></p>
-<h2 id="3-initialize-jeapie">3. Initialize Jeapie</h2>
-<p><strong>3.1 Init with your custom button.</strong> </p>
+<h2 id="3-customize-jeapie-optional">3. Customize Jeapie (Optional)</h2>
+<p><strong>3.1 Your custom button or event.</strong> </p>
 <p>Call <code>Jeapie.push(["init"])</code> from a javascript file that is included in every page. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
 Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
@@ -281,14 +281,6 @@ window.onload = function(){
 
 <p>The user will see a window asking for permission to receive notifications from your site immediately after clicking on the button.</p>
 <p>You can create your own logic and call <code>registerPush()</code> method.</p>
-<p><strong>3.2 Init with Jeapie Widget.</strong> </p>
-<p>Call <code>Jeapie.push(["init"])</code> from a javascript file that is included in every page. Add param <code>autoRegister</code> with value <code>false</code> and <code>createButton</code> with value <code>true</code>. If you want to update default text on widget add param <code>tooltipText</code> with you custom value.</p>
-<pre><code class="javascript">var Jeapie = Jeapie || [];
-Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false, &quot;createButton&quot;: true, &quot;tooltipText&quot;: &quot;YOUR CUSTOM TEXT&quot;}]);
-</code></pre>
-
-<p>The interactive button will appear on your site. Click it to open a window in which you will be able to allow sending notifications</p>
-<p><img alt="Autoregister for users" src="../../img/widget_example.png" /></p>
 <p><strong>Important</strong></p>
 <p>You must keep all the SDK files together. <code>https://cdn.jeapie.com/jeapiejs/APP_KEY</code>, <code>push-worker.js</code> and <code>manifest.json</code> must be placed in the root directory of your site.</p>
 <p>Link to <code>https://cdn.jeapie.com/jeapiejs/APP_KEY</code> must be added between <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags for every page on your website. Linking files this way allows us to be sure that:

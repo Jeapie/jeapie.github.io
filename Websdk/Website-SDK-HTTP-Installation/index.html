@@ -159,7 +159,7 @@
                 <li class="toctree-l3"><a href="#1-include-required-jeapiesdkjs">1. Include Required JeapieSDK.js</a></li>
                 
             
-                <li class="toctree-l3"><a href="#2-initialize-jeapie">2. Initialize Jeapie</a></li>
+                <li class="toctree-l3"><a href="#2-customize-jeapie-optional">2. Customize Jeapie (Optional)</a></li>
                 
             
             </ul>
@@ -252,16 +252,8 @@
 &lt;/head&gt;
 </code></pre>
 
-<h1 id="2-initialize-jeapie">2. Initialize Jeapie</h1>
-<p><strong>3.1 Init with Jeapie Widget</strong> </p>
-<p>Call <code>Jeapie.push(["init"])</code> from a javascript file that is included in every page. Add param <code>createButton</code> with value <code>true</code>. If you want to update default text on widget add param <code>tooltipText</code> with you custom value.</p>
-<pre><code class="javascript">var Jeapie = Jeapie || [];
-Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false, &quot;createButton&quot;: true, &quot;tooltipText&quot;: &quot;YOUR CUSTOM TEXT&quot;}]);
-</code></pre>
-
-<p>The interactive button will appear on your site. Click it to open a window in which you will be able to allow sending notifications.</p>
-<p><img alt="Autoregister for users" src="../../img/widget_example.png" /></p>
-<p><strong>3.2 Init with your custom button.</strong> </p>
+<h1 id="2-customize-jeapie-optional">2. Customize Jeapie (Optional)</h1>
+<p><strong>3.1 Init with your custom button or event.</strong> </p>
 <p>Call <code>Jeapie.push(["init"])</code> from a javascript file that is included in every page. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id.</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
 Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);

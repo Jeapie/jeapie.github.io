@@ -236,10 +236,11 @@
                 <h1 id="website-sdk-api">Website SDK API</h1>
 <p><strong>JavaScript Async</strong></p>
 <p>The example assumes that you have the following code placed defined before calling Jeapie functions:</p>
-<pre><code class="HTML">&lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/webpush.js&quot; &gt;&lt;/script&gt;
+<pre><code class="HTML">&lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/APP_KEY&quot; async&gt;&lt;/script&gt;
 &lt;script&gt;var Jeapie = Jeapie || [];&lt;/script&gt;
 </code></pre>
 
+<p>Update <code>APP_KEY</code> with your Jeapie AppId.</p>
 <h2 id="list-of-functions">List of Functions</h2>
 <ul>
 <li><a href="#init">init</a></li>
@@ -249,7 +250,6 @@
 <li><a href="#removetag">removeTag</a></li>
 <li><a href="#removealltags">removeAllTags</a></li>
 <li><a href="#setalias">setAlias</a></li>
-<li><a href="#ispushmanagersupported">isPushManagerSupported</a></li>
 <li><a href="#getsubscription">getSubscription</a></li>
 </ul>
 <h2 id="functions">Functions</h2>
@@ -258,23 +258,21 @@
 <ul>
 <li><strong>Parameters</strong></li>
 <li><strong><code>JSON</code></strong> <strong><em>options</em></strong></li>
-<li><strong><code>String</code></strong> <strong><em>appKey (Required) </em></strong>-Your Jeapie app id can be found on the settings page at jeapie.com.</li>
 <li><strong><code>Boolean</code></strong> <strong><em>autoRegister (Optional)</em></strong> - Automatically show browser prompt to accept notifications. You can pass in "false" to delay this pop-up and then call <code>registerUserForPush</code> to prompt them later.</li>
 <li><strong><code>Boolean</code></strong> <strong><em>createButton (Optional)</em></strong> -  It creates a default button that generates a window for receipt of the notifications, which appears after clicking</li>
-<li><strong><code>Boolean</code></strong> <strong><em>subdomainName (Required for HTTP sites)</em></strong> </li>
 <li><strong><code>String</code></strong> <strong><em>tooltipText (Optional, use only with createButton)</em></strong> - Default <code>One click subscription to our newsletter!</code>. Set the text that will be shown to users on a default button.</li>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="javascript">
 var Jeapie = Jeapie || [];
 
-Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
+Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 </code></pre>
 
 <h5 id="registeruserforpush"><strong>registerUserForPush</strong></h5>
 <p>Call it when you want to prompt the user to accept push notifications. Only call if you set "false" in <code>autoRegister:</code> when called "init".</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.registerUserForPush(callback);
+<pre><code class="javascript">Jeapie.push([&quot;registerUserForPush&quot;, callback]);
 </code></pre>
 
 <h5 id="addtag"><strong>addTag</strong></h5>
@@ -284,7 +282,7 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 <li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.addTag(&quot;value&quot;);
+<pre><code class="javascript">Jeapie.push([&quot;addTag&quot;, &quot;value&quot;]);
 </code></pre>
 
 <h5 id="settags"><strong>setTags</strong></h5>
@@ -294,7 +292,7 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 <li><strong><code>JSON</code></strong> <strong><em>values</em></strong> - Values of your choosing to create.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.setTags([&quot;value1&quot;, &quot;value2&quot;]);
+<pre><code class="javascript">Jeapie.push([&quot;setTags&quot;, [&quot;value1&quot;, &quot;value2&quot;] ]);
 </code></pre>
 
 <h5 id="removetag"><strong>removeTag</strong></h5>
@@ -304,13 +302,13 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 <li><strong><code>String</code></strong> <strong><em>value</em></strong> - Value to remove.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.removeTag(&quot;value&quot;);
+<pre><code class="javascript">Jeapie.push([&quot;removeTag&quot;, &quot;value&quot;]);
 </code></pre>
 
 <h5 id="removealltags"><strong>removeAllTags</strong></h5>
 <p>Deletes all tags that were previously set for a user with <code>addTag</code> or <code>setTags</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.removeAllTags();
+<pre><code class="javascript">Jeapie.push([&quot;removeAllTags&quot;]);
 </code></pre>
 
 <h5 id="setalias"><strong>setAlias</strong></h5>
@@ -320,22 +318,17 @@ Jeapie.init(&quot;appKey&quot;: &quot;YOUR_JEAPIE_APP_KEY&quot;);
 <li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.setAlias(&quot;value&quot;);
-</code></pre>
-
-<h5 id="ispushmanagersupported"><strong>isPushManagerSupported</strong></h5>
-<p>Returns "true" If the browser of current viewer of the page supports push notifications.</p>
-<pre><code class="javascript">Jeapie.isPushManagerSupported();
+<pre><code class="javascript">Jeapie.push([&quot;setAlias&quot;, &quot;value&quot;]);
 </code></pre>
 
 <h5 id="getsubscription"><strong>getSubscription</strong></h5>
 <p>Lets you retrieve the Google Registration ID. Your handler is called after the device is successfully registered with Jeapie.</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.getSubscription(function (subscriptionId) {
+<pre><code class="javascript">Jeapie.push([&quot;getSubscription&quot;, function (subscriptionId) {
     if (subscriptionId) {
         console.log(subscriptionId);
     }
-});
+}]);
 </code></pre>
               
             </div>

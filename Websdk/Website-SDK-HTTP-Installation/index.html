@@ -246,37 +246,35 @@
 <li>Includes Chrome for Windows, Mac OS X, Linux, Chrome OS and Android. Chrome for iOS is not yet supported by Google.</li>
 </ul>
 <h1 id="1-include-required-jeapiesdkjs">1. Include Required JeapieSDK.js</h1>
-<p><strong>1.1</strong> Include <code>https://cdn.jeapie.com/jeapiejs/webpush.js</code> in the the <code>&lt;head&gt;</code> HTML tag of each of your website pages. The best way is to add it to the code that generates the layout for each of your webpages. The resulting HTML should look like this:</p>
+<p><strong>1.1</strong> Include <code>https://cdn.jeapie.com/jeapiejs/APP_KEY</code> in the the <code>&lt;head&gt;</code> HTML tag of each of your website pages. Update <code>APP_KEY</code> with your Jeapie AppId. The best way is to add it to the code that generates the layout for each of your webpages. The resulting HTML should look like this:</p>
 <pre><code class="HTML">&lt;head&gt;
-  &lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/webpush.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jeapie.com/jeapiejs/c98ddb5b4e54032b1f012127a3c5aec3&quot; async&gt; &lt;/script&gt;
 &lt;/head&gt;
 </code></pre>
 
 <h1 id="2-initialize-jeapie">2. Initialize Jeapie</h1>
-<p>Call <code>Jeapie.init</code> from a javascript file that is included in every page.</p>
-<ul>
-<li>Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId.</li>
-<li>Update <code>jeapie</code> with the name value you entered in our dashboard.</li>
-</ul>
 <p><strong>3.1 Init with Jeapie Widget</strong> </p>
-<p>Call <code>Jeapie.init</code> from a javascript file that is included in every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Add param <code>createButton</code> with value <code>true</code>.</p>
+<p>Call <code>Jeapie.push(["init"])</code> from a javascript file that is included in every page. Add param <code>createButton</code> with value <code>true</code>. If you want to update default text on widget add param <code>tooltipText</code> with you custom value.</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
-Jeapie.init({ &quot;appKey&quot; : &quot;0e9b2d82456a5ad012714e981d972360&quot;, &quot;subdomainName&quot;: &quot;jeapie&quot;,&quot;createButton&quot;: true});
+Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false, &quot;createButton&quot;: true, &quot;tooltipText&quot;: &quot;YOUR CUSTOM TEXT&quot;}]);
 </code></pre>
 
 <p>The interactive button will appear on your site. Click it to open a window in which you will be able to allow sending notifications.</p>
 <p><img alt="Autoregister for users" src="../../img/widget_example.png" /></p>
 <p><strong>3.2 Init with your custom button.</strong> </p>
-<p>Call <code>Jeapie.init</code> from a javascript file that is included in every page. Update <code>0e9b2d82456a5ad012714e981d972360</code> with your Jeapie AppId. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id.</p>
+<p>Call <code>Jeapie.push(["init"])</code> from a javascript file that is included in every page. Create or use your button and update <code>YOUR_CUSTOM_BUTTON_ID</code> with your button id.</p>
 <pre><code class="javascript">var Jeapie = Jeapie || [];
-Jeapie.init({ &quot;appKey&quot; : &quot;0e9b2d82456a5ad012714e981d972360&quot;,  &quot;subdomainName&quot; : &quot;jeapie&quot; });
+Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 
-//Replace YOUR_CUSTOM_BUTTON_ID with your button id
-document.getElementById(&quot;YOUR_CUSTOM_BUTTON_ID&quot;).onclick = registerPush;
+window.onload = function() {
+    //Replace YOUR_CUSTOM_BUTTON_ID with your button id
+    document.getElementById(&quot;YOUR_CUSTOM_BUTTON_ID&quot;).onclick = registerPush;
 
-function registerPush() {
-    Jeapie.registerHttp();
+    function registerPush() {
+        Jeapie.push([&quot;registerHttp&quot;);
+    }
 }
+
 </code></pre>
 
 <p><strong>That's It!</strong></p>

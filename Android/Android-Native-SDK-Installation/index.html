@@ -305,7 +305,7 @@ Example: "A1111111111"</p>
             &lt;/intent-filter&gt;
         &lt;/receiver&gt;
 
-        &lt;receiver android:name=&quot;com.jeapieLib.reciever.GCMReceiver&quot;&gt;
+        &lt;receiver android:name=&quot;com.jeapieLib.GCMReceiver&quot;&gt;
             &lt;intent-filter&gt;
                 &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot;/&gt;
                 &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot;/&gt;
@@ -313,15 +313,18 @@ Example: "A1111111111"</p>
             &lt;/intent-filter&gt;
         &lt;/receiver&gt;
 
-        &lt;receiver android:name=&quot;com.jeapieLib.reciever.InternetConnectionReceiver&quot;&gt;
+        &lt;receiver android:name=&quot;com.jeapieLib.InternetConnectionReceiver&quot;
+                  android:exported=&quot;false&quot;&gt;
             &lt;intent-filter&gt;
                 &lt;action android:name=&quot;android.net.conn.CONNECTIVITY_CHANGE&quot;/&gt;
             &lt;/intent-filter&gt;
         &lt;/receiver&gt;
 
-        &lt;service android:name=&quot;com.jeapieLib.EventsSenderService&quot;/&gt;
+        &lt;service android:name=&quot;com.jeapieLib.service.EventsSenderService&quot;
+                 android:exported=&quot;false&quot;/&gt;
 
-        &lt;service android:name=&quot;com.jeapieLib.LocationTrackingService&quot;/&gt;
+        &lt;service android:name=&quot;com.jeapieLib.service.LocationTrackingService&quot;
+                 android:exported=&quot;false&quot;/&gt;
 
 &lt;/application&gt;
 </code></pre>

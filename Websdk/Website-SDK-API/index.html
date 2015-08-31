@@ -251,6 +251,8 @@
 <li><a href="#removealltags">removeAllTags</a></li>
 <li><a href="#setalias">setAlias</a></li>
 <li><a href="#getsubscription">getSubscription</a></li>
+<li><a href="#aftersubscription">afterSubscription</a></li>
+<li><a href="#issubscribed">isSubscribed</a></li>
 </ul>
 <h2 id="functions">Functions</h2>
 <h5 id="init"><strong>init</strong></h5>
@@ -272,7 +274,8 @@ Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 <h5 id="registeruserforpush"><strong>registerUserForPush</strong></h5>
 <p>Call it when you want to prompt the user to accept push notifications. Only call if you set "false" in <code>autoRegister:</code> when called "init".</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;registerUserForPush&quot;, callback]);
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;registerUserForPush&quot;, callback]);
 </code></pre>
 
 <h5 id="addtag"><strong>addTag</strong></h5>
@@ -282,7 +285,8 @@ Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 <li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;addTag&quot;, &quot;value&quot;]);
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;addTag&quot;, &quot;value&quot;]);
 </code></pre>
 
 <h5 id="settags"><strong>setTags</strong></h5>
@@ -292,7 +296,8 @@ Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 <li><strong><code>JSON</code></strong> <strong><em>values</em></strong> - Values of your choosing to create.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;setTags&quot;, [&quot;value1&quot;, &quot;value2&quot;] ]);
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;setTags&quot;, [&quot;value1&quot;, &quot;value2&quot;] ]);
 </code></pre>
 
 <h5 id="removetag"><strong>removeTag</strong></h5>
@@ -302,13 +307,15 @@ Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 <li><strong><code>String</code></strong> <strong><em>value</em></strong> - Value to remove.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;removeTag&quot;, &quot;value&quot;]);
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;removeTag&quot;, &quot;value&quot;]);
 </code></pre>
 
 <h5 id="removealltags"><strong>removeAllTags</strong></h5>
 <p>Deletes all tags that were previously set for a user with <code>addTag</code> or <code>setTags</code>.</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;removeAllTags&quot;]);
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;removeAllTags&quot;]);
 </code></pre>
 
 <h5 id="setalias"><strong>setAlias</strong></h5>
@@ -318,16 +325,38 @@ Jeapie.push([&quot;init&quot;, {&quot;autoRegister&quot;:false}]);
 <li><strong><code>string</code></strong> <strong><em>value</em></strong> - Value to set.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;setAlias&quot;, &quot;value&quot;]);
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;setAlias&quot;, &quot;value&quot;]);
 </code></pre>
 
 <h5 id="getsubscription"><strong>getSubscription</strong></h5>
 <p>Lets you retrieve the Google Registration ID. Your handler is called after the device is successfully registered with Jeapie.</p>
 <p><strong>Example</strong></p>
-<pre><code class="javascript">Jeapie.push([&quot;getSubscription&quot;, function (subscriptionId) {
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;getSubscription&quot;, function (subscriptionId) {
     if (subscriptionId) {
         console.log(subscriptionId);
     }
+}]);
+</code></pre>
+
+<h5 id="aftersubscription"><strong>afterSubscription</strong></h5>
+<p>Callback that is called after the device is successfully registered with Jeapie. Return <code>Google Registration ID</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;afterSubscription&quot;, function (token) {
+    console.log(token);
+    //Your action
+}]);
+</code></pre>
+
+<h5 id="issubscribed"><strong>isSubscribed</strong></h5>
+<p>Shows if user give permission to send notifications. Return <code>true</code> or <code>false</code></p>
+<p><strong>Example</strong></p>
+<pre><code class="javascript">var Jeapie = Jeapie || [];
+Jeapie.push([&quot;isSubscribed&quot;, function (success) {
+    console.log(success);
+    //Your action
 }]);
 </code></pre>
               

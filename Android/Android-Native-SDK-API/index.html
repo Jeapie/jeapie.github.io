@@ -65,6 +65,42 @@
           
             <li>
     <ul class="subnav">
+    <li><span>iOS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../iOS/iOS-Native-SDK-Overview/">iOS Native SDK Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../iOS/Generating-an-iOS-Push-Certificate/">Generating an iOS Push Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../iOS/iOS-Native-SDK-Installation/">iOS Native SDK Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../iOS/iOS-Native-SDK-API/">iOS Native SDK API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
     <li><span>Android</span></li>
 
         
@@ -97,27 +133,12 @@
             
                 <li class="toctree-l3"><a href="#android-native-sdk-api">Android Native SDK API</a></li>
                 
-                    <li><a class="toctree-l4" href="#list-of-constructors">List of Constructors</a></li>
-                
                     <li><a class="toctree-l4" href="#list-of-methods">List of Methods</a></li>
-                
-                    <li><a class="toctree-l4" href="#list-of-handler-interfaces">List of Handler Interfaces</a></li>
-                
-                    <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
                 
                     <li><a class="toctree-l4" href="#methods">Methods</a></li>
                 
-                    <li><a class="toctree-l4" href="#handler-interfaces">Handler Interfaces</a></li>
-                
             
             </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../Android-Notification-Customizations/">Android Notification Customizations</a>
         
     </li>
 
@@ -220,258 +241,220 @@
             <div class="section">
               
                 <h1 id="android-native-sdk-api">Android Native SDK API</h1>
-<h2 id="list-of-constructors">List of Constructors</h2>
-<p><a href="#Jeapie">Jeapie</a></p>
 <h2 id="list-of-methods">List of Methods</h2>
 <ul>
-<li><a href="#sendtag">sendTag</a></li>
-<li><a href="#sendtags">sendTags</a></li>
-<li><a href="#gettags">getTags</a></li>
-<li><a href="#deletetag">deleteTag</a></li>
-<li><a href="#deletetags">deleteTags</a></li>
-<li><a href="#sendpurchase">sendPurchase</a></li>
-<li><a href="#idsavailable">IdsAvailable</a></li>
-<li><a href="#onpaused">onPaused</a></li>
-<li><a href="#onresumed">onResumed</a></li>
-<li><a href="#enablevibrate">enableVibrate</a></li>
-<li><a href="#enablesound">enableSound</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#setAlias">setAlias</a></li>
+<li><a href="#setPhone">setPhone</a></li>
+<li><a href="#setEmail">setEmail</a></li>
+<li><a href="#addTag">addTag</a></li>
+<li><a href="#setTags">setTags</a></li>
+<li><a href="#removeTag">removeTag</a></li>
+<li><a href="#removeTags">removeTags</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#startLocationTrackingService">startLocationTrackingService</a></li>
+<li><a href="#setLocation">setLocation</a></li>
+<li><a href="#pushDelivered">pushDelivered</a></li>
 </ul>
-<h2 id="list-of-handler-interfaces">List of Handler Interfaces</h2>
-<ul>
-<li><a href="#notificationopenedhandler">NotificationOpenedHandler</a></li>
-<li><a href="#idsavailablehandler">IdsAvailableHandler</a></li>
-<li><a href="#gettagshandler">GetTagsHandler</a></li>
-</ul>
-<h2 id="constructors">Constructors</h2>
-<h5 id="jeapie"><strong>Jeapie</strong></h5>
-<p>You must create a Jeapie instance on the first Android Activity when your app starts. Also make sure you only create one instance and keep the same one around by making it static our assigning it to an object outside of your first Activity. You are also required to override onPaused and onResumed on your Android Activities and call the matching methods on your Jeapie instance.</p>
-<ul>
-<li>Parameters</li>
-<li><strong><code>Activity</code></strong> <strong><em>context</em></strong> - Pass in your main <code>Activity</code> so the api can use it as a <code>Context</code>.</li>
-<li><strong><code>String</code></strong> <strong><em>google Project Number</em></strong> - Your Google project number</li>
-<li><strong><code>String</code></strong> <strong><em>Jeapie AppId</em></strong> - Your Jeapie app id</li>
-<li><strong><code>NotificationOpenedHandler</code></strong> <strong><em>notificationOpenedHandler(Optional)</em></strong> - Calls <code>notificationOpened</code> on the object when a notification is opened or one is received while the app is running.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="Java">public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      Jeapie = new Jeapie(this, &quot;703322744261&quot;, &quot;5eb5a37e-b458-11e3-ac11-000c2940e62c&quot;);
-    }
-  }
-</code></pre>
-
 <h2 id="methods">Methods</h2>
-<h5 id="sendtag"><strong>sendTag</strong></h5>
-<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com">jeapie.com</a> to target these users. Recommend using sendTags over sendTag if you need to set more than one tag on a user at a time.</p>
-<ul>
-<li>Parameters</li>
-<li><strong><code>String</code></strong> <strong><em>key</em></strong> - Key of your choosing to create or update.</li>
-<li><strong><code>String</code></strong> <strong><em>value</em></strong> - Value to set on the key.</li>
-<li><em>NOTE</em>: Passing in a blank String deletes the key, you can also call deleteTag or deleteTags.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.sendTag(&quot;key&quot;, &quot;value&quot;);
+<h5 id="init"><strong><a name="init">init</a></strong></h5>
+<p>Paste method the code into <code>Launch Activity</code> or into class extends <code>android.app.Application</code>.</p>
+<pre><code class="java">public static JeapieAPI init(Context context);
 </code></pre>
 
-<h5 id="sendtags"><strong>sendTags</strong></h5>
-<p>Tag a user based on an app event of your choosing so later you can create segments on <a href="https://jeapie.com/">jeapie.com</a> to target these users.</p>
+<p><strong>Parameters</strong></p>
 <ul>
-<li>Parameters</li>
-<li><strong><code>JSONObject</code></strong> <strong><em>keyValues</em></strong> - Key value pairs of your choosing to create or update.</li>
-<li><em>NOTE</em>: Passing in a blank String as a value deletes the key, you can also call deleteTag or deleteTags.</li>
+<li><strong><code>context</code></strong> <strong><em>Context</em></strong> - Application context</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><strong><code>JeapieAPI</code></strong> - JeapieAPI instance</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="Java">  JSONObject tags = new JSONObject();
-  tags.put(&quot;key1&quot;, &quot;value1&quot;);
-  tags.put(&quot;key2&quot;, &quot;value2&quot;);
-  Jeapie.sendTags(tags);
-</code></pre>
-
-<h5 id="gettags"><strong>getTags</strong></h5>
-<p>Retrieve a list of tags that have been set on the user from the Jeapie server.</p>
-<ul>
-<li>Parameters</li>
-<li><strong><code>GetTagsHandler</code></strong> <strong><em>handler</em></strong> - Calls <code>tagsAvailable</code> on the Object once the tags are available.</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.getTags(new GetTagsHandler() {
+<pre><code class="java">@Override
+public class TestApp extends Application {
     @Override
-    public void tagsAvailable(JSONObject tags) {
-      Log.d(&quot;debug&quot;, tags.toString());
+    public void onCreate() {
+        super.onCreate();
+            JeapieAPI.init(getApplicationContext());
     }
-  });
+}
 </code></pre>
 
-<h5 id="deletetag"><strong>deleteTag</strong></h5>
-<p>Deletes a tag that was previously set on a user with <code>sendTag</code> or <code>sendTags</code>. Use <code>deleteTags</code> if you need to delete more than one.</p>
+<hr />
+<p><br><br></p>
+<h5 id="setalias"><strong><a name="setAlias">setAlias</a></strong></h5>
+<p>Set an alias(user identifier) for each user to target these users.</p>
+<pre><code class="java">public void setAlias(String alias);
+</code></pre>
+
+<p><strong>Parameters</strong></p>
 <ul>
-<li>Parameters</li>
-<li><strong><code>String</code></strong> <strong><em>key</em></strong> - Key to remove.</li>
+<li><strong><code>alias</code></strong> <strong><em>String</em></strong> - user alias (email or other account identifier).</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.deleteTag(&quot;key&quot;);
+<pre><code class="java">JeapieAPI.getInstance().setAlias(&quot;John Smith&quot;);
 </code></pre>
 
-<h5 id="deletetags"><strong>deleteTags</strong></h5>
-<p>Deletes tags that were previously set on a user with <code>sendTag</code> or <code>sendTags</code>.</p>
+<hr />
+<p><br><br></p>
+<h5 id="setphone"><strong><a name="setPhone">setPhone</a></strong></h5>
+<p>Set a user phone number for additional user targeting.</p>
+<pre><code class="java">public void setPhoneNumber(String phone);
+</code></pre>
+
+<p><strong>Parameters</strong></p>
 <ul>
-<li>Parameters</li>
-<li><strong><code>Collection&lt;String&gt;</code></strong> <strong><em>keys</em></strong> - Keys to remove.</li>
+<li><strong><code>phone</code></strong> <strong><em>String</em></strong> - user phone.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="Java">Collection&lt;String&gt; tempList = new ArrayList&lt;String&gt;();
-  tempList.add(key);
-  Jeapie.deleteTags(tempList);
+<pre><code class="java">JeapieAPI.getInstance().setPhoneNumber(&quot;380991111111&quot;);
 </code></pre>
 
-<h5 id="sendpurchase"><strong>~~sendPurchase~~</strong></h5>
-<p>This was deprecated in version 1.4.0 as Google Play and Amazon (IAP v2) purchases are now automatically tracked for you.</p>
-<p>~~Call this method when a user completes an in-app purchase, and provide the amount spent in USD. This can later be used to target free vs paid users when sending a push notification.~~</p>
-<ul>
-<li>~~Parameters~~</li>
-<li>
-<p>~~(BigDecimal OR double) amount - Amount spent in USD.~~</p>
-</li>
-<li>
-<p>~~Example~~</p>
-</li>
-</ul>
-<pre><code class="Java">// This method call as no affect as purchases are now tracked automatically.
-Jeapie.sendPurchase(1.23d);
+<hr />
+<p><br><br></p>
+<h5 id="setemail"><strong><a name="setEmail">setEmail</a></strong></h5>
+<p>Set a user phone number for additional user targeting.</p>
+<pre><code class="java">public void setEmail(String email);
 </code></pre>
 
-<h5 id="idsavailable"><strong>idsAvailable</strong></h5>
-<p>Lets you retrieve the Jeapie user id and the Google registration id. Your handler is called after the device is successfully registered with Jeapie.</p>
+<p><strong>Parameters</strong></p>
 <ul>
-<li>Parameters</li>
-<li><strong><code>IdsAvailableHandler</code></strong> <strong><em>handler</em></strong> - Calls <code>tagsAvailable</code> on the Object when the user id is available.</li>
+<li><strong><code>email</code></strong> <strong><em>String</em></strong> - user email.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.idsAvailable(new IdsAvailableHandler() {
-    @Override
-    public void idsAvailable(String userId, String registrationId) {
-      Log.d(&quot;debug&quot;, &quot;User:&quot; + userId);
-      if (registrationId != null)
-        Log.d(&quot;debug&quot;, &quot;registrationId:&quot; + registrationId);
-    }
-  });
+<pre><code class="java">JeapieAPI.getInstance().setEmail(&quot;login@example.com&quot;);
 </code></pre>
 
-<h5 id="onpaused"><strong>onPaused</strong></h5>
-<p>Tells Jeapie that the user is no longer in your app. This is used to track session duration of your app and when to show a notification in the notification area or to just call your <code>NotificationOpenedHandler</code>. So make sure to place this and <code>onResume</code> in each of your <code>Activity</code> classes.</p>
-<p><strong>Example</strong></p>
-<pre><code class="Java">  @Override
-  protected void onPause() {
-    super.onPause();
-    Jeapie.onPaused();
-  }
+<hr />
+<p><br><br></p>
+<h5 id="addtag"><strong><a name="addTag">addTag</a></strong></h5>
+<p>Tags a user based on an app event of your choosing so that later you can 
+create segments on Jeapie to target these users. 
+We recommend using setTags over addTag if you need to set more than one tag for a user at once.</p>
+<pre><code class="java">public void addTag(String tag);
 </code></pre>
 
-<h5 id="onresumed"><strong>onResumed</strong></h5>
-<p>Tells Jeapie that the user returned to your app. This is used to track session duration of your app and when to show a notification in the notification area or to just call your <code>NotificationOpenedHandler</code>. So make sure to place this and <code>onPaused</code> in each of your <code>Activity</code> classes.</p>
-<p><strong>Example</strong></p>
-<pre><code class="Java">@Override
-  protected void onResume() {
-    super.onResume();
-    Jeapie.onResumed();
-  }
-</code></pre>
-
-<h5 id="enablevibrate"><strong>enableVibrate</strong></h5>
-<p><em>You can call this from your UI from a button press for example to give your user's options for your notifications.</em></p>
-<p>By default Jeapie always vibrates the device when a notification is displayed unless the device is in a total silent mode. Passing false means that the device will only vibrate lightly when the device is in it's vibrate only mode.</p>
-<p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.enableVibrate(false);
-</code></pre>
-
-<h5 id="enablesound"><strong>enableSound</strong></h5>
-<p><em>You can call this from your UI from a button press for example to give your user's options for your notifications.</em></p>
-<p>By default Jeapie plays the system's default notification sound when the device's notification system volume is turned on. Passing false means that the device will only vibrate unless the device is set to a total silent mode.</p>
-<p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.enableSound(false);
-</code></pre>
-
-<h2 id="handler-interfaces">Handler Interfaces</h2>
-<h5 id="notificationopenedhandler"><strong>NotificationOpenedHandler</strong></h5>
-<p>Interface containing the method <code>notificationOpened</code> which you can implement to process information on the notification the user just opened.</p>
-<h5 id="notificationopened"><strong>notificationOpened</strong></h5>
+<p><strong>Parameters</strong></p>
 <ul>
-<li>Parameters</li>
-<li><strong><code>String</code></strong> <strong><em>message</em></strong> - The message text the user seen in the notification.</li>
-<li><strong><code>JSONObject</code></strong> <strong><em>additionalData</em></strong> - Key value pairs that were set on the notification.</li>
-<li><strong><code>boolean</code></strong> <strong><em>isActive</em></strong> - True if your app was currently being used when a notification came in.</li>
-</ul>
-<p><strong><em>NOTE</em></strong></p>
-<p>If you set Action Buttons on your notification, the actionSelected key will contain the id of the button pressed; "<strong>DEFAULT</strong>" will be the id if the user tapped on the notification itself when buttons were present.</p>
-<p><strong>Example</strong></p>
-<pre><code class="Java">@Override
-  public static void notificationOpened(String message, JSONObject additionalData, boolean isActive) {
-    String messageTitle;
-    AlertDialog.Builder builder = null;
-
-    if (additionalData != null) {
-      if (additionalData.has(&quot;discount&quot;))
-        messageTitle = &quot;Discount!&quot;;
-      else if (additionalData.has(&quot;bonusCredits&quot;))
-        messageTitle = &quot;Bonus Credits!&quot;;
-      else
-        messageTitle = &quot;Other Extra Data&quot;;
-
-      builder = new AlertDialog.Builder(this)
-          .setTitle(messageTitle)
-          .setMessage(message + &quot;\n\n&quot; + additionalData.toString());
-    }
-    else if (isActive) // If a push notification is received when the app is being used it does not display in the notification bar so display in the app.
-      builder = new AlertDialog.Builder(this)
-          .setTitle(&quot;Jeapie Message&quot;)
-          .setMessage(message);
-
-    // Add your app logic around this so the user is not interrupted during gameplay.
-    if (builder != null)
-      builder.setCancelable(true)
-           .setPositiveButton(&quot;OK&quot;,null)
-           .create().show();
-  }
-</code></pre>
-
-<p>If want to process a notification before it is clicked or want to handle receiving a silent notification see our <a href="../Android-Notification-Customizations/#background-data-silent-notifications">Background Data documentation</a>.</p>
-<h5 id="idsavailablehandler"><strong>IdsAvailableHandler</strong></h5>
-<p>Interface which you can implement and pass to <code>Jeapie.idsAvailable</code> to get the Jeapie userId and the Google registration Id.</p>
-<h5 id="idsavailable_1"><strong>IdsAvailable</strong></h5>
-<ul>
-<li>Parameters</li>
-<li><strong><code>String</code></strong> <strong><em>userId</em></strong> - Jeapie userId is a UUID formatted string.(<em>unique per device per app</em>)</li>
-<li><strong><code>String</code></strong> <strong><em>registrationId</em></strong> - Registration Id is a Google assigned identifier(<em>unique per device per app and changes on reinstalls</em>).</li>
-</ul>
-<p><strong>NOTE</strong></p>
-<p>Might be <code>null</code> if Google play services are not installed on the device or there was a connection issue.</p>
-<p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.idsAvailable(new IdsAvailableHandler() {
-     @Override
-     public void idsAvailable(String userId, String registrationId) {
-      Log.d(&quot;debug&quot;, &quot;User:&quot; + userId);
-      if (registrationId != null)
-        Log.d(&quot;debug&quot;, &quot;registrationId:&quot; + registrationId);
-     }
-  });
-</code></pre>
-
-<h5 id="gettagshandler"><strong>GetTagsHandler</strong></h5>
-<p>Interface which you can implement and pass to <code>Jeapie.getTags</code> to get the all the tags set on a user from jeapie.com.</p>
-<h5 id="tagsavailable"><strong>tagsAvailable</strong></h5>
-<ul>
-<li>Parameters</li>
-<li><strong><code>JSONObject</code></strong> <strong><em>tags</em></strong> - JSONObject of key value pairs retrieved from the Jeapie server</li>
+<li><strong><code>tag</code></strong> <strong><em>String</em></strong> - tag name.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="Java">Jeapie.getTags(new GetTagsHandler() {
-    @Override
-    public void tagsAvailable(JSONObject tags) {
-      Log.d(&quot;debug&quot;,&quot;Current Tags on User:&quot; + tags.toString());
-    }
-  });
+<pre><code class="java">JeapieAPI.getInstance().addTag(&quot;tag_name_1&quot;);
 </code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="settags"><strong><a name="setTags">setTags</a></strong></h5>
+<p>Tags a user based on an app event of your choosing so later 
+you can create segments on Jeapie to target these users. <strong><em>Remove all tags and set new array of tags.</em></strong></p>
+<pre><code class="java">public void setTags(String[] tags);
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>tags</code></strong> <strong><em>String[]</em></strong> - array of tags.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().setTags(new String[]{&quot;tag_name_1&quot;, &quot;tag_name_2&quot;});
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="removetag"><strong><a name="removeTag">removeTag</a></strong></h5>
+<p>Deletes a tag that was previously set for a user with addTag or setTags. 
+Use removeAllTags if you need to delete all of them.</p>
+<pre><code class="java">public void removeTag(String tag);
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>tag</code></strong> <strong><em>String</em></strong> - tag name.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().removeTag(&quot;tag_name_1&quot;);
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="removetags"><strong><a name="removeTags">removeTags</a></strong></h5>
+<p>Deletes all tags that were previously set for a user with addTag or setTags.</p>
+<pre><code class="java">public void removeTags();
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().removeTags();
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="unsubscribe"><strong><a name="unsubscribe">unsubscribe</a></strong></h5>
+<p>Unsubscribe this device from push notifications.</p>
+<pre><code class="java">public void unsubscribe();
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().unsubscribe();
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="subscribe"><strong><a name="subscribe">subscribe</a></strong></h5>
+<p>Subscribe this device to push notifications if it was unsubscribed by <code>unsubcribe</code> method.</p>
+<pre><code class="java">public void subscribe();
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().subscribe();
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="startlocationtrackingservice"><strong><a name="startLocationTrackingService">startLocationTrackingService</a></strong></h5>
+<p>Collect user coordinates for advanced user targeting. Geolocations collect with custom period in seconds 
+when mobile application has foreground state.</p>
+<pre><code class="java">public void startLocationTrackingService();
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().startLocationTrackingService();
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="setlocation"><strong><a name="setLocation">setLocation</a></strong></h5>
+<p>Save user geolocation to Jeapie for advanced user targeting.</p>
+<pre><code class="java">public void setLocation(Double[] longitudeLatitude);
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>longitudeLatitude</code></strong> <strong><em>Double[]</em></strong> - array of longitude and latitude.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="java">JeapieAPI.getInstance().setLocation(Double[]{45.678, 23.456})l
+</code></pre>
+
+<hr />
+<p><br><br></p>
+<h5 id="pushdelivered"><strong><a name="pushDelivered">pushDelivered</a></strong></h5>
+<p>To track the push has been delivered. </p>
+<pre><code class="java">static void pushDelivered(String pushId, Context context);
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>pushId</code></strong> <strong><em>String</em></strong> - id of push from push payload.</li>
+<li><strong><code>context</code></strong> <strong><em>Context</em></strong> - context of application.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="java">final String pushId = intent.getStringExtra(MESSAGE_ID_EXTRA_FIELD);
+JeapieAPI.getInstance().pushDelivered(pushId, context);
+</code></pre>
+
+<hr />
+<p><br><br></p>
               
             </div>
           </div>
@@ -479,7 +462,7 @@ Jeapie.sendPurchase(1.23d);
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Android-Notification-Customizations/" class="btn btn-neutral float-right" title="Android Notification Customizations"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Websdk/Website-SDK-Overview/" class="btn btn-neutral float-right" title="Website SDK Overview"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../Android-Native-SDK-Installation/" class="btn btn-neutral" title="Android Native SDK Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -512,7 +495,7 @@ Jeapie.sendPurchase(1.23d);
         <span><a href="../Android-Native-SDK-Installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Android-Notification-Customizations/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Websdk/Website-SDK-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

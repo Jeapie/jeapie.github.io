@@ -304,7 +304,7 @@ Example: "A1111111111"</p>
             android:value=&quot;A{PROJECT_NUMBER}&quot;/&gt;
 
 
-        &lt;receiver android:name=&quot;com.jeapieLib.GCMReceiver&quot;&gt;
+        &lt;receiver android:name=&quot;com.jeapieLib.receiver.GCMReceiver&quot;&gt;
             &lt;intent-filter&gt;
                 &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot;/&gt;
                 &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot;/&gt;
@@ -312,7 +312,7 @@ Example: "A1111111111"</p>
             &lt;/intent-filter&gt;
         &lt;/receiver&gt;
 
-        &lt;receiver android:name=&quot;com.jeapieLib.InternetConnectionReceiver&quot;
+        &lt;receiver android:name=&quot;com.jeapieLib.receiver.InternetConnectionReceiver&quot;
                   android:exported=&quot;false&quot;&gt;
             &lt;intent-filter&gt;
                 &lt;action android:name=&quot;android.net.conn.CONNECTIVITY_CHANGE&quot;/&gt;
@@ -328,16 +328,24 @@ Example: "A1111111111"</p>
 &lt;/application&gt;
 </code></pre>
 
-<p><strong>6.</strong> Paste the code into "Launch Activity"</p>
-<pre><code class="java">JeapieAPI.init(getApplicationContext());
+<p><strong>6.</strong> Paste the code into class which extends class <code>Application</code></p>
+<pre><code class="java">public class TestApp extends Application {
 
-
-//tracking push opening
-Bundle bundle = getIntent().getExtras();
-JeapieAPI.getInstance().trackPushOpen(bundle);
+    @Override
+    public void onCreate() {
+        super.onCreate();
+            JeapieAPI.init(getApplicationContext());
+    }
+}
 </code></pre>
 
-<p><strong>7.</strong> Now you can use jeapie sdk methods</p>
+<p><strong>7.</strong> Paste the code into "Launch Activity"</p>
+<pre><code class="java">//tracking push opening
+Bundle bundle = getIntent().getExtras();
+JeapieAPI.trackPushOpen(bundle);
+</code></pre>
+
+<p><strong>8.</strong> Now you can use jeapie sdk methods</p>
 <!--* To see all available methods, see our [Android SDK API Documentation](Android-Native-SDK-API.md).-->
               
             </div>

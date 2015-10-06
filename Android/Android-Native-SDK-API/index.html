@@ -131,7 +131,7 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#android-native-sdk-api">Android Native SDK API</a></li>
+                <li class="toctree-l3"><a href="#android-native-sdk-api-21x-versions">Android Native SDK API (2.1.x versions)</a></li>
                 
                     <li><a class="toctree-l4" href="#list-of-methods">List of Methods</a></li>
                 
@@ -240,7 +240,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="android-native-sdk-api">Android Native SDK API</h1>
+                <h1 id="android-native-sdk-api-21x-versions">Android Native SDK API (2.1.x versions)</h1>
 <h2 id="list-of-methods">List of Methods</h2>
 <ul>
 <li><a href="#init">init</a></li>
@@ -286,7 +286,7 @@ public class TestApp extends Application {
 <p><br><br></p>
 <h5 id="setalias"><strong><a name="setAlias">setAlias</a></strong></h5>
 <p>Set an alias(user identifier) for each user to target these users.</p>
-<pre><code class="java">public void setAlias(String alias);
+<pre><code class="java">public static void setAlias(String alias);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -294,14 +294,14 @@ public class TestApp extends Application {
 <li><strong><code>alias</code></strong> <strong><em>String</em></strong> - user alias (email or other account identifier).</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().setAlias(&quot;John Smith&quot;);
+<pre><code class="java">JeapieAPI.setAlias(&quot;John Smith&quot;);
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="setphone"><strong><a name="setPhone">setPhone</a></strong></h5>
 <p>Set a user phone number for additional user targeting.</p>
-<pre><code class="java">public void setPhoneNumber(String phone);
+<pre><code class="java">public static void setPhoneNumber(String phone);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -309,14 +309,14 @@ public class TestApp extends Application {
 <li><strong><code>phone</code></strong> <strong><em>String</em></strong> - user phone.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().setPhoneNumber(&quot;380991111111&quot;);
+<pre><code class="java">JeapieAPI.setPhoneNumber(&quot;380991111111&quot;);
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="setemail"><strong><a name="setEmail">setEmail</a></strong></h5>
 <p>Set a user phone number for additional user targeting.</p>
-<pre><code class="java">public void setEmail(String email);
+<pre><code class="java">public static void setEmail(String email);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -324,7 +324,7 @@ public class TestApp extends Application {
 <li><strong><code>email</code></strong> <strong><em>String</em></strong> - user email.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().setEmail(&quot;login@example.com&quot;);
+<pre><code class="java">JeapieAPI.setEmail(&quot;login@example.com&quot;);
 </code></pre>
 
 <hr />
@@ -333,7 +333,7 @@ public class TestApp extends Application {
 <p>Tags a user based on an app event of your choosing so that later you can 
 create segments on Jeapie to target these users. 
 We recommend using setTags over addTag if you need to set more than one tag for a user at once.</p>
-<pre><code class="java">public void addTag(String tag);
+<pre><code class="java">public static void addTag(String tag);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -341,7 +341,7 @@ We recommend using setTags over addTag if you need to set more than one tag for 
 <li><strong><code>tag</code></strong> <strong><em>String</em></strong> - tag name.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().addTag(&quot;tag_name_1&quot;);
+<pre><code class="java">JeapieAPI.addTag(&quot;tag_name_1&quot;);
 </code></pre>
 
 <hr />
@@ -349,7 +349,7 @@ We recommend using setTags over addTag if you need to set more than one tag for 
 <h5 id="settags"><strong><a name="setTags">setTags</a></strong></h5>
 <p>Tags a user based on an app event of your choosing so later 
 you can create segments on Jeapie to target these users. <strong><em>Remove all tags and set new array of tags.</em></strong></p>
-<pre><code class="java">public void setTags(String[] tags);
+<pre><code class="java">public static void setTags(String[] tags);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -357,7 +357,7 @@ you can create segments on Jeapie to target these users. <strong><em>Remove all 
 <li><strong><code>tags</code></strong> <strong><em>String[]</em></strong> - array of tags.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().setTags(new String[]{&quot;tag_name_1&quot;, &quot;tag_name_2&quot;});
+<pre><code class="java">JeapieAPI.setTags(new String[]{&quot;tag_name_1&quot;, &quot;tag_name_2&quot;});
 </code></pre>
 
 <hr />
@@ -365,7 +365,7 @@ you can create segments on Jeapie to target these users. <strong><em>Remove all 
 <h5 id="removetag"><strong><a name="removeTag">removeTag</a></strong></h5>
 <p>Deletes a tag that was previously set for a user with addTag or setTags. 
 Use removeAllTags if you need to delete all of them.</p>
-<pre><code class="java">public void removeTag(String tag);
+<pre><code class="java">public static void removeTag(String tag);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -373,40 +373,40 @@ Use removeAllTags if you need to delete all of them.</p>
 <li><strong><code>tag</code></strong> <strong><em>String</em></strong> - tag name.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().removeTag(&quot;tag_name_1&quot;);
+<pre><code class="java">JeapieAPI.removeTag(&quot;tag_name_1&quot;);
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="removetags"><strong><a name="removeTags">removeTags</a></strong></h5>
 <p>Deletes all tags that were previously set for a user with addTag or setTags.</p>
-<pre><code class="java">public void removeTags();
+<pre><code class="java">public static void removeTags();
 </code></pre>
 
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().removeTags();
+<pre><code class="java">JeapieAPI.removeTags();
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="unsubscribe"><strong><a name="unsubscribe">unsubscribe</a></strong></h5>
 <p>Unsubscribe this device from push notifications.</p>
-<pre><code class="java">public void unsubscribe();
+<pre><code class="java">public static void unsubscribe();
 </code></pre>
 
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().unsubscribe();
+<pre><code class="java">JeapieAPI.unsubscribe();
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="subscribe"><strong><a name="subscribe">subscribe</a></strong></h5>
 <p>Subscribe this device to push notifications if it was unsubscribed by <code>unsubcribe</code> method.</p>
-<pre><code class="java">public void subscribe();
+<pre><code class="java">public static void subscribe();
 </code></pre>
 
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().subscribe();
+<pre><code class="java">JeapieAPI.subscribe();
 </code></pre>
 
 <hr />
@@ -414,18 +414,18 @@ Use removeAllTags if you need to delete all of them.</p>
 <h5 id="startlocationtrackingservice"><strong><a name="startLocationTrackingService">startLocationTrackingService</a></strong></h5>
 <p>Collect user coordinates for advanced user targeting. Geolocations collect with custom period in seconds 
 when mobile application has foreground state.</p>
-<pre><code class="java">public void startLocationTrackingService();
+<pre><code class="java">public static void startLocationTrackingService();
 </code></pre>
 
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().startLocationTrackingService();
+<pre><code class="java">JeapieAPI.startLocationTrackingService();
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="setlocation"><strong><a name="setLocation">setLocation</a></strong></h5>
 <p>Save user geolocation to Jeapie for advanced user targeting.</p>
-<pre><code class="java">public void setLocation(Double[] longitudeLatitude);
+<pre><code class="java">public static void setLocation(Double[] longitudeLatitude);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -433,14 +433,14 @@ when mobile application has foreground state.</p>
 <li><strong><code>longitudeLatitude</code></strong> <strong><em>Double[]</em></strong> - array of longitude and latitude.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="java">JeapieAPI.getInstance().setLocation(Double[]{45.678, 23.456})l
+<pre><code class="java">JeapieAPI.setLocation(Double[]{45.678, 23.456})l
 </code></pre>
 
 <hr />
 <p><br><br></p>
 <h5 id="pushdelivered"><strong><a name="pushDelivered">pushDelivered</a></strong></h5>
 <p>To track the push has been delivered. </p>
-<pre><code class="java">static void pushDelivered(String pushId, Context context);
+<pre><code class="java">static static void pushDelivered(String pushId, Context context);
 </code></pre>
 
 <p><strong>Parameters</strong></p>
@@ -450,7 +450,7 @@ when mobile application has foreground state.</p>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="java">final String pushId = intent.getStringExtra(MESSAGE_ID_EXTRA_FIELD);
-JeapieAPI.getInstance().pushDelivered(pushId, context);
+JeapieAPI.pushDelivered(pushId, context);
 </code></pre>
 
 <hr />

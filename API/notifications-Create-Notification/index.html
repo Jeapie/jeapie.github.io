@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API/notifications-Create-Notification"
+    var mkdocs_page_name = "Send Push Notification";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -279,8 +279,16 @@
             &quot;banner&quot;: &quot;http://example.com/banner.png&quot;
         },
 
-        // iOS (in development). Optional
+        // iOS (production mode). Optional
         &quot;ios&quot;: {
+            &quot;badge&quot;: 5,
+            &quot;sound&quot;: &quot;file.wav&quot;, // or &quot;default&quot;
+            &quot;category_id&quot;: &quot;1&quot;, // iOS new feature
+            &quot;content-available&quot;: 1
+        },
+
+        // iOS (development mode). Optional
+        &quot;ios_dev&quot;: {
             &quot;badge&quot;: 5,
             &quot;sound&quot;: &quot;file.wav&quot;, // or &quot;default&quot;
             &quot;category_id&quot;: &quot;1&quot;, // iOS new feature
@@ -304,10 +312,8 @@
 
         // Safari related (in development). Optional
         &quot;safari&quot;: { 
-            &quot;title&quot;: &quot;Title&quot;,
-            &quot;action&quot;: &quot;Click here&quot;,
-            &quot;action_url&quot;: &quot;http://example.com&quot;,
-            &quot;ttl&quot;: 3600
+            &quot;header&quot;: &quot;Title&quot;,
+            &quot;redirect_url&quot;: &quot;http://example.com&quot;
         },
 
         // Chrome related (in development). Optional
@@ -341,7 +347,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Time for scheduled push. Can be "now" or UNIX_TIME <br> Example: <br> <code>"send_date": "now"</code> or <code>"send_date": 1430568855</code></td>
+<td align="left">Time for scheduled push. Can be "now" or UNIX_TIME <br> Example: <br> <code>"send_date": "now"</code>or <code>"send_date": 1430568855</code></td>
 </tr>
 <tr>
 <td align="right"><strong>message</strong> <code>Required</code></td>
@@ -365,7 +371,7 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">Only for iphone and windows phone. For setting badge number use int, for incrementing badge number use "inc". Example: <br> <code>"badge": 3</code> or <code>"badge": "inc"</code></td>
+<td align="left">Only for iphone and windows phone. For setting badge number use int, for incrementing badge number use "inc". Example: <br> <code>"badge": 3</code>or <code>"badge": "inc"</code></td>
 </tr>
 <tr>
 <td align="right"><strong>platforms</strong> <em>Optional</em></td>
@@ -373,15 +379,15 @@
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">List of platforms. Example: <br> if mobile platforms: <code>"platforms": ["android", "ios"]</code> <br> or if web platforms: <code>"platforms": ["chrome", "safari"]</code></td>
+<td align="left">List of platforms. Example: <br> if mobile platforms: <code>"platforms": ["android", "ios"]</code><br> or if web platforms: <code>"platforms": ["chrome", "safari"]</code></td>
 </tr>
 <tr>
 <td align="right"><strong>default_sound</strong> <em>Optional</em></td>
-<td align="left"><strong>Int</strong>: <code>0</code> or <code>1</code> <br> <em>default:</em> <code>0</code></td>
+<td align="left"><strong>Int</strong>: <code>0</code>or <code>1</code><br> <em>default:</em> <code>0</code></td>
 </tr>
 <tr>
 <td align="right"></td>
-<td align="left">If you need default sound set <code>1</code> else <code>0</code>. Example: <br> <code>"default_sound": 1</code></td>
+<td align="left">If you need default sound set <code>1</code>else <code>0</code> Example: <br> <code>"default_sound": 1</code></td>
 </tr>
 <tr>
 <td align="right"><strong>ttl</strong> <em>Optional</em></td>
@@ -479,8 +485,119 @@
 </tr>
 </tbody>
 </table>
-<h5 id="ios-params-in-development">iOS params <em>(In development)</em></h5>
-<h5 id="safari-params-in-development">Safari params <em>(In development)</em></h5>
+<h5 id="ios-params-all-params-are-optional">iOS params <em>(All params are optional)</em></h5>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>badge</strong> <em>Optional</em></td>
+<td align="left"><strong>int</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Optional, integer. iOS application badge number. Example: <code>"badge": 1</code></td>
+</tr>
+<tr>
+<td align="right"><strong>sound</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Optional. Sound file name in the main bundle of application <br>Example: <code>"sound": "bingbong.aiff"</code></td>
+</tr>
+<tr>
+<td align="right"><strong>category_id</strong> <em>Optional</em></td>
+<td align="left"><strong>int</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Provide this key with a string value that represents the identifier property of the UIMutableUserNotificationCategory object you created to define custom actions. To learn more about using custom actions, see Using Notification Actions in iOS.</td>
+</tr>
+<tr>
+<td align="right"><strong>content-available</strong> <em>Optional</em></td>
+<td align="left"><strong>int</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Provide this key with a value of 1 to indicate that new content is available. Including this key and value means that when your app is launched in the background or resumed, application:didReceiveRemoteNotification:fetchCompletionHandler: is called.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="ios_dev-params-all-params-are-optional">iOS_DEV params <em>(All params are optional)</em></h5>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>badge</strong> <em>Optional</em></td>
+<td align="left"><strong>int</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Optional, integer. iOS application badge number. Example: <code>"badge": 1</code></td>
+</tr>
+<tr>
+<td align="right"><strong>sound</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Optional. Sound file name in the main bundle of application <br>Example: <code>"sound": "bingbong.aiff"</code></td>
+</tr>
+<tr>
+<td align="right"><strong>category_id</strong> <em>Optional</em></td>
+<td align="left"><strong>int</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Provide this key with a string value that represents the identifier property of the UIMutableUserNotificationCategory object you created to define custom actions. To learn more about using custom actions, see Using Notification Actions in iOS.</td>
+</tr>
+<tr>
+<td align="right"><strong>content-available</strong> <em>Optional</em></td>
+<td align="left"><strong>int</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Provide this key with a value of 1 to indicate that new content is available. Including this key and value means that when your app is launched in the background or resumed, application:didReceiveRemoteNotification:fetchCompletionHandler: is called.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="safari-params-all-params-are-optional">Safari params <em>(All params are optional)</em></h5>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>header</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Safari notification header (title). <br>Example: <code>"header": "Header text"</code></td>
+</tr>
+<tr>
+<td align="right"><strong>redirect_url</strong> <em>Optional</em></td>
+<td align="left"><strong>String</strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">The absolute url which is opened after clicking on a push. <br>Example: <code>"redirect_url": "http://example.com"</code></td>
+</tr>
+</tbody>
+</table>
 <h5 id="audience-required">Audience <em>(Required)</em></h5>
 <table>
 <thead>
@@ -513,6 +630,14 @@
 <tr>
 <td align="right"></td>
 <td align="left">Array of device aliases set by sdk in mobile app or on web. Example: <br> <code>"aliases": ["own_id_device_1", "own_id_device_2", "own_id_device_3"]</code></td>
+</tr>
+<tr>
+<td align="right"><strong>tags</strong></td>
+<td align="left"><strong>Array<String></strong></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left">Array of tags set by sdk in mobile app or on web. Example: <br> <code>"tags": ["tag1", "tag2", "tag3"]</code></td>
 </tr>
 </tbody>
 </table>
@@ -603,16 +728,16 @@ $pushDataString = json_encode($pushData);
 
 // post json request                                                                                                     
 $ch = curl_init('https://go.jeapie.com/api/v2/push.json'); 
-curl_setopt($ch, CURLOPT_USERPWD, $APP_KEY . &quot;:&quot; . $APP_SECRET);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &quot;POST&quot;);                                                                     
+curl_setopt($ch, CURLOPT_USERPWD, $APP_KEY . ':' . $APP_SECRET);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $pushDataString);                                                                  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); 
 curl_setopt($ch, CURLOPT_TIMEOUT, 5);                                                                  
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+curl_setopt($ch, CURLOPT_HTTPHEADER, [                                                                          
     'Content-Type: application/json',                                                                                
-    'Content-Length: ' . strlen($pushDataString))                                                                       
-);                                                                                                                   
+    'Content-Length: ' . strlen($pushDataString)
+]);                                                                                                                   
 
 $result = curl_exec($ch);
 </code></pre>
@@ -632,9 +757,8 @@ $result = curl_exec($ch);
   <hr/>
 
   <div role="contentinfo">
-    <p>
     <!-- Copyright etc -->
-    </p>
+    
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

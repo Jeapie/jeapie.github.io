@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Website SDK Overview - Jeapie - Push Notification as a Service</title>
+  <title>Generating your own Safari Push Notification Certificate - Jeapie - Push Notification as a Service</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Website SDK Overview";
+    var mkdocs_page_name = "Generating your own Safari Push Notification Certificate";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -141,17 +141,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Website SDK Overview</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#website-sdk-overview">Website SDK Overview</a></li>
-                
-                    <li><a class="toctree-l4" href="#to-get-jeapie-push-notifications-running-on-your-website-follow-these-two-steps">To get Jeapie Push Notifications running on your website, follow these two steps.</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../Website-SDK-Overview/">Website SDK Overview</a>
         
     </li>
 
@@ -185,8 +176,23 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../Generating-an-Safari-Push-Certificate/">Generating your own Safari Push Notification Certificate</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Generating your own Safari Push Notification Certificate</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#generating-safari-push-certificate">Generating Safari Push Certificate</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-create-certificate-signing-request">1. Create Certificate Signing Request</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-create-website-push-id-and-apply-the-certification-request-to-generate-certificate">2. Create Website Push ID and apply the Certification Request to generate Certificate</a></li>
+                
+                    <li><a class="toctree-l4" href="#3-creating-a-p12-file">3. Creating a p12 File</a></li>
+                
+                    <li><a class="toctree-l4" href="#4-send-your-p12-file-to-jeapie-support-supportjeapiecom">4. Send your p12 file to Jeapie support (support@jeapie.com)</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -242,7 +248,7 @@
         
       
     
-    <li>Website SDK Overview</li>
+    <li>Generating your own Safari Push Notification Certificate</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -252,15 +258,43 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="website-sdk-overview">Website SDK Overview</h1>
-<h6 id="to-get-jeapie-push-notifications-running-on-your-website-follow-these-two-steps">To get Jeapie Push Notifications running on your website, follow these two steps.</h6>
-<p><strong>Requirements</strong></p>
-<p>W3C Web Push Notifications are currently only supported by Chrome 42+</p>
-<p>This includes Chrome for Windows, Mac OSX, Linux, Chrome OS and Android. Chrome for iOS is not yet supported by Google.</p>
-<ul>
-<li>Follow our <a href="../Website-SDK-HTTPS-Installation/">Website SDK HTTPS Installation</a> guide if your website uses an HTTPS connection.</li>
-<li>Or follow our <a href="../Website-SDK-HTTP-Installation/">Website SDK HTTP Installation</a> guide if your website is <strong>Non-HTTPS</strong>. (Uses an HTTP connection).</li>
-</ul>
+                <h1 id="generating-safari-push-certificate">Generating Safari Push Certificate</h1>
+<p>The goals of this section are to provision your app with Apple and grant Jeapie access to manage your notifications.</p>
+<h3 id="1-create-certificate-signing-request">1. Create Certificate Signing Request</h3>
+<p><strong>1.1</strong> Open Keychain Access on your Mac (it is located in Applications/Utilities) and 
+choose the menu option <em>Request a Certificate from a Certificate Authority…</em>.</p>
+<p><img alt="Request a Certificate from a Certificate Authority" src="../../img/2015-08-07_1627.png" /></p>
+<p><strong>1.2</strong> Save Certificate</p>
+<p>You should now see the following window:</p>
+<p><img alt="window" src="../../img/2015-08-07_1629.png" /></p>
+<p>Enter your email address here. Some people recommend using the same email address 
+that you used to sign up for the iOS Developer Program, 
+but it seems to accept any email address just fine.</p>
+<p>Check <em>Saved to disk</em> and click <em>Continue</em>.</p>
+<h3 id="2-create-website-push-id-and-apply-the-certification-request-to-generate-certificate">2. Create Website Push ID and apply the Certification Request to generate Certificate</h3>
+<p><strong>2.1</strong> Press "plus" button on the <a href="https://developer.apple.com/account/ios/identifiers/websitePushId/websitePushIdList.action">Website Push IDs</a>.</p>
+<p><img alt="app ids" src="../../img/2015-11-19_1224.jpg" /></p>
+<p><strong>2.2</strong> Enter an ID, a Description and press the button <code>Continue</code>.</p>
+<p><img alt="alt text" src="../../img/2015-11-19_1236.png" /></p>
+<p><strong>2.3</strong> On the next pages press Register and the Done buttons.</p>
+<p><strong>2.4</strong> On the Website Push IDs page select your site and press Edit.</p>
+<p><img alt="alt text" src="../../img/2015-11-19_1241.png" /></p>
+<p><strong>2.5</strong> Press Create Certificate.</p>
+<p><img alt="alt text" src="../../img/2015-11-19_1245.png" /></p>
+<p><strong>2.6</strong> Press "Choose File..", select the "certSigningRequest" file you saved in Step 1, 
+open, and then press "Generate".</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1638.png" /></p>
+<p><strong>2.7</strong> Press <em>"Download"</em> to save your certificate</p>
+<p><img alt="alt text" src="../../img/2015-11-19_1248.png" /></p>
+<h3 id="3-creating-a-p12-file">3. Creating a p12 File</h3>
+<p><strong>3.1</strong> Open the website_aps_production.cer file you downloaded in the last step by double clicking on it in Finder.</p>
+<p><img alt="alt text" src="../../img/2015-08-07_1642.png" /></p>
+<p><strong>3.2</strong> After a few seconds the "Keychain Access" program should pop up. Select <em>Login</em> &gt; <em>Keys</em>, then right click on your key in the list and select "Export"</p>
+<p><img alt="alt text" src="../../img/2015-11-19_1254.png" /></p>
+<p><strong>3.3</strong> Give the unique name to file and press save. 
+You will have an option to protect the file with a password. 
+<strong><em>Please don't protect this file with a password!</em></strong></p>
+<h3 id="4-send-your-p12-file-to-jeapie-support-supportjeapiecom">4. Send your p12 file to Jeapie support (support@jeapie.com)</h3>
               
             </div>
           </div>
@@ -268,10 +302,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Website-SDK-HTTPS-Installation/" class="btn btn-neutral float-right" title="Website SDK HTTPS Installation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../API/Server-API-Overview/" class="btn btn-neutral float-right" title="Server API Overview"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../Android/Android-Native-SDK-API/" class="btn btn-neutral" title="Android Native SDK API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Website-Generating-a-GCM-Push-Notification-Key/" class="btn btn-neutral" title="Generating your own GCM Push Notification Key"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -297,10 +331,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../Android/Android-Native-SDK-API/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Website-Generating-a-GCM-Push-Notification-Key/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Website-SDK-HTTPS-Installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../API/Server-API-Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
